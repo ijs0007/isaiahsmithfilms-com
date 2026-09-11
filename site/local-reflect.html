@@ -218,12 +218,15 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
      dies away into the ground; the headline sits in the reflection. The reflection
      is painted by the browser from the same video, so nothing plays twice. */
   .hero video{position:static;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
-    -webkit-box-reflect:below 0 linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.18) 45%,transparent 78%)}
+    -webkit-box-reflect:below 0 linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.8) 60%,transparent 95%)}
   .hero.noplay .still{position:absolute;inset:0 0 auto 0;width:100%;height:auto;aspect-ratio:16/9;
-    object-fit:cover;-webkit-box-reflect:below 0 linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.18) 45%,transparent 78%)}
-  .hero .scrim{display:block;top:56.25%;bottom:auto;left:0;right:0;aspect-ratio:16/9;z-index:2;background:
-    linear-gradient(180deg,rgba(11,9,8,0) 0%,rgba(11,9,8,.35) 30%,rgba(11,9,8,.86) 62%,#0B0908 100%)}
-  .hero .inner{padding-block:0 42px;margin-top:0;padding-top:30%;z-index:3}
+    object-fit:cover;-webkit-box-reflect:below 0 linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.8) 60%,transparent 95%)}
+  /* One continuous fade over frame and reflection together: clear for the top third
+     of the frame, deepening through the join, black before the reflection ends. */
+  .hero .scrim{display:block;top:0;bottom:auto;left:0;right:0;aspect-ratio:8/9;z-index:2;background:
+    linear-gradient(180deg,rgba(11,9,8,0) 0%,rgba(11,9,8,0) 28%,rgba(11,9,8,.22) 36%,rgba(11,9,8,.55) 44%,
+    rgba(11,9,8,.84) 50%,rgba(11,9,8,.84) 54%,rgba(11,9,8,.9) 66%,rgba(11,9,8,.97) 80%,#0B0908 92%)}
+  .hero .inner{padding-block:0 42px;margin-top:0;padding-top:4%;z-index:3}
   /* tighter vertical rhythm on a phone */
   section{padding-block:52px}
   .mark{margin-bottom:22px}
