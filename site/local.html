@@ -203,19 +203,27 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
 .closefilm:hover{background:rgba(11,9,8,.9)}
 .filmwrap{position:relative}
 
-/* the film keeps its frame on a phone. It plays smaller, it is never cropped. */
+/* If the phone refuses to autoplay (iOS Low Power Mode, data saver), the frame
+   becomes a still rather than a video with a play button parked on it. */
+.hero .still{display:none}
+.hero.noplay video{display:none}
+.hero.noplay .still{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+
+/* On a phone the film keeps its frame. It plays smaller, it is never cropped,
+   and the copy sits on the same dark ground so it still reads as a screen. */
 @media (max-width:860px){
-  .hero{height:auto;min-height:0;max-height:none;background:var(--g-complaint)}
+  .hero{height:auto;min-height:0;max-height:none}
   .hero video{position:static;height:auto;aspect-ratio:16/9}
+  .hero.noplay .still{position:static;height:auto;aspect-ratio:16/9}
   .hero .scrim{display:none}
-  .hero .inner{padding-block:30px 44px}
-  .copy{color:var(--ink);max-width:none}
-  .l1{color:var(--muted)}
-  .hero .sub{color:var(--muted)} .hero .sub strong{color:var(--ink)}
-  .btn.g{color:var(--ink);border-color:var(--rule)}
-  .fine{color:var(--muted)}
+  .hero .inner{padding-block:28px 42px}
+  .copy{max-width:none}
+  .l1{font-size:clamp(26px,7.4vw,34px)}
+  .l2{font-size:clamp(44px,12.6vw,58px);margin-bottom:20px}
+  .hero .sub{font-size:16.5px;max-width:none;margin-bottom:26px}
   .act{display:grid;grid-template-columns:1fr;gap:11px}
-  .btn{justify-content:center;width:100%}
+  .btn{justify-content:center;width:100%;padding-block:16px}
 }
 </style>
 </head>
@@ -224,6 +232,7 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
 <section class="hero">
   <video id="loop" autoplay muted loop playsinline preload="auto" poster="media/poster-loop.jpg">
     <source src="media/loop-short-1080.mp4" type="video/mp4"></video>
+  <img class="still" src="media/poster-loop.jpg" alt="">
   <div class="scrim"></div>
   <div class="inner"><div class="wrap"><div class="copy">
     <p class="l1">You&rsquo;re not sick.</p>
@@ -446,7 +455,20 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
 <script>
 (function(){
   var dlg=document.getElementById('filmdlg'),full=document.getElementById('fullfilm'),
-      loop=document.getElementById('loop');
+      loop=document.getElementById('loop'),hero=document.querySelector('.hero');
+  // Autoplay refused (Low Power Mode, data saver): show the still, and try once
+  // more on the first touch, which most phones allow.
+  function noPlay(){
+    if(hero.classList.contains('noplay')) return;
+    hero.classList.add('noplay');
+    var retry=function(){loop.play().then(function(){hero.classList.remove('noplay');}).catch(function(){});};
+    document.addEventListener('touchend',retry,{once:true,passive:true});
+    document.addEventListener('scroll',retry,{once:true,passive:true});
+  }
+  var tryPlay=loop.play();
+  if(tryPlay&&tryPlay.catch){tryPlay.catch(noPlay);}
+  setTimeout(function(){ if(loop.currentTime===0&&!dlg.open) noPlay(); },4000);
+  loop.addEventListener('playing',function(){hero.classList.remove('noplay');});
   function openFilm(){
     loop.pause(); dlg.showModal(); full.play();
     if(window.matchMedia('(max-width:860px)').matches){
