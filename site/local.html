@@ -206,18 +206,21 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
 /* If the phone refuses to autoplay (iOS Low Power Mode, data saver), the frame
    becomes a still rather than a video with a play button parked on it. */
 .hero .still{display:none}
-.hero.noplay video{display:none}
-.hero.noplay .still{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero.noplay .still{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .hero video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
 
 /* On a phone the film keeps its frame. It plays smaller, it is never cropped,
    and the copy sits on the same dark ground so it still reads as a screen. */
 @media (max-width:860px){
   .hero{height:auto;min-height:0;max-height:none}
-  .hero video{position:static;height:auto;aspect-ratio:16/9}
-  .hero.noplay .still{position:static;height:auto;aspect-ratio:16/9}
-  .hero .scrim{display:none}
-  .hero .inner{padding-block:28px 42px}
+  /* Taller frame, cropped from the left: everything in the shot lives on the right.
+     The bottom of the frame dissolves into the ground and the headline rises into it. */
+  .hero video{position:static;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:70% 50%}
+  .hero.noplay .still{position:absolute;inset:0 0 auto 0;width:100%;height:auto;aspect-ratio:4/5;
+    object-fit:cover;object-position:70% 50%}
+  .hero .scrim{display:block;inset:0 0 auto 0;aspect-ratio:4/5;z-index:2;background:
+    linear-gradient(0deg,#0B0908 0%,rgba(11,9,8,.92) 12%,rgba(11,9,8,.55) 30%,rgba(11,9,8,0) 52%)}
+  .hero .inner{padding-block:0 42px;margin-top:-34%;z-index:3}
   .copy{max-width:none}
   .l1{font-size:clamp(26px,7.4vw,34px)}
   .l2{font-size:clamp(44px,12.6vw,58px);margin-bottom:20px}
