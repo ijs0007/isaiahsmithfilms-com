@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isaiah Smith Films — video for local businesses (reflection test)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Public+Sans:wght@200..800&display=swap" rel="stylesheet">
+<style>
+/* Every value below is sampled from a named frame of "Ask Your Editor".
+   The film contains no white, so neither does this page. */
+:root{
+  /* The page follows the film's own grade. It opens where she does, cool and
+     quiet, and finishes where the film does, in golden hour. Every ground below
+     is the pale surface of a real frame at that point in the story. */
+  --g-complaint:#DFE2EB;   /* 00:12  the prescription pad, lit          */
+  --g-diagnosis:#DCF1FB;   /* 00:20  the chart on the light box         */
+  --g-who:#F8E3DF;         /* 00:54  he picks the camera up             */
+  --g-rx:#FFEEE4;          /* 01:06  the shoot, warm light              */
+  --g-follow:#FEF9F6;      /* 01:30  golden hour on the patio           */
+  --g-close:#F5EEE9;       /* 01:38  the end of the film                */
+  --paper:var(--g-complaint);
+  --chart:#FFFAF4;         /* the pad sits a shade above its section    */
+  --red:#6E2A2A;     /* f744 her apron, and the line on the chart        */
+  --warm:#DBB094;    /* f288 the bare bulb                               */
+  --wood:#694337;    /* f672 the exam room panelling                     */
+  --ink:#0C0A0E;     /* f288 the darkest corner of frame                 */
+  --rule:rgba(105,67,55,.22);
+  --rule-soft:rgba(105,67,55,.13);
+  --muted:#55504F;
+  --disp:Fraunces,Georgia,serif;
+  --sans:'Public Sans',-apple-system,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--g-complaint);color:var(--ink);font-family:var(--sans);font-weight:300;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+.wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:clamp(22px,5vw,48px)}
+section{padding-block:clamp(64px,7.5vw,124px)}
+h2{font-family:var(--disp);font-variation-settings:'opsz' 120,'SOFT' 20,'WONK' 1;font-weight:800;
+  font-size:clamp(31px,4.4vw,58px);line-height:1.02;letter-spacing:-.02em;margin:0 0 20px;max-width:20ch}
+h3{font-family:var(--disp);font-variation-settings:'opsz' 40,'SOFT' 20,'WONK' 1;font-weight:700;
+  font-size:clamp(20px,2.1vw,27px);line-height:1.18;letter-spacing:-.015em;margin:0 0 10px}
+p{margin:0 0 18px;max-width:62ch}
+.lede{font-size:clamp(17px,1.4vw,20px);color:var(--muted);max-width:54ch}
+strong{font-weight:600;color:var(--ink)}
+
+/* the section name sits on a rule, as a record heading, not as an eyebrow above a title */
+.mark{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(26px,3vw,44px)}
+.mark span{font-family:var(--disp);font-variation-settings:'opsz' 24,'SOFT' 20,'WONK' 1;
+  font-weight:600;font-style:italic;font-size:clamp(16px,1.5vw,20px);color:var(--red);white-space:nowrap}
+.mark i{flex:1;height:1px;background:var(--rule);display:block}
+
+/* ------------------------------------------------------------------- hero */
+.hero{position:relative;height:100svh;min-height:620px;max-height:1040px;overflow:hidden;
+  background:#0B0908;padding:0}
+.hero+section{border-top:0}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero .scrim{position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(9,7,6,.93) 0%,rgba(9,7,6,.80) 26%,rgba(9,7,6,.34) 52%,rgba(9,7,6,0) 74%),
+  linear-gradient(0deg,rgba(9,7,6,.52) 0%,rgba(9,7,6,0) 36%)}
+.hero .inner{position:relative;height:100%;display:flex;align-items:center}
+.copy{max-width:37rem;color:var(--paper)}
+.l1,.l2{font-family:var(--disp);font-variation-settings:'opsz' 144,'SOFT' 20,'WONK' 1;font-weight:800;
+  letter-spacing:-.02em;line-height:1;margin:0}
+.l1{font-size:clamp(30px,4.1vw,57px);color:rgba(223,226,235,.90);margin-bottom:.1em}
+.l2{font-size:clamp(46px,6.6vw,92px);line-height:.96;margin-bottom:26px}
+.hero .sub{font-size:clamp(16px,1.35vw,19.5px);color:rgba(223,226,235,.84);max-width:31rem;margin-bottom:32px}
+.hero .sub strong{color:var(--paper);font-weight:600}
+.act{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
+.btn{font-family:var(--sans);font-size:15.5px;font-weight:600;padding:15px 26px;border:0;cursor:pointer;
+  border-radius:2px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;line-height:1}
+/* the primary control is the bare bulb, the one thing in frame that pulls the eye */
+.btn.p{background:var(--warm);color:var(--ink)}
+.btn.g{background:transparent;color:var(--paper);border:1px solid rgba(223,226,235,.38)}
+.fine{margin:28px 0 0;font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(223,226,235,.42)}
+
+/* -------------------------------------------------------------- complaint */
+.said{border-top:1px solid var(--rule)}
+.said > div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(18px,3vw,52px);
+  padding-block:clamp(26px,3vw,40px);border-bottom:1px solid var(--rule-soft);align-items:start}
+.said q{font-family:var(--disp);font-variation-settings:'opsz' 60,'SOFT' 30,'WONK' 1;font-weight:500;
+  font-size:clamp(21px,2.4vw,31px);line-height:1.16;letter-spacing:-.015em;quotes:'\201C' '\201D'}
+.said p{margin:0;color:var(--muted);font-size:16.5px}
+@media (max-width:760px){.said > div{grid-template-columns:1fr;gap:12px}}
+
+/* -------------------------------------------------------------- diagnosis */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(26px,4vw,64px)}
+@media (max-width:820px){.two{grid-template-columns:1fr;gap:34px}}
+.isnt{border-left:2px solid var(--red);padding-left:clamp(18px,2vw,26px)}
+.isnt p:last-child{margin-bottom:0}
+
+/* ------------------------------------------------------ who is writing it */
+.findings{border-top:1px solid var(--rule);margin-top:clamp(26px,3vw,40px)}
+.findings div{display:flex;gap:clamp(14px,2vw,28px);align-items:baseline;
+  padding-block:16px;border-bottom:1px solid var(--rule-soft);flex-wrap:wrap}
+.findings b{font-family:var(--disp);font-variation-settings:'opsz' 48,'SOFT' 20,'WONK' 1;font-weight:700;
+  font-size:clamp(19px,1.9vw,25px);letter-spacing:-.015em;min-width:9.5ch}
+.findings span{color:var(--muted);font-size:16.5px}
+
+/* ----------------------------------------------------------- prescription */
+.pad{background:var(--chart);border:1px solid var(--rule);padding:clamp(26px,3.6vw,54px)}
+.padhead{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
+  padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.rx{font-family:var(--disp);font-variation-settings:'opsz' 96,'SOFT' 20,'WONK' 1;font-weight:700;
+  font-size:clamp(34px,3.6vw,50px);line-height:.9}
+.padhead p{margin:0;font-size:14.5px;color:var(--muted);text-align:right;max-width:26ch}
+.item{padding-block:clamp(24px,2.8vw,36px);border-bottom:1px solid var(--rule-soft)}
+.itemhead{display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap}
+.price{font-family:var(--disp);font-variation-settings:'opsz' 72,'SOFT' 20,'WONK' 1;font-weight:800;
+  font-size:clamp(29px,3.1vw,42px);letter-spacing:-.02em;white-space:nowrap}
+.price em{font-style:normal;font-family:var(--sans);font-weight:400;font-size:15px;color:var(--muted)}
+.item ul{list-style:none;margin:14px 0 0;padding:0;columns:2;column-gap:clamp(22px,3vw,44px)}
+.item li{position:relative;padding-left:17px;margin-bottom:7px;font-size:16px;color:var(--muted);
+  break-inside:avoid}
+.item li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--wood)}
+@media (max-width:700px){.item ul{columns:1}}
+.founding{padding-top:clamp(22px,2.6vw,32px);display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
+.founding b{font-family:var(--disp);font-variation-settings:'opsz' 48,'SOFT' 20,'WONK' 1;
+  font-weight:700;font-size:clamp(19px,1.9vw,24px);color:var(--red)}
+.founding p{margin:0;color:var(--muted);font-size:16px;flex:1;min-width:16rem}
+
+/* ------------------------------------------------------------- follow up */
+.steps{counter-reset:s;border-top:1px solid var(--rule)}
+.steps > div{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:clamp(18px,3vw,52px);
+  padding-block:clamp(24px,2.8vw,38px);border-bottom:1px solid var(--rule-soft)}
+.steps p{margin:0;color:var(--muted);font-size:16.5px}
+@media (max-width:760px){.steps > div{grid-template-columns:1fr;gap:10px}}
+
+/* ------------------------------------------------------------------ close */
+.close{background:var(--g-close)}
+.reach{display:flex;gap:clamp(24px,4vw,64px);flex-wrap:wrap;margin-top:clamp(24px,3vw,40px)}
+.reach a{font-family:var(--disp);font-variation-settings:'opsz' 60,'SOFT' 20,'WONK' 1;font-weight:700;
+  font-size:clamp(22px,2.3vw,30px);text-decoration:none;letter-spacing:-.015em;
+  border-bottom:1px solid var(--rule);padding-bottom:3px}
+.reach a:hover{border-bottom-color:var(--red);color:var(--red)}
+footer{border-top:1px solid var(--rule);margin-top:clamp(44px,6vw,86px);padding-top:26px;
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-size:13.5px;color:var(--muted)}
+
+
+
+/* ---------------------------------------------------------------- results */
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);
+  margin-top:clamp(26px,3.2vw,44px)}
+@media (max-width:760px){.slots{gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .slot{aspect-ratio:1;padding:10px;min-width:0}.slot span{font-size:12.5px}.slot b{font-size:16px}}
+.slot{aspect-ratio:16/9;border:1px solid var(--rule);display:flex;align-items:flex-end;
+  padding:clamp(14px,1.6vw,20px)}
+.slot span{font-size:14.5px;color:var(--muted);line-height:1.35}
+.slot b{display:block;font-family:var(--disp);font-variation-settings:'opsz' 36,'SOFT' 20,'WONK' 1;
+  font-weight:700;font-size:clamp(17px,1.7vw,21px);color:var(--ink);letter-spacing:-.01em}
+.madeit{border-left:2px solid var(--red);padding-left:clamp(18px,2vw,26px);margin-top:6px}
+.madeit p:last-child{margin-bottom:0}
+.madeit a{color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);font-weight:400}
+
+/* ------------------------------------------------------------------ form */
+.closegrid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(30px,5vw,80px);align-items:start;margin-top:clamp(26px,3.4vw,46px)}
+@media (max-width:820px){.closegrid{grid-template-columns:1fr;gap:38px}}
+.reach{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin:0}
+.reach a{font-family:var(--disp);font-variation-settings:'opsz' 60,'SOFT' 20,'WONK' 1;font-weight:700;
+  font-size:clamp(21px,2.1vw,28px);text-decoration:none;letter-spacing:-.015em;
+  border-bottom:1px solid var(--rule);padding-bottom:3px}
+.reach a:hover{border-bottom-color:var(--red);color:var(--red)}
+.reach p{margin:8px 0 0;font-size:15.5px;color:var(--muted);max-width:28ch}
+
+form{border-top:1px solid var(--rule)}
+.f{padding-block:15px;border-bottom:1px solid var(--rule-soft)}
+.f label{display:block;font-size:13.5px;color:var(--muted);margin-bottom:4px}
+.f input,.f textarea{width:100%;border:0;background:transparent;font-family:var(--sans);
+  font-size:17px;font-weight:400;color:var(--ink);padding:2px 0;line-height:1.5}
+.f input:focus,.f textarea:focus{outline:0}
+.f:focus-within{border-bottom-color:var(--red)}
+.f textarea{resize:vertical;min-height:2.6em}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(18px,2.4vw,34px)}
+@media (max-width:560px){.pair{grid-template-columns:1fr}}
+fieldset{border:0;margin:0;padding:20px 0 8px;border-bottom:1px solid var(--rule-soft)}
+legend{padding:0;font-size:13.5px;color:var(--muted);margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:9px}
+.opts label{display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  border:1px solid var(--rule);padding:9px 15px;font-size:15px;line-height:1}
+.opts input{accent-color:var(--red);margin:0}
+.opts label:has(input:checked){border-color:var(--red);color:var(--red)}
+.send{margin-top:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.send button{background:var(--red);color:var(--g-close);border:0;cursor:pointer;border-radius:2px;
+  font-family:var(--sans);font-size:15.5px;font-weight:600;padding:15px 30px;line-height:1}
+.send span{font-size:14px;color:var(--muted)}
+.hp{position:absolute;left:-9999px}
+
+/* ------------------------------------------------------------ film modal */
+dialog.film{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);width:100%}
+dialog.film::backdrop{background:rgba(11,9,8,.94)}
+dialog.film video{width:100%;height:auto;display:block;background:#000}
+.closefilm{position:absolute;top:12px;right:12px;z-index:2;background:rgba(11,9,8,.72);border:0;
+  color:#F5EEE9;font:600 13px/1 'Public Sans',sans-serif;letter-spacing:.08em;cursor:pointer;
+  padding:11px 15px;border-radius:2px;backdrop-filter:blur(4px)}
+.closefilm:hover{background:rgba(11,9,8,.9)}
+.filmwrap{position:relative}
+
+/* If the phone refuses to autoplay (iOS Low Power Mode, data saver), the frame
+   becomes a still rather than a video with a play button parked on it. */
+.hero .still{display:none}
+.hero.noplay .still{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+
+/* On a phone the film keeps its frame. It plays smaller, it is never cropped,
+   and the copy sits on the same dark ground so it still reads as a screen. */
+@media (max-width:860px){
+  .hero{height:auto;min-height:0;max-height:none}
+  /* Full 16:9 frame, never cropped. Below it, the frame reflects like a lake and
+     dies away into the ground; the headline sits in the reflection. The reflection
+     is painted by the browser from the same video, so nothing plays twice. */
+  .hero video{position:static;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+    -webkit-box-reflect:below 0 linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.18) 45%,transparent 78%)}
+  .hero.noplay .still{position:absolute;inset:0 0 auto 0;width:100%;height:auto;aspect-ratio:16/9;
+    object-fit:cover;-webkit-box-reflect:below 0 linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.18) 45%,transparent 78%)}
+  .hero .scrim{display:block;top:56.25%;bottom:auto;left:0;right:0;aspect-ratio:16/9;z-index:2;background:
+    linear-gradient(180deg,rgba(11,9,8,0) 0%,rgba(11,9,8,.35) 30%,rgba(11,9,8,.86) 62%,#0B0908 100%)}
+  .hero .inner{padding-block:0 42px;margin-top:0;padding-top:30%;z-index:3}
+  /* tighter vertical rhythm on a phone */
+  section{padding-block:52px}
+  .mark{margin-bottom:22px}
+  h2{margin-bottom:16px}
+  .copy{max-width:none}
+  .l1{font-size:clamp(26px,7.4vw,34px)}
+  .l2{font-size:clamp(44px,12.6vw,58px);margin-bottom:20px}
+  .hero .sub{font-size:16.5px;max-width:none;margin-bottom:26px}
+  .act{display:grid;grid-template-columns:1fr;gap:11px}
+  .btn{justify-content:center;width:100%;padding-block:16px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <video id="loop" autoplay muted loop playsinline preload="auto" poster="media/poster-loop.jpg">
+    <source src="media/loop-short-1080.mp4" type="video/mp4"></video>
+  <img class="still" src="media/poster-loop.jpg" alt="">
+  <div class="scrim"></div>
+  <div class="inner"><div class="wrap"><div class="copy">
+    <p class="l1">You&rsquo;re not sick.</p>
+    <p class="l2">You&rsquo;re invisible.</p>
+    <p class="sub">You&rsquo;re good at what you do. <strong>People just haven&rsquo;t seen it yet.</strong>
+      I make short videos that change that, with sixteen years of film and television behind them.</p>
+    <div class="act">
+      <a class="btn p" href="#prescription">See what it costs</a>
+      <button class="btn g" id="playfilm">Watch the film</button>
+    </div>
+  </div></div></div>
+</section>
+
+<section id="complaint" style="background:var(--g-complaint)"><div class="wrap">
+  <div class="mark"><span>The complaint</span><i></i></div>
+  <h2>You&rsquo;re busy running the business.</h2>
+  <p class="lede">You know you should be posting video. You don&rsquo;t have the time, you don&rsquo;t want to
+    do it alone with a ring light, and the last thing you filmed is still sitting in your camera roll.</p>
+  <div class="said">
+    <div><q>People drive past and don&rsquo;t know we&rsquo;re here.</q>
+      <p>A sixty second intro on your Google listing and pinned to your Instagram is the first thing a new
+         customer sees. Right now they see nothing, or a blurry menu photo.</p></div>
+    <div><q>I know I should post more. I just don&rsquo;t.</q>
+      <p>A three hour visit each month gets you four ready to post videos. You never open an editing app.
+         You get a folder and you hit post.</p></div>
+    <div><q>I don&rsquo;t want it to look cheesy.</q>
+      <p>It won&rsquo;t. The best local video looks real, not slick. Real and amateur are separated by the
+         shooting, the cut and the story, and that has been my work for sixteen years.</p></div>
+  </div>
+</div></section>
+
+<section id="diagnosis" style="background:var(--g-diagnosis)"><div class="wrap">
+  <div class="mark"><span>The diagnosis</span><i></i></div>
+  <h2>Nobody knows you&rsquo;re there.</h2>
+  <div class="two">
+    <div>
+      <p>That is the whole problem, and it is the one a camera actually solves. Your food is good. Your
+         prices are fair. Someone three streets over would be a regular by now if they knew you existed.</p>
+      <p>So the videos are not adverts. They are just you, doing the thing you are good at, in front of
+         people who have not met you yet.</p>
+    </div>
+    <div class="isnt">
+      <h3>What a shoot actually is</h3>
+      <p>No script, no actors, no crew standing around. I come when it&rsquo;s best for you, film what you already
+         do, ask you a few questions, and get out of your way. You keep working the whole time.</p>
+      <p>You will be on camera talking about your business, because nobody knows it like you do. I ask,
+         you answer the way you would for a customer. If you would rather stay off camera we can work
+         around it, but the best version of this is you.</p>
+      <p><strong>This is not a commercial.</strong> A commercial has a cast, a crew and a day of staged
+         shots. That is a different job and a different quote, and I will give you one if you ask.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="who" style="background:var(--g-who)"><div class="wrap">
+  <div class="mark"><span>Who&rsquo;s writing this</span><i></i></div>
+  <h2>One person, sixteen years in.</h2>
+  <p class="lede">My first real video job was driving out to local businesses and shooting short videos for them.
+    I showed up, put the owner on camera, walked the place for footage, and cut it into a minute or two. That
+    was sixteen years ago. Since then I have worked in film and television, most of it in Los Angeles, on shows
+    you have likely seen or heard of. I am back doing the first thing, with everything the second thing taught me.</p>
+  <div class="findings">
+    <div><b>16 years</b><span>in film and television</span></div>
+    <div><b>Disney</b><span>Netflix, FX, Freeform and CBS</span></div>
+    <div><b>Local 700</b><span>Motion Picture Editors Guild</span></div>
+    <div><b>One person</b><span>I shoot it and I cut it. There is no agency behind me</span></div>
+  </div>
+</div></section>
+
+<section id="results" style="background:var(--g-who)"><div class="wrap">
+  <div class="mark"><span>The results</span><i></i></div>
+  <h2>The first three are open.</h2>
+  <div class="two">
+    <div>
+      <p class="lede">The first three businesses take the founding rate, and their videos live here when
+        they are done.</p>
+    </div>
+    <div class="madeit">
+      <h3>What I can show you today</h3>
+      <p>Sixteen years of film and television. The credits, the IMDb page and the reels are all on my
+         portfolio.</p>
+      <p><a href="https://isaiahsmithfilms.com" target="_blank" rel="noopener">isaiahsmithfilms.com</a></p>
+    </div>
+  </div>
+  <div class="slots">
+    <div class="slot"><span><b>Open</b>Founding rate, $750</span></div>
+    <div class="slot"><span><b>Open</b>Founding rate, $750</span></div>
+    <div class="slot"><span><b>Open</b>Founding rate, $750</span></div>
+  </div>
+</div></section>
+
+<section id="prescription" style="background:var(--g-rx)"><div class="wrap">
+  <div class="mark"><span>The prescription</span><i></i></div>
+  <h2>Two ways to do this.</h2>
+  <p class="lede">The Intro is the one video every business needs. Monthly Reels keeps you in front of people
+    after that. Do one, do both, or start with Reels if you already have an intro. Flat prices, written down.</p>
+
+  <div class="pad" style="margin-top:clamp(28px,3.4vw,48px)">
+    <div class="padhead">
+      <div class="rx">Rx</div>
+      <p>Isaiah Smith Films<br>Video for local businesses</p>
+    </div>
+
+    <div class="item">
+      <div class="itemhead"><h3 style="margin:0">The Intro</h3><div class="price">$1,200 <em>one time</em></div></div>
+      <p style="margin:10px 0 0;color:var(--muted);font-size:16.5px;max-width:52ch">Who you are, what you do, and
+        why people come back.</p>
+      <ul>
+        <li>One visit, about three hours, at your place</li>
+        <li>One video, 60 to 90 seconds</li>
+        <li>Three 15 second clips from the shoot, for the weeks after</li>
+        <li>Horizontal and vertical versions</li>
+        <li>Music, titles, your logo and contact details</li>
+        <li>Captions written for you</li>
+        <li>Delivered within 10 days. One round of changes</li>
+        <li>The files are yours forever</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="itemhead"><h3 style="margin:0">Monthly Reels</h3><div class="price">$1,200 <em>a month</em></div></div>
+      <p style="margin:10px 0 0;color:var(--muted);font-size:16.5px;max-width:52ch">Stay in front of people every
+        week without thinking about it. Cancel any time.</p>
+      <ul>
+        <li>One visit a month, about three hours</li>
+        <li>Four videos, 20 to 40 seconds, one a week</li>
+        <li>Horizontal and vertical versions</li>
+        <li>Captions written for you</li>
+        <li>You never have to think of ideas. I plan every shoot</li>
+        <li>The files are yours forever</li>
+      </ul>
+    </div>
+
+    <div class="founding">
+      <b>Founding rate, $750</b>
+      <p>The first three businesses get The Intro at $750, in exchange for letting me show the finished
+         video here and a few words about how it went.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="followup" style="background:var(--g-follow)"><div class="wrap">
+  <div class="mark"><span>The follow up</span><i></i></div>
+  <h2>What&rsquo;s delivered to you.</h2>
+  <div class="steps">
+    <div><h3>A folder for every platform</h3>
+      <p>One for Instagram, one for TikTok, one for Facebook, all vertical. One horizontal folder for your
+         website and your Google listing. Every file named so you know what it is.</p></div>
+    <div><h3>Captions, already written</h3>
+      <p>Every video comes with its caption, ready to paste. Nothing to think up at eleven at night.</p></div>
+    <div><h3>You post it. It takes minutes.</h3>
+      <p>Open the folder, upload, done. No logins to hand over, no app to learn, nothing to edit.</p></div>
+  </div>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <h2 style="margin-top:0">Let&rsquo;s get you seen.</h2>
+  <p class="lede">Text or call is fastest. We talk for twenty minutes, I tell you what we should shoot,
+    and if it is not a fit I will say so. No sales team, no newsletter.</p>
+  <div class="closegrid">
+    <div class="reach">
+      <a href="tel:+19405952795">940.595.2795</a>
+      <a href="mailto:IsaiahSmith0007@gmail.com">IsaiahSmith0007@gmail.com</a>
+      <p>You have made it this far, so I am hardly a stranger. If you would still rather not call, the form works just as well.</p>
+    </div>
+
+    <form name="local-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+          action="/local-thanks">
+      <input type="hidden" name="form-name" value="local-inquiry">
+      <p class="hp"><label>Leave this empty <input name="bot-field"></label></p>
+
+      <div class="pair">
+        <div class="f"><label for="n">Your name</label>
+          <input id="n" name="name" type="text" autocomplete="name" required></div>
+        <div class="f"><label for="biz">The business</label>
+          <input id="biz" name="business" type="text" autocomplete="organization"></div>
+      </div>
+      <div class="pair">
+        <div class="f"><label for="ph">Phone</label>
+          <input id="ph" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="f"><label for="em">Email</label>
+          <input id="em" name="email" type="email" autocomplete="email"></div>
+      </div>
+
+      <fieldset>
+        <legend>What are you after</legend>
+        <div class="opts">
+          <label><input type="radio" name="interest" value="The Intro" checked> The Intro</label>
+          <label><input type="radio" name="interest" value="Monthly Reels"> Monthly Reels</label>
+          <label><input type="radio" name="interest" value="Not sure yet"> Not sure yet</label>
+        </div>
+      </fieldset>
+
+      <div class="f"><label for="msg">Anything I should know</label>
+        <textarea id="msg" name="message" rows="2"></textarea></div>
+
+      <div class="send">
+        <button type="submit">Send this to Isaiah</button>
+      </div>
+    </form>
+  </div>
+  <footer>
+    <span>&copy; 2026 Isaiah Smith Films LLC</span>
+    <span>Based in Atlanta. I&rsquo;ll travel for the right job.</span>
+  </footer>
+</div></section>
+
+<dialog class="film" id="filmdlg"><div class="filmwrap">
+  <button class="closefilm" id="closefilm">Close</button>
+  <video id="fullfilm" controls playsinline preload="none" poster="media/poster-loop.jpg">
+    <source src="media/film-1080.mp4" type="video/mp4"></video>
+</div></dialog>
+
+<script>
+(function(){
+  var dlg=document.getElementById('filmdlg'),full=document.getElementById('fullfilm'),
+      loop=document.getElementById('loop'),hero=document.querySelector('.hero');
+  // Autoplay refused (Low Power Mode, data saver): show the still, and try once
+  // more on the first touch, which most phones allow.
+  function noPlay(){
+    if(hero.classList.contains('noplay')) return;
+    hero.classList.add('noplay');
+    var retry=function(){loop.play().then(function(){hero.classList.remove('noplay');}).catch(function(){});};
+    document.addEventListener('touchend',retry,{once:true,passive:true});
+    document.addEventListener('scroll',retry,{once:true,passive:true});
+  }
+  var tryPlay=loop.play();
+  if(tryPlay&&tryPlay.catch){tryPlay.catch(noPlay);}
+  setTimeout(function(){ if(loop.currentTime===0&&!dlg.open) noPlay(); },4000);
+  loop.addEventListener('playing',function(){hero.classList.remove('noplay');});
+  function openFilm(){
+    loop.pause(); dlg.showModal(); full.play();
+    if(window.matchMedia('(max-width:860px)').matches){
+      var r=full.requestFullscreen||full.webkitEnterFullscreen;
+      if(r){try{r.call(full);}catch(e){}}
+      if(screen.orientation&&screen.orientation.lock){screen.orientation.lock('landscape').catch(function(){});}
+    }
+  }
+  document.getElementById('playfilm').addEventListener('click',openFilm);
+  document.querySelectorAll('.playfilm2').forEach(function(el){el.addEventListener('click',openFilm);}); // none at present
+  function close(){full.pause();full.currentTime=0;dlg.close();loop.play();
+    if(screen.orientation&&screen.orientation.unlock){try{screen.orientation.unlock();}catch(e){}}}
+  document.getElementById('closefilm').addEventListener('click',close);
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) close(); });
+  dlg.addEventListener('close',function(){full.pause();loop.play();});
+  full.addEventListener('ended',close);
+})();
+</script>
+</body>
+</html>
