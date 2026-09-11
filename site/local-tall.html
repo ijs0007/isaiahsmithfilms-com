@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Isaiah Smith Films — video for local businesses (reflection test)</title>
+<title>Isaiah Smith Films — video for local businesses (tall crop test)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Public+Sans:wght@200..800&display=swap" rel="stylesheet">
@@ -214,19 +214,14 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
    and the copy sits on the same dark ground so it still reads as a screen. */
 @media (max-width:860px){
   .hero{height:auto;min-height:0;max-height:none}
-  /* Full 16:9 frame, never cropped. Below it, the frame reflects like a lake and
-     dies away into the ground; the headline sits in the reflection. The reflection
-     is painted by the browser from the same video, so nothing plays twice. */
-  .hero video{position:static;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
-    -webkit-box-reflect:below 0 linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.8) 60%,transparent 95%)}
-  .hero.noplay .still{position:absolute;inset:0 0 auto 0;width:100%;height:auto;aspect-ratio:16/9;
-    object-fit:cover;-webkit-box-reflect:below 0 linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.8) 60%,transparent 95%)}
-  /* One continuous fade over frame and reflection together: clear for the top third
-     of the frame, deepening through the join, black before the reflection ends. */
-  .hero .scrim{display:block;top:0;bottom:auto;left:0;right:0;aspect-ratio:8/9;z-index:2;background:
-    linear-gradient(180deg,rgba(11,9,8,0) 0%,rgba(11,9,8,0) 28%,rgba(11,9,8,.22) 36%,rgba(11,9,8,.55) 44%,
-    rgba(11,9,8,.84) 50%,rgba(11,9,8,.84) 54%,rgba(11,9,8,.9) 66%,rgba(11,9,8,.97) 80%,#0B0908 92%)}
-  .hero .inner{padding-block:0 42px;margin-top:0;padding-top:4%;z-index:3}
+  /* Taller frame, cropped from the left: everything in the shot lives on the right.
+     The bottom of the frame dissolves into the ground and the headline rises into it. */
+  .hero video{position:static;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:70% 50%}
+  .hero.noplay .still{position:absolute;inset:0 0 auto 0;width:100%;height:auto;aspect-ratio:4/5;
+    object-fit:cover;object-position:70% 50%}
+  .hero .scrim{display:block;inset:0 0 auto 0;aspect-ratio:4/5;z-index:2;background:
+    linear-gradient(0deg,#0B0908 0%,rgba(11,9,8,.92) 12%,rgba(11,9,8,.55) 30%,rgba(11,9,8,0) 52%)}
+  .hero .inner{padding-block:0 42px;margin-top:-34%;z-index:3}
   /* tighter vertical rhythm on a phone */
   section{padding-block:52px}
   .mark{margin-bottom:22px}
