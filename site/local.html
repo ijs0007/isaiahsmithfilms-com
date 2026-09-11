@@ -149,7 +149,8 @@ footer{border-top:1px solid var(--rule);margin-top:clamp(44px,6vw,86px);padding-
 /* ---------------------------------------------------------------- results */
 .slots{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);
   margin-top:clamp(26px,3.2vw,44px)}
-@media (max-width:760px){.slots{grid-template-columns:1fr}}
+@media (max-width:760px){.slots{gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .slot{aspect-ratio:1;padding:10px;min-width:0}.slot span{font-size:12.5px}.slot b{font-size:16px}}
 .slot{aspect-ratio:16/9;border:1px solid var(--rule);display:flex;align-items:flex-end;
   padding:clamp(14px,1.6vw,20px)}
 .slot span{font-size:14.5px;color:var(--muted);line-height:1.35}
@@ -215,12 +216,16 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
   .hero{height:auto;min-height:0;max-height:none}
   /* Taller frame, cropped from the left: everything in the shot lives on the right.
      The bottom of the frame dissolves into the ground and the headline rises into it. */
-  .hero video{position:static;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:70% 50%}
-  .hero.noplay .still{position:absolute;inset:0 0 auto 0;width:100%;height:auto;aspect-ratio:4/5;
-    object-fit:cover;object-position:70% 50%}
-  .hero .scrim{display:block;inset:0 0 auto 0;aspect-ratio:4/5;z-index:2;background:
+  .hero video{position:static;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:60% 50%}
+  .hero.noplay .still{position:absolute;inset:0 0 auto 0;width:100%;height:auto;aspect-ratio:1/1;
+    object-fit:cover;object-position:60% 50%}
+  .hero .scrim{display:block;inset:0 0 auto 0;aspect-ratio:1/1;z-index:2;background:
     linear-gradient(0deg,#0B0908 0%,rgba(11,9,8,.92) 12%,rgba(11,9,8,.55) 30%,rgba(11,9,8,0) 52%)}
-  .hero .inner{padding-block:0 42px;margin-top:-34%;z-index:3}
+  .hero .inner{padding-block:0 42px;margin-top:-30%;z-index:3}
+  /* tighter vertical rhythm on a phone */
+  section{padding-block:52px}
+  .mark{margin-bottom:22px}
+  h2{margin-bottom:16px}
   .copy{max-width:none}
   .l1{font-size:clamp(26px,7.4vw,34px)}
   .l2{font-size:clamp(44px,12.6vw,58px);margin-bottom:20px}
@@ -252,20 +257,18 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
 <section id="complaint" style="background:var(--g-complaint)"><div class="wrap">
   <div class="mark"><span>The complaint</span><i></i></div>
   <h2>You&rsquo;re busy running the business.</h2>
-  <p class="lede">You already know you should be posting video. You don&rsquo;t have the time, you don&rsquo;t
-    want to be on camera by yourself with a ring light, and the last thing you filmed on your phone is
-    still sitting in your camera roll.</p>
+  <p class="lede">You know you should be posting video. You don&rsquo;t have the time, you don&rsquo;t want to
+    do it alone with a ring light, and the last thing you filmed is still sitting in your camera roll.</p>
   <div class="said">
     <div><q>People drive past and don&rsquo;t know we&rsquo;re here.</q>
       <p>A sixty second intro on your Google listing and pinned to your Instagram is the first thing a new
-         customer sees when they search you. Right now they are seeing nothing, or a blurry menu photo.</p></div>
+         customer sees. Right now they see nothing, or a blurry menu photo.</p></div>
     <div><q>I know I should post more. I just don&rsquo;t.</q>
       <p>A three hour visit each month gets you four ready to post videos. You never open an editing app.
          You get a folder and you hit post.</p></div>
     <div><q>I don&rsquo;t want it to look cheesy.</q>
-      <p>It won&rsquo;t. The best local video looks real, not slick. The difference between real and amateur
-         is how it is shot, how it is cut and whether it tells a story, and that is the work I have been
-         doing for sixteen years.</p></div>
+      <p>It won&rsquo;t. The best local video looks real, not slick. Real and amateur are separated by the
+         shooting, the cut and the story, and that has been my work for sixteen years.</p></div>
   </div>
 </div></section>
 
@@ -274,9 +277,8 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
   <h2>Nobody knows you&rsquo;re there.</h2>
   <div class="two">
     <div>
-      <p>That is the whole problem, and it is the one problem a camera actually solves. Your food is good.
-         Your prices are fair. Someone three streets over would be a regular by now if they had any idea
-         you existed.</p>
+      <p>That is the whole problem, and it is the one a camera actually solves. Your food is good. Your
+         prices are fair. Someone three streets over would be a regular by now if they knew you existed.</p>
       <p>So the videos are not adverts. They are just you, doing the thing you are good at, in front of
          people who have not met you yet.</p>
     </div>
@@ -284,12 +286,11 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
       <h3>What a shoot actually is</h3>
       <p>No script, no actors, no crew standing around. I come when it&rsquo;s best for you, film what you already
          do, ask you a few questions, and get out of your way. You keep working the whole time.</p>
-      <p>You will be on camera, talking about your business, because nobody knows it like you do. I ask
-         the questions and steer, you answer the way you would for a customer. If you would rather stay
-         off camera we can work around it, but the best version of this is you.</p>
-      <p><strong>This is not a commercial.</strong> A commercial has a cast, a crew and a stop and go day
-         where every shot is staged. That is a different job and a different quote. Ask me and I will give
-         you one.</p>
+      <p>You will be on camera talking about your business, because nobody knows it like you do. I ask,
+         you answer the way you would for a customer. If you would rather stay off camera we can work
+         around it, but the best version of this is you.</p>
+      <p><strong>This is not a commercial.</strong> A commercial has a cast, a crew and a day of staged
+         shots. That is a different job and a different quote, and I will give you one if you ask.</p>
     </div>
   </div>
 </div></section>
@@ -319,9 +320,8 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
     </div>
     <div class="madeit">
       <h3>What I can show you today</h3>
-      <p>Sixteen years of film and television. That is where the edit comes from, and the edit is the
-         part that decides whether your video looks real or looks amateur. The credits, the IMDb page and
-         the reels are all on my portfolio.</p>
+      <p>Sixteen years of film and television. The credits, the IMDb page and the reels are all on my
+         portfolio.</p>
       <p><a href="https://isaiahsmithfilms.com" target="_blank" rel="noopener">isaiahsmithfilms.com</a></p>
     </div>
   </div>
@@ -336,8 +336,7 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
   <div class="mark"><span>The prescription</span><i></i></div>
   <h2>Two ways to do this.</h2>
   <p class="lede">The Intro is the one video every business needs. Monthly Reels keeps you in front of people
-    after that. Do one, do both, or start with Reels if you already have an intro. Flat prices, written down.
-    Everything comes horizontal for your website and Google listing, and vertical for Instagram, TikTok and Facebook.</p>
+    after that. Do one, do both, or start with Reels if you already have an intro. Flat prices, written down.</p>
 
   <div class="pad" style="margin-top:clamp(28px,3.4vw,48px)">
     <div class="padhead">
@@ -347,8 +346,8 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
 
     <div class="item">
       <div class="itemhead"><h3 style="margin:0">The Intro</h3><div class="price">$1,200 <em>one time</em></div></div>
-      <p style="margin:10px 0 0;color:var(--muted);font-size:16.5px;max-width:52ch">The one video every business
-        needs. Who you are, what you do, and why people come back.</p>
+      <p style="margin:10px 0 0;color:var(--muted);font-size:16.5px;max-width:52ch">Who you are, what you do, and
+        why people come back.</p>
       <ul>
         <li>One visit, about three hours, at your place</li>
         <li>One video, 60 to 90 seconds</li>
