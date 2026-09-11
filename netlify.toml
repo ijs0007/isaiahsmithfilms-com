@@ -1,0 +1,4 @@
+# Netlify deploys the site/ folder as the root of isaiahsmithfilms.com.
+# No build step. _redirects inside site/ maps /local and /local-thanks.
+[build]
+  publish = "site"

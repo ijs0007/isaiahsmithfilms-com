@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Isaiah Smith | Film &amp; Television Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#060606;--dark:#0d0d0d;--card:#111;--border:#1e1e1e;--border2:#282828;
+  --gold:#c8a84b;--gold-dim:rgba(200,168,75,0.11);--gold-border:rgba(200,168,75,0.27);
+  --white:#f2f0eb;--muted:#666;--off:#999;
+  --sans:'Montserrat',sans-serif;--serif:'Cormorant Garamond',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--gold)}
+#nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:1.6rem 5vw;transition:all .35s;border-bottom:1px solid transparent}
+#nav.scrolled{background:rgba(6,6,6,.97);padding:1rem 5vw;border-color:var(--border);backdrop-filter:blur(8px)}
+.nav-logo{font-weight:800;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--white);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--gold)}
+.nav-guild{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.8;text-decoration:none;cursor:pointer;transition:color .25s}
+.nav-guild strong{color:var(--gold);font-weight:600;display:block}.nav-guild:hover{color:var(--white)}
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;align-items:center}
+.hero-bg{position:absolute;top:0;right:0;bottom:0;width:52%;background:linear-gradient(150deg,#0e0e0e,#080808);clip-path:polygon(7% 0,100% 0,100% 100%,0% 100%);z-index:0}
+.hero-lines{position:absolute;top:0;right:0;bottom:0;width:52%;clip-path:polygon(7% 0,100% 0,100% 100%,0% 100%);z-index:1;pointer-events:none;opacity:.05;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(200,168,75,.5) 3px,rgba(200,168,75,.5) 4px)}
+.hero-left{position:relative;z-index:2;padding:9rem 4vw 6rem 5vw;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{display:flex;align-items:center;gap:1rem;font-size:.6rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.eyebrow::before{content:"";width:2.5rem;height:1px;background:var(--gold);flex-shrink:0}
+h1{font-weight:900;font-size:clamp(3.8rem,6.5vw,6.2rem);line-height:.92;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:1.5rem}
+h1 .l1{display:block;color:var(--white)}
+h1 .l2{display:block;color:var(--gold)}
+.hero-sub{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--off);letter-spacing:.04em;margin-bottom:2.2rem}
+.rule{width:3rem;height:2px;background:var(--gold);margin-bottom:2rem}
+.hero-bio{font-size:.88rem;line-height:2;color:rgba(242,240,235,.62);max-width:420px;margin-bottom:2.8rem}
+.hero-bio strong{color:var(--gold);font-weight:600}
+.cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn{display:inline-block;text-decoration:none;font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:.9rem 2.2rem;transition:all .25s;cursor:pointer;border:none}
+.btn-gold{background:var(--gold);color:var(--black)}
+.btn-gold:hover{background:#dfc06a;transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--gold-border);color:var(--gold);background:transparent}
+.btn-outline:hover{border-color:var(--gold);background:var(--gold-dim);transform:translateY(-2px)}
+.socials{display:flex;gap:1.4rem;flex-wrap:wrap}
+.soc{display:flex;align-items:center;gap:.45rem;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+.soc:hover{color:var(--gold)}
+.soc svg{width:14px;height:14px;fill:currentColor}
+.hero-right{position:relative;z-index:2;padding:9rem 5vw 5rem 4vw;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.poster-wrap{position:relative;max-width:340px;width:100%}
+.poster-wrap::before{content:"";position:absolute;top:-1.2rem;left:-1.2rem;right:1.2rem;bottom:1.2rem;border:1px solid var(--gold-border);z-index:0}
+.poster-inner{position:relative;z-index:1;aspect-ratio:2/3;overflow:hidden;background:#111}
+.poster-inner img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) contrast(1.12) saturate(.85);transition:transform .7s,filter .5s}
+.poster-wrap:hover .poster-inner img{transform:scale(1.04);filter:brightness(.92) saturate(1)}
+.poster-cap{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:2rem 1.2rem 1.2rem;background:linear-gradient(to top,rgba(6,6,6,.95),transparent)}
+.poster-cap-role{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
+.poster-cap-title{font-size:.95rem;font-weight:700}
+.poster-cap-net{font-size:.58rem;color:var(--muted);margin-top:.15rem}
+.mini-row{display:flex;gap:.7rem;margin-top:1.4rem;flex-wrap:wrap;justify-content:center}
+.mini{width:68px;height:102px;overflow:hidden;background:#111;border:1px solid var(--border);transition:border-color .3s;flex-shrink:0;cursor:pointer}
+.mini:hover{border-color:var(--gold-border)}
+.mini img{width:100%;height:100%;object-fit:cover;filter:brightness(.65) saturate(.65);transition:filter .3s}
+.mini:hover img{filter:brightness(.88) saturate(.9)}
+.mini-lbl{width:68px;height:102px;display:flex;align-items:center;justify-content:center;background:#111;border:1px solid var(--border);font-size:.42rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;padding:.4rem;line-height:1.4}
+#stats{background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 5vw}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);max-width:900px;margin:0 auto}
+.stat{text-align:center;padding:1.5rem 1rem;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{display:block;font-size:2.6rem;font-weight:900;color:var(--gold);line-height:1}
+.stat-l{display:block;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.45rem}
+.network-strip{background:var(--dark);border-bottom:1px solid var(--border);padding:1.6rem 5vw}
+.network-inner{max-width:1380px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.network-label{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.network-logos{display:flex;align-items:center;gap:2.2rem;flex-wrap:wrap}
+.net-logo{opacity:.35;filter:grayscale(1);transition:opacity .3s;color:#fff;display:flex;align-items:center;text-decoration:none;cursor:pointer}
+.net-logo:hover{opacity:.65}
+.net-netflix{font-size:.9rem;font-weight:800;letter-spacing:.08em;font-family:Arial,sans-serif}
+.net-fx{font-size:1.3rem;font-weight:900;letter-spacing:-.02em;font-family:"Arial Black",sans-serif}
+.net-cbs{font-size:1rem;font-weight:800;letter-spacing:.12em;font-family:"Arial Black",sans-serif}
+.net-disney{font-size:1rem;font-weight:800;font-family:Arial,sans-serif}
+.net-hulu{font-size:1.1rem;font-weight:700;font-family:Arial,sans-serif}
+.net-freeform{font-size:.85rem;font-weight:700;font-family:Arial,sans-serif}
+.cc-img-dark{background:linear-gradient(135deg,#0d0d0d 0%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.cc-ph-title{font-family:"Playfair Display",Georgia,serif;font-size:1.4rem;font-weight:700;color:rgba(200,168,75,.25);letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:1rem}
+.sec{padding:7rem 5vw}
+.sec-inner{max-width:1380px;margin:0 auto}
+.sec-eye{display:flex;align-items:center;gap:1rem;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+.sec-eye::after{content:"";width:50px;height:1px;background:var(--border2);flex-shrink:0}
+.sec-title{font-weight:800;font-size:clamp(1.7rem,3.2vw,2.6rem);text-transform:uppercase;letter-spacing:.02em;line-height:1.08;margin-bottom:.8rem}
+.sec-title em{font-family:var(--serif);font-weight:300;color:var(--gold);font-style:italic}
+.sec-sub{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--muted);line-height:1.85;max-width:580px;margin-bottom:3rem}
+#editing{background:var(--black)}
+.ed-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:1.2rem}
+.cc{background:var(--card);border:1px solid var(--border);overflow:hidden;position:relative;transition:border-color .3s,transform .35s}
+.cc:hover{border-color:var(--gold);transform:translateY(-5px)}
+.cc-img{aspect-ratio:2/3;overflow:hidden;background:#111;position:relative}
+.cc-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s}
+.cc:hover .cc-img img{transform:scale(1.07);filter:brightness(.92) saturate(1)}
+.cc-ph{aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;background:linear-gradient(145deg,#0d0d0d,#161616);gap:.6rem}
+.cc-ph svg{opacity:.1;width:32px}
+.cc-ph-t{font-size:.86rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--white);opacity:.5;line-height:1.35}
+.cc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,.92),transparent 55%);pointer-events:none}
+.cc-title-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.2rem;pointer-events:none;z-index:3}
+.cc-title-text{font-family:"Playfair Display",Georgia,serif;font-size:1.05rem;font-weight:700;color:#fff;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.85),0 1px 3px rgba(0,0,0,.9);text-align:center;line-height:1.2;padding:0 .5rem}
+.cc-pip{position:absolute;top:.75rem;right:.75rem;z-index:5;background:var(--gold);color:var(--black);font-size:.46rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .5rem}
+.cc-body{padding:.95rem 1.05rem 1.2rem}
+.cc-tag{display:inline-block;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid var(--gold-border);padding:.16rem .48rem;margin-bottom:.5rem}
+.cc-title{font-size:.9rem;font-weight:700;line-height:1.3;margin-bottom:.22rem}
+.cc-meta{font-size:.6rem;color:var(--muted)}
+.cc-net{font-size:.56rem;color:rgba(200,168,75,.52);margin-top:.18rem;letter-spacing:.08em;text-transform:uppercase}
+#ae{background:var(--dark);border-top:1px solid var(--border)}
+.ae-note{display:flex;gap:1.1rem;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1.1rem 1.4rem;margin-bottom:3rem;max-width:700px}
+.ae-note-txt{font-size:.8rem;line-height:1.85;color:rgba(242,240,235,.68)}
+.ae-note-txt strong{color:var(--gold);font-weight:600}
+.ae-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1rem}
+.ac{background:#0f0f0f;border:1px solid var(--border);overflow:hidden;transition:border-color .3s,transform .3s}
+.ac:hover{border-color:rgba(200,168,75,.32);transform:translateY(-4px)}
+.ac-img{aspect-ratio:2/3;overflow:hidden;background:#111;position:relative}
+.ac-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.58) contrast(1.1) saturate(.6);transition:transform .55s,filter .4s}
+.ac:hover .ac-img img{filter:brightness(.78) saturate(.85);transform:scale(1.06)}
+.ac-ph{aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0c0c0c,#141414);padding:1rem;text-align:center}
+.ac-ph-t{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--white);opacity:.4;line-height:1.3}
+.ac-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,.82),transparent 55%);pointer-events:none}
+.ac-body{padding:.75rem .95rem .95rem}
+.ac-tag{display:inline-block;font-size:.48rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.13rem .42rem;margin-bottom:.36rem}
+.ac-title{font-size:.82rem;font-weight:600;line-height:1.3;margin-bottom:.18rem}
+.ac-meta{font-size:.58rem;color:var(--muted)}
+.ac-net{font-size:.52rem;color:rgba(200,168,75,.42);margin-top:.15rem;letter-spacing:.08em;text-transform:uppercase}
+#about{background:var(--black)}
+.about-grid{display:grid;grid-template-columns:1fr 1.55fr;gap:7rem;align-items:stretch}
+.about-frame{position:relative;max-width:430px;width:100%;aspect-ratio:3/4;align-self:center}
+.about-frame::before{content:"";position:absolute;top:-1.3rem;left:-1.3rem;right:1.3rem;bottom:1.3rem;border:1px solid var(--gold-border);z-index:0}
+.about-frame img{position:relative;z-index:1;width:100%;height:100%;display:block;object-fit:cover;object-position:55% bottom;filter:brightness(.88) contrast(1.06)}
+.about-badge{position:absolute;bottom:-1.6rem;right:-1.6rem;z-index:3;background:var(--gold);color:var(--black);width:106px;padding:1.1rem .7rem;text-align:center;font-size:.5rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;line-height:1.75}
+.about-body{font-size:.92rem;line-height:2.05;color:rgba(242,240,235,.76);margin-bottom:2.2rem}
+.about-body strong{color:var(--gold);font-weight:600}
+.about-body p+p{margin-top:1.1rem}
+.about-pills{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:2.2rem}
+.pill{border:1px solid var(--border);border-left:3px solid var(--gold);background:var(--card);padding:.85rem 1rem}
+.pill-l{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.22rem}
+.pill-v{font-size:.8rem;font-weight:600}
+#videos{background:var(--dark);border-top:1px solid var(--border)}
+.portal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:1rem;max-width:800px;margin-left:auto;margin-right:auto}
+.portal-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:3rem 2rem;background:var(--card);border:1px solid var(--border);text-decoration:none;color:var(--white);transition:border-color .3s,transform .3s,background .3s}
+.portal-card:hover{border-color:var(--gold);transform:translateY(-6px);background:#1a1a1a}
+.portal-icon{color:var(--gold);margin-bottom:1.2rem;opacity:.9}
+.portal-card:hover .portal-icon{opacity:1}
+.portal-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:600}
+.portal-name{font-size:1.15rem;font-weight:700;letter-spacing:.02em;margin-bottom:.55rem}
+.portal-desc{font-size:.72rem;color:var(--muted);line-height:1.55;margin-bottom:1.4rem}
+.portal-cta{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:.38rem .9rem;transition:background .3s,color .3s}
+.portal-card:hover .portal-cta{background:var(--gold);color:#000}
+#contact{background:var(--black)}
+.contact-grid{display:grid;grid-template-columns:1fr;max-width:640px;margin:0 auto;justify-items:center;text-align:center;gap:2rem}
+.contact-tagline{font-family:var(--serif);font-style:italic;font-size:1.4rem;line-height:1.78;color:rgba(242,240,235,.52);margin-bottom:3rem}
+.contact-tagline strong{font-family:var(--sans);font-style:normal;font-weight:700;color:var(--gold)}
+.contact-methods{display:flex;flex-direction:column;gap:1.4rem;margin-bottom:2.5rem}
+.c-row{display:flex;align-items:center;gap:1.2rem}
+.c-icon{width:40px;height:40px;min-width:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.c-icon svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.c-lbl{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.18rem}
+.c-val{font-size:.9rem;color:var(--white);text-decoration:none;transition:color .25s}
+.c-val:hover{color:var(--gold)}
+.soc-boxes{display:flex;gap:.7rem;flex-wrap:wrap}
+.soc-box{border:1px solid var(--border);padding:.55rem .95rem;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:.45rem;transition:border-color .25s,color .25s}
+.soc-box svg{width:13px;fill:currentColor}
+.soc-box:hover{border-color:var(--gold);color:var(--gold)}
+.cf{display:flex;flex-direction:column;gap:.95rem}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.95rem}
+.fg{display:flex;flex-direction:column;gap:.38rem}
+.flbl{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.fin,.fta{background:var(--card);border:1px solid var(--border);color:var(--white);padding:.88rem 1rem;font-family:var(--sans);font-size:.82rem;font-weight:300;outline:none;transition:border-color .25s;resize:none}
+.fin:focus,.fta:focus{border-color:var(--gold)}
+.fta{min-height:115px}
+.fsub{background:var(--gold);color:var(--black);border:none;font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.95rem 2.4rem;cursor:pointer;align-self:flex-start;transition:background .25s,transform .2s}
+.fsub:hover{background:#dfc06a;transform:translateY(-2px)}
+footer{background:var(--dark);border-top:1px solid var(--border);padding:2.5rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem}
+.f-brand{font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.f-brand span{color:var(--gold)}
+.f-copy{font-size:.56rem;color:var(--muted);letter-spacing:.1em}
+.f-links{display:flex;gap:1.8rem;list-style:none}
+.f-links a{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+.f-links a:hover{color:var(--gold)}
+/* Force text-style rendering for unicode arrow glyphs (prevents iOS/Android from drawing them as colored emoji) */
+.nav-links a,.f-links a,.portal-cta{font-variant-emoji:text;-webkit-font-feature-settings:"liga" off}
+/* Hamburger nav toggle (hidden on desktop) */
+.nav-toggle-cb{display:none}
+.nav-toggle{display:none;width:32px;height:24px;cursor:pointer;flex-direction:column;justify-content:space-between;z-index:1001}
+.nav-toggle .bar1,.nav-toggle .bar2,.nav-toggle .bar3{display:block;width:100%;height:2px;background:var(--white);transition:transform .3s ease,opacity .25s ease}
+/* Floating back-to-top button */
+#toTop{display:none}
+#toTop.visible{opacity:1;visibility:visible;transform:translateY(0)}
+#toTop:hover{background:#dfc06a}
+@media(max-width:1024px){
+  #hero{grid-template-columns:1fr}.hero-bg,.hero-lines{display:none}
+  .hero-left{padding:9rem 5vw 3rem}.hero-right{padding:2rem 5vw 5rem}.poster-wrap{max-width:280px}
+  .about-grid{grid-template-columns:1fr;gap:3.5rem}.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .stats-row{grid-template-columns:repeat(2,1fr)}.vid-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  /* Center hero content on mobile */
+  .hero-left{text-align:center;display:flex;flex-direction:column;align-items:center}
+  .hero-left .eyebrow,.hero-left .hero-sub,.hero-left .hero-bio{text-align:center;width:100%}
+  .hero-left h1{align-items:center;text-align:center}
+  .hero-left h1 .l1,.hero-left h1 .l2{display:block;text-align:center;width:100%}
+  .hero-left .rule{margin-left:auto;margin-right:auto}
+  .hero-left .cta-row{justify-content:center;align-items:center;flex-direction:column;width:100%}
+  .hero-left .cta-row .btn{width:min(260px,70vw);text-align:center}
+  .hero-left .socials{justify-content:center;flex-wrap:wrap}
+
+  #nav{padding:.9rem 4vw}
+  .nav-links,.nav-guild{display:none}
+  .hero{padding:6rem 4vw 3rem;min-height:auto}
+  .hero-inner{flex-direction:column;gap:2rem}
+  .hero-left{max-width:100%}
+  .hero-right{display:flex;flex-direction:column;align-items:center;width:100%}
+  .hero-frame{width:min(260px,70vw);height:auto;aspect-ratio:2/3}
+  .hero-frame img{width:100%;height:100%;object-fit:cover}
+  .hero-filmstrip{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .mini{width:52px;height:78px}
+  .hero-title{font-size:clamp(2.8rem,12vw,5rem)}
+  .sec{padding:4rem 4vw}
+  .stat{border-right:none;border-bottom:1px solid var(--border)}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .network-inner{flex-wrap:wrap;gap:1.2rem 1.5rem;justify-content:center;padding:.8rem 4vw}
+  .net-logo{font-size:clamp(.9rem,3.5vw,1.4rem)}
+  .ed-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .ae-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .about-grid{flex-direction:column;gap:2rem}
+  .about-frame{max-width:100%;width:min(320px,80vw);margin:0 auto;aspect-ratio:3/4}
+  .about-frame img{width:100%;height:100%;object-fit:cover;object-position:55% top}
+  .about-copy{max-width:100%}
+  .about-pills{grid-template-columns:1fr 1fr}
+  .vid-grid{grid-template-columns:1fr}
+  .cf-row{grid-template-columns:1fr}
+  footer{flex-direction:column;align-items:flex-start;gap:1rem}
+  .footer-links{flex-wrap:wrap;gap:.5rem 1rem}
+
+  /* Mobile center-framing (screens <= 768px) */
+  .network-strip{text-align:center}
+  .network-inner{justify-content:center;align-items:center;flex-direction:column;text-align:center}
+  .network-logos{justify-content:center;align-items:center}
+  /* Center only #contact section header; #editing, #ae, #videos use left-aligned eyebrows */
+  #contact .sec-inner{text-align:center}
+  #contact .sec-eye{justify-content:center}
+  #editing .sec-eye,#ae .sec-eye,#videos .sec-eye{justify-content:flex-start;padding-left:0;margin-left:0}
+  #editing .sec-sub,#ae .sec-sub,#videos .sec-sub{max-width:100%;text-align:left;margin-left:0;margin-right:0}
+  /* Tighten Network logos vertical row gap on mobile */
+  .network-logos{row-gap:.5rem;column-gap:1.6rem;gap:.5rem 1.6rem}
+  /* Mobile polish: bigger CTA buttons */
+  .cta-row{gap:.7rem}
+  .cta-row .btn{width:min(360px,90vw);padding:1.05rem 2rem;font-size:.7rem}
+  /* Bigger tap targets for social tiles */
+  .soc-boxes{gap:.55rem}
+  .soc-box{padding:.85rem 1.2rem;font-size:.62rem;gap:.55rem;min-height:44px}
+  .soc-box svg{width:16px;height:16px}
+  /* Smaller, better-proportioned ae-note */
+  #ae .ae-note{padding:.95rem 1.1rem;margin-bottom:2.2rem}
+  #ae .ae-note-txt{font-size:.72rem;line-height:1.7}
+  /* Hamburger nav toggle on mobile */
+  #nav .nav-toggle{display:block}
+  #nav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(6,6,6,.97);backdrop-filter:blur(8px);flex-direction:column;align-items:center;gap:1rem;padding:1.4rem 5vw;border-bottom:1px solid var(--border)}
+  #nav .nav-toggle-cb:checked ~ .nav-links{display:flex}
+  #nav .nav-links a{font-size:.78rem;letter-spacing:.18em;padding:.4rem 0;display:block}
+  /* Animate hamburger to X */
+  #nav .nav-toggle-cb:checked ~ .nav-toggle .bar1{transform:translateY(7px) rotate(45deg)}
+  #nav .nav-toggle-cb:checked ~ .nav-toggle .bar2{opacity:0}
+  #nav .nav-toggle-cb:checked ~ .nav-toggle .bar3{transform:translateY(-7px) rotate(-45deg)}
+  /* Back-to-top button visible state styles already defined globally; enlarge on mobile */
+  #toTop{display:flex;position:fixed;right:1rem;bottom:1rem;width:46px;height:46px;border-radius:50%;background:var(--gold);color:var(--black);align-items:center;justify-content:center;text-decoration:none;font-size:1.2rem;font-weight:700;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s ease,transform .3s ease,visibility .3s ease;z-index:998}
+  #toTop.visible{opacity:1;visibility:visible;transform:translateY(0)}
+  #toTop:hover{background:#dfc06a}
+  #ae .ae-note{margin-left:auto;margin-right:auto;text-align:left}
+  #contact .contact-tagline{text-align:center;margin-left:auto;margin-right:auto}
+  #contact .contact-methods{align-items:center}
+  #contact .c-row{justify-content:center;text-align:left}
+  .soc-boxes{justify-content:center}
+  footer{align-items:center;text-align:center}
+  .f-links{justify-content:center}
+}
+@keyframes revealAnim{to{opacity:1;transform:translateY(0)}}.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;animation:revealAnim .7s ease .4s forwards}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Isaiah <span>Smith</span></a>
+  <input type="checkbox" id="navToggleCb" class="nav-toggle-cb" aria-hidden="true"/>
+  <label for="navToggleCb" class="nav-toggle" aria-label="Toggle navigation menu"><span class="bar1"></span><span class="bar2"></span><span class="bar3"></span></label>
+  <ul class="nav-links">
+    <li><a href="#editing">Editing</a></li>
+    <li><a href="#ae">Experience</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.imdb.com/name/nm5873370/" target="_blank" rel="noopener">IMDb &#8599;&#xFE0E;</a></li>
+  </ul>
+  <a href="https://www.editorsguild.com" target="_blank" rel="noopener" class="nav-guild"><strong>Local 700</strong>Motion Picture Editors Guild</a>
+</nav>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-left">
+    <div class="eyebrow">Film &amp; Television</div>
+    <h1><span class="l1">Isaiah</span><span class="l2">Smith</span></h1>
+    <div class="hero-sub">Editor &mdash; Los Angeles, CA</div>
+    <div class="rule"></div>
+    <p class="hero-bio">Film &amp; television editor with credits spanning companies such as <strong>Netflix, FX, Disney,</strong> and <strong>Freeform</strong>. Member of the Motion Picture Editors Guild, Local 700.</p>
+    <div class="cta-row">
+      <a href="#editing" class="btn btn-gold">View My Credits</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+    <div class="socials">
+      <a href="https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</a>
+      <a href="http://instagram.com/isaiahjeremiahsmith" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.7 1.7 4.8 4.8.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.1-1.6 4.7-4.8 4.8-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1C4 21.4 2.4 19.8 2.3 16.6c-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 3.9 3.9 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.1 8.3 0 8.7 0 12s0 3.7.1 4.9C.3 21.3 2.7 23.7 7.1 23.9c1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4A6.2 6.2 0 0012 5.8zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>Instagram</a>
+      <a href="http://tiktok.com/@isaiahjeremiahsmith" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24"><path d="M19.6 3.3A4.5 4.5 0 0115.2 0h-3.4v16.4a2.1 2.1 0 01-2.1 1.8 2.1 2.1 0 01-2.1-2.1 2.1 2.1 0 012.1-2.1c.2 0 .4 0 .6.1V10.5c-.2 0-.4-.1-.6-.1a5.5 5.5 0 00-5.5 5.5 5.5 5.5 0 005.5 5.5 5.5 5.5 0 005.5-5.5V8.2a7.9 7.9 0 004.6 1.5V6.2a4.5 4.5 0 01-2.7-.9z"/></svg>TikTok</a>
+      <a href="http://facebook.com/isaiahsmith" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-1.9.9-1.9 1.9v2.2h3.3l-.5 3.5h-2.7V24C19.6 23 24 18.1 24 12.1z"/></svg>Facebook</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="poster-wrap">
+      <div class="poster-inner">
+        <img id="hero-img" src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX600.jpg" alt="American Horror Stories" onerror="this.parentElement.innerHTML='<div class=cc-ph><div class=cc-ph-t>American Horror Stories</div></div>'"/>
+        <div class="cc-ov"></div>
+        <div class="poster-cap">
+          <div id="hero-role" class="poster-cap-role">Editor</div>
+          <div id="hero-title" class="poster-cap-title">American Horror Stories</div>
+          <div id="hero-net" class="poster-cap-net">FX · Ryan Murphy Production</div>
+        </div>
+      </div>
+    </div>
+    <div class="mini-row">
+      <div class="mini" data-src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" data-title="Siren" data-role="Additional Editor" data-net="Freeform" onclick="heroSwap(this)"><img src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" alt="Siren" onerror="this.outerHTML='<div class=mini-lbl>Siren</div>'"/></div>
+      <div class="mini" data-src="https://www.dropbox.com/scl/fi/ioexkyfsy4t4vw4919ovn/CDF06197-2A28-430E-B0CC-72C19B939EB7.jpeg?rlkey=kqenkw99e2mt4klf71g0zzvdz&st=izle0aam&raw=1" data-title="Lenny Stallano: Private Investigator" data-role="Editor" data-net="TV Pilot" onclick="heroSwap(this)"><img src="https://www.dropbox.com/scl/fi/ioexkyfsy4t4vw4919ovn/CDF06197-2A28-430E-B0CC-72C19B939EB7.jpeg?rlkey=kqenkw99e2mt4klf71g0zzvdz&st=izle0aam&raw=1" alt="Lenny Stallano" onerror="this.outerHTML='<div class=mini-lbl>Lenny Stallano</div>'"/></div>
+      <div class="mini" data-src="https://m.media-amazon.com/images/M/MV5BMTU1MzAwODM4OF5BMl5BanBnXkFtZTgwMjA4OTY5NDM@._V1_SX300.jpg" data-title="Lost in Space" data-role="Assistant Editor" data-net="Netflix" onclick="heroSwap(this)"><img src="https://m.media-amazon.com/images/M/MV5BMTU1MzAwODM4OF5BMl5BanBnXkFtZTgwMjA4OTY5NDM@._V1_SX300.jpg" alt="Lost in Space" onerror="this.outerHTML='<div class=mini-lbl>Lost in Space</div>'"/></div>
+      <div class="mini" data-src="https://m.media-amazon.com/images/M/MV5BMzVlNzM1MGUtMmM4ZS00OWE4LTllOTMtN2I1ZjU2NWQyOGE4XkEyXkFqcGc@._V1_SX300.jpg" data-title="Prom Pact" data-role="Assistant Editor" data-net="Disney" onclick="heroSwap(this)"><img src="https://m.media-amazon.com/images/M/MV5BMzVlNzM1MGUtMmM4ZS00OWE4LTllOTMtN2I1ZjU2NWQyOGE4XkEyXkFqcGc@._V1_SX300.jpg" alt="Prom Pact" onerror="this.outerHTML='<div class=mini-lbl>Prom Pact</div>'"/></div>
+      <div class="mini" data-src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX300.jpg" data-title="American Horror Stories" data-role="Editor" data-net="FX · Ryan Murphy Production" onclick="heroSwap(this)"><img src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX300.jpg" alt="American Horror Stories" onerror="this.outerHTML='<div class=mini-lbl>AHS</div>'"/></div>
+    </div>
+  </div>
+</section>
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-row">
+    <div class="stat reveal"><span class="stat-n">15+</span><span class="stat-l">Editing Credits</span></div>
+    <div class="stat reveal d1"><span class="stat-n">30+</span><span class="stat-l">Total Credits</span></div>
+    <div class="stat reveal d2"><span class="stat-n">15+</span><span class="stat-l">Years Experience</span></div>
+    <div class="stat reveal d3"><span class="stat-n">700</span><span class="stat-l">MPEG Local</span></div>
+  </div>
+</div>
+<!-- NETWORK LOGOS -->
+<div class="network-strip">
+  <div class="network-inner">
+    <span class="network-label">Credits include work for</span>
+    <div class="network-logos">
+      <a href="https://www.netflix.com" target="_blank" rel="noopener" class="net-logo net-netflix">Netflix</a>
+      <a href="https://www.fxnetworks.com" target="_blank" rel="noopener" class="net-logo net-fx">FX</a>
+      <a href="https://www.disneyplus.com" target="_blank" rel="noopener" class="net-logo net-disney"><svg viewBox="0 0 71 30" fill="currentColor" height="18" aria-label="Disney"><text x="0" y="22" font-size="22" font-weight="700" font-family="Arial">Disney</text></svg></a>
+      <a href="https://www.hulu.com" target="_blank" rel="noopener" class="net-logo net-hulu"><svg viewBox="0 0 60 30" fill="currentColor" height="20" aria-label="Hulu"><text x="0" y="22" font-size="22" font-weight="700" font-family="Arial">hulu</text></svg></a>
+      <a href="https://www.freeform.com" target="_blank" rel="noopener" class="net-logo net-freeform"><svg viewBox="0 0 95 30" fill="currentColor" height="16" aria-label="Freeform"><text x="0" y="22" font-size="22" font-weight="700" font-family="Arial">Freeform</text></svg></a>
+      <a href="https://www.paramountplus.com" target="_blank" rel="noopener" class="net-logo net-cbs">CBS</a>
+    </div>
+  </div>
+</div>
+<!-- EDITING CREDITS -->
+<section id="editing" class="sec">
+  <div class="sec-inner">
+    <div class="sec-eye">Filmography</div>
+    <h2 class="sec-title">Editing <em>Credits</em></h2>
+    <p class="sec-sub">Projects where Isaiah served as Editor — crafting narrative, pacing, and emotion from the cutting room.</p>
+    <div class="ed-grid">
+<div class="cc reveal"><div class="cc-img"><img src="https://m.media-amazon.com/images/M/MV5BOGI5YmM4ZTctNDMzZC00YTUwLTkyNzYtMGQ5YjkzOGVmYjBlXkEyXkFqcGc@._V1_SX300.jpg" alt="Holy Hip Hop House" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Holy Hip Hop House: Street Ministry 4 Life</div><div class="cc-meta">Feature Documentary </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://www.dropbox.com/scl/fi/ioexkyfsy4t4vw4919ovn/CDF06197-2A28-430E-B0CC-72C19B939EB7.jpeg?rlkey=kqenkw99e2mt4klf71g0zzvdz&st=izle0aam&raw=1" alt="Lenny Stallano" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'"/><div style="aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#0d0d0d,#161616);padding:1.5rem;text-align:center;font-size:.86rem;font-weight:700;text-transform:uppercase;color:rgba(242,240,235,.45);line-height:1.35">Lenny Stallano:<br/>Private Investigator</div><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Lenny Stallano: Private Investigator</div><div class="cc-meta">TV Pilot · Post-Production</div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX300.jpg" alt="American Horror Stories" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">American Horror Stories</div><div class="cc-meta">TV Series </div><div class="cc-net">FX · Ryan Murphy</div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" alt="Siren" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Additional Editor</span><div class="cc-title">Siren</div><div class="cc-meta">TV Series </div><div class="cc-net">Freeform</div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://m.media-amazon.com/images/M/MV5BODQyZTlhY2YtOTgwYS00NWE5LWJiYTItNzkzMmFkYzVlZDJhXkEyXkFqcGc@._V1_SX300.jpg" alt="Bow" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Bow</div><div class="cc-meta">Film </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://m.media-amazon.com/images/M/MV5BYjNlYzM4YzYtZjRhMy00OTJkLWJiMmQtNDNjMGQwYjA3ZjIwXkEyXkFqcGc@._V1_SX300.jpg" alt="Left" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Left</div><div class="cc-meta">Feature Film </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://www.dropbox.com/scl/fi/c64hm33obzfrmllvsxfpy/Screenshot-2026-04-14-062043.png?rlkey=l7e7kkd8x8zi4lytnwhdq9o0z&st=lpk11i50&raw=1" alt="Be Mine" style="width:100%;height:100%;object-position:center top;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Be Mine</div><div class="cc-meta">Film </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://www.dropbox.com/scl/fi/qedoc2nufbtnsh9ypast0/Screenshot-2026-04-14-063329.png?rlkey=rshktgnkj87wq8rxoud4hslvh&st=54g8e1zb&raw=1" alt="Stop It" style="width:100%;height:100%;object-position:center top;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Stop It</div><div class="cc-meta">Film </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://m.media-amazon.com/images/M/MV5BN2UxMDQyZmItNWU1MS00ZThjLWFmMGYtMDRjMjQ4YjcxMGI3XkEyXkFqcGc@._V1_SX300.jpg" alt="Meet the Wahls" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Meet the Wahls</div><div class="cc-meta">Film </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://m.media-amazon.com/images/M/MV5BMDU5YjI2NjctNzFkYS00NGZmLThmMjctNTBjNTgzYTVjODAwXkEyXkFqcGc@._V1_SX300.jpg" alt="Soul Seekers" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Soul Seekers</div><div class="cc-meta">Film </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://i.vimeocdn.com/video/444317211-5b5cb4d12a35fe157ddcd7a71cc4fad755e8e7257fb7051656d71ff3a591d828-d_1920x1080" alt="A MeaningFull Life" style="width:100%;height:100%;object-fit:cover"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">A MeaningFull Life</div><div class="cc-meta">Film </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://www.dropbox.com/scl/fi/udeoy7ip1lcf0dy6umksk/441E3417-3EC3-40E7-8A64-776DF5B634E2.jpeg?rlkey=29twti09gbf0vkhsrclfrfg68&st=p9uyvlnu&raw=1" alt="Undying" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Undying</div><div class="cc-meta">Film</div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://m.media-amazon.com/images/M/MV5BMWQzYjFhM2ItYjgyMC00NzI4LWJjN2YtMzkwZTFmOTE5MmI5XkEyXkFqcGc@._V1_SX300.jpg" alt="Somniphobia" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Somniphobia</div><div class="cc-meta">Film </div></div></div>
+<div class="cc reveal"><div class="cc-img"><img src="https://www.dropbox.com/scl/fi/389ionf2ue1tiemwusg6a/Screenshot-2026-04-14-084301.png?rlkey=el5nvgmjo6wxo2ntinao55cpe&st=fz1wwr63&raw=1" alt="Amore" style="width:100%;height:100%;object-position:left top;object-fit:cover;position:absolute;top:0;left:0" onerror="this.style.display='none'"/><div class="cc-ov"></div></div><div class="cc-body"><span class="cc-tag">Editor</span><div class="cc-title">Amore</div><div class="cc-meta">Film </div></div></div>
+    </div>
+  </div>
+</section>
+<!-- AE CREDITS -->
+<section id="ae" class="sec">
+  <div class="sec-inner">
+    <div class="sec-eye">Editorial Experience</div>
+    <h2 class="sec-title">Built in the <em>Cutting Room</em></h2>
+    <p class="sec-sub">Years of experience working in editorial on productions from some of Hollywood's biggest studios and networks.</p>
+    <div class="ae-note">
+      <div class="ae-note-txt">Isaiah's editorial career was built working on shows for studios like <strong>Netflix, FX, Disney, and Freeform</strong> — working alongside talented editors and learning the craft from the ground up on some of the industry's most well-known productions. This foundation shapes every creative decision he makes today.</div>
+    </div>
+    <div class="ae-grid">
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BZmMxNjU4YjgtYTNjOS00MzcxLWEyNjMtZmRjNDkxYjNlNGVkXkEyXkFqcGc@._V1_SX300.jpg" alt="The Old Man" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">The Old Man</div><div class="ac-meta">TV Series </div><div class="ac-net">FX</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BMzVlNzM1MGUtMmM4ZS00OWE4LTllOTMtN2I1ZjU2NWQyOGE4XkEyXkFqcGc@._V1_SX300.jpg" alt="Prom Pact" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Prom Pact</div><div class="ac-meta">Film </div><div class="ac-net">Disney</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BNzZiYjMwM2EtYmE0NS00NTg5LThhNGUtMjU2ZjcwMjM3ZGJhXkEyXkFqcGc@._V1_SX300.jpg" alt="The Beauty" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">The Beauty</div><div class="ac-meta">TV Mini Series </div><div class="ac-net">FX</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BYzVkNWY5M2EtZjk0NC00MjY2LTgzNzYtMjZhMTI1NzAxMDBhXkEyXkFqcGc@._V1_SX300.jpg" alt="From Scratch" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">From Scratch</div><div class="ac-meta">TV Mini Series </div><div class="ac-net">Netflix</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BYjBlZTlkMDUtZGVjYy00MDU3LThjYzYtYWNlNDFkNjdjNGIxXkEyXkFqcGc@._V1_SX300.jpg" alt="Good Trouble" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Good Trouble</div><div class="ac-meta">TV Series </div><div class="ac-net">Freeform</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" alt="Siren" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Siren</div><div class="ac-meta">TV Series </div><div class="ac-net">Freeform</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BMTU1MzAwODM4OF5BMl5BanBnXkFtZTgwMjA4OTY5NDM@._V1_SX300.jpg" alt="Lost in Space" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Lost in Space</div><div class="ac-meta">TV Series </div><div class="ac-net">Netflix</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BZDBlMmNhODAtMTUwNi00YjYyLWI0MjAtZDFiNmRlNzZmNzgzXkEyXkFqcGc@._V1_SX300.jpg" alt="Medal of Honor" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Medal of Honor</div><div class="ac-meta">TV Series </div><div class="ac-net">Netflix</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BZDA3NmM4M2ItMGZkNi00MDMxLWI3M2EtMDE1YWEwYjc2M2Y0XkEyXkFqcGc@._V1_SX300.jpg" alt="Kindred" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Kindred</div><div class="ac-meta">TV Series</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BOTQ1Mjk2OTE4OF5BMl5BanBnXkFtZTgwOTk5Mjg2NTE@._V1_SX300.jpg" alt="Dark Was the Night" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Dark Was the Night</div><div class="ac-meta">Film </div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BYjVmYTFjZTctYTU1MS00MmQxLWJjY2UtMjk0NjkwZGM3NWVhXkEyXkFqcGc@._V1_SX300.jpg" alt="Wolf Mountain" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Wolf Mountain</div><div class="ac-meta">Film </div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BODAyNDE2MzgtZThmZC00OTE3LTgxOTUtNTVkYjE1ZDA3ZDM2XkEyXkFqcGc@._V1_SX300.jpg" alt="Just Swipe" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Just Swipe</div><div class="ac-meta">Film </div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BY2NiZDMwMjctNjg1Mi00NDc4LTg2NTMtYTEzNWEyYmI3N2M5XkEyXkFqcGc@._V1_SX300.jpg" alt="Lion Guard: It's Unbungalievable" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">Lion Guard: It's Unbungalievable</div><div class="ac-meta">TV Mini Series </div><div class="ac-net">Disney</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BOTk5ZDhiMGQtYWE3NC00MTc5LWI4NGItZjQyZGJkMjRkYTY5XkEyXkFqcGc@._V1_SX300.jpg" alt="The Nintendo Bragg Report" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Assistant Editor</span><div class="ac-title">The Nintendo Bragg Report</div><div class="ac-meta">TV Mini Series</div><div class="ac-net">Nintendo</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BMzkxNjU2MzMzOF5BMl5BanBnXkFtZTgwOTA3Mjg4NjE@._V1_QL75_UY281_CR1,0,190,281_.jpg" alt="Truth" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">Post-Production Assistant</span><div class="ac-title">Truth</div><div class="ac-meta">Film</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BMTk1NzEyMjUwOV5BMl5BanBnXkFtZTgwNTkwMjU2MzI@._V1_QL75_UX190_CR0,0,190,281_.jpg" alt="The Truth About Lies" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">DI Post-Coordinator</span><div class="ac-title">The Truth About Lies</div><div class="ac-meta">Film</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BMTY2ODAzOTk5NV5BMl5BanBnXkFtZTgwMjY0MDM1NTE@._V1_QL75_UX190_CR0,0,190,281_.jpg" alt="Citrus Springs" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">DI Post-Coordinator</span><div class="ac-title">Citrus Springs</div><div class="ac-meta">Film</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BMjM4NTA5OTIwMF5BMl5BanBnXkFtZTgwMTc2MTQ1MzE@._V1_SX300.jpg" alt="Clarity" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">DI Post-Coordinator</span><div class="ac-title">Clarity</div><div class="ac-meta">Film</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BMjQzMjQxMTgxNF5BMl5BanBnXkFtZTgwODA1MjMwNDE@._V1_QL75_UY281_CR0,0,190,281_.jpg" alt="Beyond the Mask" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">DI Post-Coordinator</span><div class="ac-title">Beyond the Mask</div><div class="ac-meta">Film</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BYzNiYmJjYzEtNGM4Zi00MGRjLTgwOTUtZTI4NzQ2ZDNiYzVhXkEyXkFqcGc@._V1_QL75_UY281_CR4,0,190,281_.jpg" alt="Lady of Csejte" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">DI Post-Coordinator</span><div class="ac-title">Lady of Csejte</div><div class="ac-meta">Film</div></div></div>
+<div class="ac reveal"><div class="ac-img"><img src="https://m.media-amazon.com/images/M/MV5BMjcxNzk4ODM3Nl5BMl5BanBnXkFtZTgwODA4OTI5MzE@._V1_QL75_UX190_CR0,0,190,281_.jpg" alt="Old Fashioned" style="width:100%;height:100%;object-fit:cover;filter:brightness(.76) contrast(1.12) saturate(.82);transition:transform .6s,filter .4s" onerror="this.style.display='none'"/><div class="ac-ov"></div></div><div class="ac-body"><span class="ac-tag">DI Post-Coordinator</span><div class="ac-title">Old Fashioned</div><div class="ac-meta">Film</div></div></div>
+    </div>
+  </div>
+</section>
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div>
+        <div class="about-frame">
+          <img src="https://www.dropbox.com/scl/fi/798w3zk4tjvj8e0iveo2e/1E3A9033.jpg?rlkey=m7ue9ysfrsiuwvg7aseeddddn&st=7nnrv2oh&raw=1" alt="Isaiah Smith" onerror="this.src='https://placehold.co/350x440/111111/c8a84b?text=Isaiah+Smith'"/>
+          <div class="about-badge">Member<br/>Local 700<br/>MPEG</div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-eye">The Editor</div>
+        <h2 class="sec-title">About <em>Isaiah</em></h2>
+        <div class="about-body">
+          <p>Isaiah Smith is a <strong>film and television editor</strong> based in Los Angeles, California. A proud member of the Motion Picture Editors Guild, Local 700, he has spent over a decade building his career cutting stories for some of the biggest names in the industry.</p>
+          <p>His editorial career was built working on shows for studios like <strong>Netflix, FX, Disney, and Freeform</strong> — working alongside talented editors and learning the craft from the ground up on some of the industry's most well-known productions.</p>
+          <p>Today, Isaiah brings that experience to every project he edits — mixing technical skill with a genuine feel for story, rhythm, and emotion.</p>
+        </div>
+        <div class="about-pills">
+          <div class="pill"><div class="pill-l">Based In</div><div class="pill-v">Los Angeles, CA</div></div>
+          <div class="pill"><div class="pill-l">Guild</div><div class="pill-v">MPEG Local 700</div></div>
+          <div class="pill"><div class="pill-l">Specialty</div><div class="pill-v">Drama / Documentary</div></div>
+          <div class="pill"><div class="pill-l">Networks</div><div class="pill-v">Netflix · FX · Disney</div></div>
+        </div>
+        <a href="#contact" class="btn btn-gold">Work With Isaiah</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- VIDEOS -->
+<section id="videos" class="sec">
+  <div class="sec-inner">
+    <div class="sec-eye">Stream</div>
+    <h2 class="sec-title">Watch My <em>Work</em></h2>
+    <p class="sec-sub">Explore Isaiah's work across YouTube and Vimeo</p>
+    <div class="portal-grid">
+      <a href="https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A" target="_blank" rel="noopener" class="portal-card">
+        <div class="portal-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+        <div class="portal-label">YouTube</div>
+        <div class="portal-name">Isaiah Jeremiah</div>
+        <div class="portal-cta">Visit Channel &#8599;&#xFE0E;</div>
+      </a>
+      <a href="https://vimeo.com/isaiahsmith" target="_blank" rel="noopener" class="portal-card">
+        <div class="portal-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197c1.185-1.044 2.351-2.088 3.501-3.132C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.48 4.807z"/></svg></div>
+        <div class="portal-label">Vimeo</div>
+        <div class="portal-name">Isaiah Smith Films</div>
+        <div class="portal-cta">Visit Channel &#8599;&#xFE0E;</div>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div class="sec-inner">
+    <div class="sec-eye">Let's Connect</div>
+    <h2 class="sec-title">Get In <em>Touch</em></h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-tagline">Every great story deserves a great edit. If you're building something <strong>worth watching</strong>, let's talk.</div>
+        <div class="contact-methods">
+          <div class="c-row"><div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="c-lbl">Email</div><a href="mailto:IsaiahSmith0007@gmail.com" class="c-val">IsaiahSmith0007@gmail.com</a></div></div>
+          <div class="c-row"><div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 10.8 19.79 19.79 0 01.46 2.18 2 2 0 012.44 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.58 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="c-lbl">Phone</div><a href="tel:9405952795" class="c-val">940.595.2795</a></div></div>
+          <div class="c-row"><div class="c-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div><div class="c-lbl">Location</div><span class="c-val">Los Angeles, California</span></div></div>
+        </div>
+        <div class="soc-boxes">
+          <a href="https://www.imdb.com/name/nm5873370/" target="_blank" rel="noopener" class="soc-box"><svg viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 14H8V7h4v10zm0-11.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM18 17h-4v-5.5l-1.5 1V11l2-1.5h.5V17h3v-9h-4V6h5v11z"/></svg>IMDb</a>
+          <a href="https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A" target="_blank" rel="noopener" class="soc-box"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</a>
+          <a href="http://instagram.com/isaiahjeremiahsmith" target="_blank" rel="noopener" class="soc-box"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.7 1.7 4.8 4.8.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.1-1.6 4.7-4.8 4.8-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1C4 21.4 2.4 19.8 2.3 16.6c-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 3.9 3.9 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.1 8.3 0 8.7 0 12s0 3.7.1 4.9C.3 21.3 2.7 23.7 7.1 23.9c1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4A6.2 6.2 0 0012 5.8zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>Instagram</a>
+          <a href="http://tiktok.com/@isaiahjeremiahsmith" target="_blank" rel="noopener" class="soc-box"><svg viewBox="0 0 24 24"><path d="M19.6 3.3A4.5 4.5 0 0115.2 0h-3.4v16.4a2.1 2.1 0 01-2.1 1.8 2.1 2.1 0 01-2.1-2.1 2.1 2.1 0 012.1-2.1c.2 0 .4 0 .6.1V10.5c-.2 0-.4-.1-.6-.1a5.5 5.5 0 00-5.5 5.5 5.5 5.5 0 005.5 5.5 5.5 5.5 0 005.5-5.5V8.2a7.9 7.9 0 004.6 1.5V6.2a4.5 4.5 0 01-2.7-.9z"/></svg>TikTok</a>
+          <a href="http://facebook.com/isaiahsmith" target="_blank" rel="noopener" class="soc-box"><svg viewBox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-1.9.9-1.9 1.9v2.2h3.3l-.5 3.5h-2.7V24C19.6 23 24 18.1 24 12.1z"/></svg>Facebook</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">Isaiah <span>Smith</span> Films</div>
+  <div class="f-copy">&copy; 2026 Isaiah Smith &mdash; Los Angeles, CA</div>
+  <ul class="f-links">
+    <li><a href="#editing">Credits</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.imdb.com/name/nm5873370/" target="_blank" rel="noopener">IMDb &#8599;&#xFE0E;</a></li>
+    <li><a href="/local">Local Business Video</a></li>
+  </ul>
+<a href="#hero" id="toTop" aria-label="Back to top">↑</a>
+</footer>
+<script>
+// Nav scroll effect
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("scrolled", window.scrollY > 60);
+});
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("vis"); });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+// Back-to-top button visibility
+const toTop = document.getElementById("toTop");
+if (toTop) {
+  window.addEventListener("scroll", () => {
+    toTop.classList.toggle("visible", window.scrollY > 800);
+  });
+}
+// Close mobile nav after clicking a link
+const navToggleCb = document.getElementById("navToggleCb");
+if (navToggleCb) {
+  document.querySelectorAll(".nav-links a").forEach(a => {
+    a.addEventListener("click", () => { navToggleCb.checked = false; });
+  });
+}
+// Contact form
+// Hero filmstrip click to swap
+function heroSwap(mini) {
+  var img = document.getElementById("hero-img");
+  var titleEl = document.getElementById("hero-title");
+  var netEl = document.getElementById("hero-net");
+  var roleEl = document.getElementById("hero-role");
+  if (img) { img.src = mini.getAttribute("data-src"); img.alt = mini.getAttribute("data-title"); }
+  if (titleEl) titleEl.textContent = mini.getAttribute("data-title");
+  if (netEl) netEl.textContent = mini.getAttribute("data-net");
+  if (roleEl) roleEl.textContent = mini.getAttribute("data-role");
+  var allMinis = document.querySelectorAll(".mini");
+  for (var i = 0; i < allMinis.length; i++) { allMinis[i].style.borderColor = ""; }
+  mini.style.borderColor = "var(--gold)";
+}
+</script>
+</body>
+</html>

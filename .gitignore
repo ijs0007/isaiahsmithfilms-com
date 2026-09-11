@@ -1,0 +1,6 @@
+# heavy sources stay in the folder, not in git. The web encodes live in site/media.
+hero-film/
+_superseded/
+Claude outputs/
+READ-THE-DOCS.html
+.DS_Store
