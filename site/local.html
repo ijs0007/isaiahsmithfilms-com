@@ -410,6 +410,7 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
     <form name="local-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field"
           action="/local-thanks">
       <input type="hidden" name="form-name" value="local-inquiry">
+      <input type="hidden" name="subject" id="subj" value="New inquiry via /local">
       <p class="hp"><label>Leave this empty <input name="bot-field"></label></p>
 
       <div class="pair">
@@ -488,6 +489,12 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
   dlg.addEventListener('close',function(){full.pause();loop.play();});
   full.addEventListener('ended',close);
 })();
+/* Email subject carries the sender's name (Netlify uses this hidden field over the dashboard setting). */
+document.querySelector('form[name="local-inquiry"]').addEventListener('submit',function(){
+  var n=(document.getElementById('n').value||'').trim();
+  var b=(document.getElementById('biz').value||'').trim();
+  document.getElementById('subj').value='New inquiry from '+(n||'someone')+(b?' at '+b:'')+' via /local';
+});
 </script>
 </body>
 </html>
