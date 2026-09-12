@@ -112,7 +112,9 @@ strong{font-weight:600;color:var(--ink)}
   font-size:clamp(34px,3.6vw,50px);line-height:.9}
 .padhead p{margin:0;font-size:14.5px;color:var(--muted);text-align:right;max-width:26ch}
 .item{padding-block:clamp(24px,2.8vw,36px);border-bottom:1px solid var(--rule-soft)}
-.itemhead{display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap}
+.item .buy{float:right;margin:0 0 14px clamp(18px,3vw,40px)}
+.item .desc{margin:10px 0 0;color:var(--muted);font-size:16.5px;max-width:52ch}
+.item ul{clear:both}
 .price{font-family:var(--disp);font-variation-settings:'opsz' 72,'SOFT' 20,'WONK' 1;font-weight:800;
   font-size:clamp(29px,3.1vw,42px);letter-spacing:-.02em;white-space:nowrap}
 .price em{font-style:normal;font-family:var(--sans);font-weight:400;font-size:15px;color:var(--muted)}
@@ -121,6 +123,13 @@ strong{font-weight:600;color:var(--ink)}
   break-inside:avoid}
 .item li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--wood)}
 @media (max-width:700px){.item ul{columns:1}}
+/* the pick button: written on the pad, so it takes the pad's ink and the apron red, no fill until hovered */
+.buy{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.pick{display:inline-flex;align-items:center;padding:12px 22px;border:1px solid var(--red);
+  border-radius:2px;color:var(--red);font-family:var(--sans);font-size:15px;font-weight:600;line-height:1;
+  text-decoration:none;transition:background .2s,color .2s}
+.pick:hover,.pick:focus-visible{background:var(--red);color:var(--chart);outline:none}
+@media (max-width:700px){.item{display:flex;flex-direction:column}.item h3{order:1}.item .buy{order:2;float:none;margin:12px 0 0;align-items:flex-start}.item .desc{order:3}.item ul{order:4}}
 .founding{padding-top:clamp(22px,2.6vw,32px);display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
 .founding b{font-family:var(--disp);font-variation-settings:'opsz' 48,'SOFT' 20,'WONK' 1;
   font-weight:700;font-size:clamp(19px,1.9vw,24px);color:var(--red)}
@@ -345,8 +354,9 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
     </div>
 
     <div class="item">
-      <div class="itemhead"><h3 style="margin:0">The Intro</h3><div class="price">$1,200 <em>one time</em></div></div>
-      <p style="margin:10px 0 0;color:var(--muted);font-size:16.5px;max-width:52ch">Who you are, what you do, and
+      <div class="buy"><div class="price">$1,200 <em>one time</em></div><a class="pick" href="#inquiry" data-interest="The Intro">Book The Intro</a></div>
+      <h3 style="margin:0">The Intro</h3>
+      <p class="desc">Who you are, what you do, and
         why people come back.</p>
       <ul>
         <li>One visit, about three hours, at your place</li>
@@ -361,8 +371,9 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
     </div>
 
     <div class="item">
-      <div class="itemhead"><h3 style="margin:0">Monthly Reels</h3><div class="price">$1,200 <em>a month</em></div></div>
-      <p style="margin:10px 0 0;color:var(--muted);font-size:16.5px;max-width:52ch">Stay in front of people every
+      <div class="buy"><div class="price">$1,200 <em>a month</em></div><a class="pick" href="#inquiry" data-interest="Monthly Reels">Start Monthly Reels</a></div>
+      <h3 style="margin:0">Monthly Reels</h3>
+      <p class="desc">Stay in front of people every
         week without thinking about it. Cancel any time.</p>
       <ul>
         <li>One visit a month, about three hours</li>
@@ -407,7 +418,7 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
       <p>You have made it this far, so I am hardly a stranger. If you would still rather not call, the form works just as well.</p>
     </div>
 
-    <form name="local-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+    <form id="inquiry" name="local-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field"
           action="/local-thanks">
       <input type="hidden" name="form-name" value="local-inquiry">
       <input type="hidden" name="subject" id="subj" value="NEW INQUIRY (via local)">
@@ -489,6 +500,16 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
   dlg.addEventListener('close',function(){full.pause();loop.play();});
   full.addEventListener('ended',close);
 })();
+/* Pick buttons on the pad: preselect the plan, scroll to the form, land in the name field. */
+document.querySelectorAll('.pick').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var r=document.querySelector('input[name=interest][value="'+a.dataset.interest+'"]');
+    if(r) r.checked=true;
+    document.getElementById('inquiry').scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(function(){ document.getElementById('n').focus({preventScroll:true}); },700);
+  });
+});
 /* Email subject carries the sender's name (Netlify uses this hidden field over the dashboard setting). */
 document.querySelector('form[name="local-inquiry"]').addEventListener('submit',function(){
   var n=(document.getElementById('n').value||'').trim();
