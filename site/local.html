@@ -134,6 +134,7 @@ strong{font-weight:600;color:var(--ink)}
 .founding b{font-family:var(--disp);font-variation-settings:'opsz' 48,'SOFT' 20,'WONK' 1;
   font-weight:700;font-size:clamp(19px,1.9vw,24px);color:var(--red)}
 .founding p{margin:0;color:var(--muted);font-size:16px;flex:1;min-width:16rem}
+.founding.pay{padding-top:18px}.founding.pay b{color:var(--ink)}
 
 /* ------------------------------------------------------------- follow up */
 .steps{counter-reset:s;border-top:1px solid var(--rule)}
@@ -181,10 +182,12 @@ footer{border-top:1px solid var(--rule);margin-top:clamp(44px,6vw,86px);padding-
 .reach p{margin:8px 0 0;font-size:15.5px;color:var(--muted);max-width:28ch}
 
 form{border-top:1px solid var(--rule)}
-.f{padding-block:15px;border-bottom:1px solid var(--rule-soft)}
-.f label{display:block;font-size:13.5px;color:var(--muted);margin-bottom:4px}
-.f input,.f textarea{width:100%;border:0;background:transparent;font-family:var(--sans);
+/* clipboard form: the label and the writing line share a row, so there is only one place to write */
+.f{padding:18px 0 8px;border-bottom:1px solid var(--rule-soft);cursor:text;display:flex;align-items:baseline;gap:14px}
+.f label{font-size:13.5px;color:var(--muted);white-space:nowrap;flex:none}
+.f input,.f textarea{flex:1;min-width:0;width:100%;border:0;background:transparent;font-family:var(--sans);
   font-size:17px;font-weight:400;color:var(--ink);padding:2px 0;line-height:1.5}
+.f:has(textarea){flex-direction:column;align-items:stretch;gap:6px}
 .f input:focus,.f textarea:focus{outline:0}
 .f:focus-within{border-bottom-color:var(--red)}
 .f textarea{resize:vertical;min-height:2.6em}
@@ -390,6 +393,12 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
       <p>The first three businesses get The Intro at $750, in exchange for letting me show the finished
          video here and a few words about how it went.</p>
     </div>
+    <div class="founding pay">
+      <b>How you pay</b>
+      <p>$300 books your shoot date. It comes off the total, and it moves with you if you need to
+         reschedule. The rest is due when the video is delivered. Monthly Reels is billed at the start
+         of each month.</p>
+    </div>
   </div>
 </div></section>
 
@@ -414,7 +423,7 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
   <div class="closegrid">
     <div class="reach">
       <a href="tel:+16788418081">678.841.8081</a>
-      <a href="mailto:IsaiahSmith0007@gmail.com">IsaiahSmith0007@gmail.com</a>
+      <a href="mailto:info@isaiahsmithfilms.com">info@isaiahsmithfilms.com</a>
       <p>You have made it this far, so I am hardly a stranger. If you would still rather not call, the form works just as well.</p>
     </div>
 
@@ -500,6 +509,12 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
   dlg.addEventListener('close',function(){full.pause();loop.play();});
   full.addEventListener('ended',close);
 })();
+/* Click anywhere in a field's cell, rule included, and the cursor lands in it. */
+document.querySelectorAll('.f').forEach(function(f){
+  f.addEventListener('click',function(e){
+    var c=f.querySelector('input,textarea'); if(c&&e.target!==c) c.focus();
+  });
+});
 /* Pick buttons on the pad: preselect the plan, scroll to the form, land in the name field. */
 document.querySelectorAll('.pick').forEach(function(a){
   a.addEventListener('click',function(e){
