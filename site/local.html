@@ -493,7 +493,7 @@ dialog.film video{width:100%;height:auto;display:block;background:#000}
 document.querySelector('form[name="local-inquiry"]').addEventListener('submit',function(){
   var n=(document.getElementById('n').value||'').trim();
   var b=(document.getElementById('biz').value||'').trim();
-  document.getElementById('subj').value='NEW INQUIRY | '+(n||'Someone')+(b?' | '+b:'')+' (via local)';
+  document.getElementById('subj').value='NEW INQUIRY | '+(n||'SOMEONE').toUpperCase()+(b?' | '+b.toUpperCase():'')+' (via local)';
 });
 </script>
 </body>
