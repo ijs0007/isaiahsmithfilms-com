@@ -19,6 +19,7 @@
   --dim:#70777A;     /* bone darkened to 4.61:1. Replaces the old #666 which failed at 3.53:1 */
   --f:'Archivo','Helvetica Neue',Arial,sans-serif;
   --gut:clamp(1.15rem,5vw,4.5rem);
+  --rail:#0E1013;   /* the film base itself: a hair off black */
   --max:1380px;--navh:70px;
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -134,20 +135,23 @@ h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-str
 .ac-m{font-size:.72rem;color:var(--dim);margin-top:.12rem}
 
 
-/* FILM. The strip and the bands run between two sprocket rails, with grain over the top.
-   Rail is a shade above black so the punched holes read; grain is the alpha channel of
-   Isaiah's own grain plate, screened so only the speckle lifts. */
-.reel{position:relative;background:#16191d;padding-block:17px;overflow:hidden}
+/* FILM. The strip and the bands run between two sprocket rails.
+   Rail sits just above black so the punched holes still read but the strip stays down
+   in the dark; the reel fades out at both edges instead of hitting the viewport hard.
+   Grain lives on the scrolling row, not on the reel, so it travels with the frames. */
+.reel{position:relative;background:var(--rail);padding-block:17px;overflow:hidden}
+.reel-s{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)}
 .reel-top{margin-top:var(--navh)}
 .reel::before,.reel::after{content:"";position:absolute;left:0;right:0;height:17px;z-index:3;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='17'%3E%3Crect width='38' height='17' fill='%2316191d'/%3E%3Crect x='11' y='3.5' width='16' height='10' rx='2.5' fill='%23000'/%3E%3C/svg%3E") repeat-x 0 0/38px 17px;pointer-events:none}
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='17'%3E%3Crect width='38' height='17' fill='%230E1013'/%3E%3Crect x='11' y='3.5' width='16' height='10' rx='2.5' fill='%23000'/%3E%3C/svg%3E") repeat-x 0 0/38px 17px;pointer-events:none}
 .reel::before{top:0}.reel::after{bottom:0}
-.reel .grain{position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:url(media/grain.jpg) repeat 0 0/240px 240px;mix-blend-mode:screen;opacity:.3}
+.grain{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:url(media/grain.jpg) repeat 0 0/480px 480px;mix-blend-mode:screen;opacity:.13}
 @media(max-width:760px){
   .reel{padding-block:11px}
   .reel::before,.reel::after{height:11px;background-size:26px 11px}
-  .reel .grain{background-size:170px 170px}}
+  .grain{background-size:320px 320px}}
 
 /* THE WALL: a contact sheet, full bleed, frames at their native 16:9 so nothing is cropped */
 .wall{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:2.6rem}
@@ -164,14 +168,24 @@ h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-str
   font-family:var(--f);font-size:.74rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
   color:var(--bone);border-bottom:2px solid var(--sodium);padding:.5rem .2rem;transition:border-color .2s}
 .more:hover{border-bottom-color:var(--bone)}
-/* THE STRIP: one row of frames running off both edges. Moves when you move it, not on its own. */
-.strip{display:flex;gap:5px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;
-  scrollbar-color:var(--ember) #000;scroll-snap-type:x proximity;cursor:grab}
+/* THE STRIP: one row of frames running off both edges. Moves when you move it, not on its
+   own. The native scrollbar is hidden and redrawn as .reelbar underneath the film, so the
+   bar is a rule under the strip rather than a thing sitting inside the picture. */
+.strip{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;cursor:grab;
+  scrollbar-width:none;-ms-overflow-style:none}
+.strip::-webkit-scrollbar{display:none;height:0}
+.strip-in{display:flex;gap:5px;width:max-content;position:relative}
 .strip img{flex:0 0 auto;height:auto;width:clamp(132px,14vw,214px);aspect-ratio:2.39/1;object-fit:cover;
-  background:var(--slate);scroll-snap-align:start}
-.strip::-webkit-scrollbar{height:7px}
-.strip::-webkit-scrollbar-track{background:#000}
-.strip::-webkit-scrollbar-thumb{background:var(--ember)}
+  background:var(--slate);scroll-snap-align:start;filter:brightness(.88)}
+
+.reelbar{position:relative;height:4px;background:#07080A;display:none;cursor:pointer;
+  touch-action:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)}
+.reelbar.on{display:block}
+.reelbar i{position:absolute;top:0;bottom:0;left:0;width:20%;background:var(--ember);
+  transition:background .18s}
+.reelbar:hover i,.reelbar.drag i{background:var(--sodium)}
 
 /* ABOUT */
 .about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,6vw,5.5rem);align-items:start}
@@ -264,7 +278,7 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
 <label for="ntog" class="ntog" aria-label="Menu"><span></span><span></span><span></span></label>
 <ul class="nav-links"><li><a href="#editing">Editing</a></li><li><a href="#ae">Experience</a></li><li><a href="#frames">Frames</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.imdb.com/name/nm5873370/">IMDb</a></li></ul>
 <a href="https://www.editorsguild.com" target="_blank" rel="noopener" class="guild"><b>Local 700</b>Motion Picture Editors Guild</a></nav>
-<div class="reel reel-top"><div class="strip" role="group" aria-label="Frames from Isaiah Smith's work" tabindex="0"><img src="media/frames/s15.jpg" alt="" loading="lazy"/><img src="media/frames/s16.jpg" alt="" loading="lazy"/><img src="media/frames/s17.jpg" alt="" loading="lazy"/><img src="media/frames/s18.jpg" alt="" loading="lazy"/><img src="media/frames/s19.jpg" alt="" loading="lazy"/><img src="media/frames/s20.jpg" alt="" loading="lazy"/><img src="media/frames/s21.jpg" alt="" loading="lazy"/><img src="media/frames/s22.jpg" alt="" loading="lazy"/><img src="media/frames/s23.jpg" alt="" loading="lazy"/><img src="media/frames/s24.jpg" alt="" loading="lazy"/><img src="media/frames/s25.jpg" alt="" loading="lazy"/><img src="media/frames/s26.jpg" alt="" loading="lazy"/><img src="media/frames/s27.jpg" alt="" loading="lazy"/><img src="media/frames/s28.jpg" alt="" loading="lazy"/></div><span class="grain"></span></div>
+<div class="reel reel-s reel-top"><div class="strip" role="group" aria-label="Frames from Isaiah Smith's work" tabindex="0"><div class="strip-in"><img src="media/frames/s15.jpg" alt="" loading="lazy"/><img src="media/frames/s16.jpg" alt="" loading="lazy"/><img src="media/frames/s17.jpg" alt="" loading="lazy"/><img src="media/frames/s18.jpg" alt="" loading="lazy"/><img src="media/frames/s19.jpg" alt="" loading="lazy"/><img src="media/frames/s20.jpg" alt="" loading="lazy"/><img src="media/frames/s21.jpg" alt="" loading="lazy"/><img src="media/frames/s22.jpg" alt="" loading="lazy"/><img src="media/frames/s23.jpg" alt="" loading="lazy"/><img src="media/frames/s24.jpg" alt="" loading="lazy"/><img src="media/frames/s25.jpg" alt="" loading="lazy"/><img src="media/frames/s26.jpg" alt="" loading="lazy"/><img src="media/frames/s27.jpg" alt="" loading="lazy"/><img src="media/frames/s28.jpg" alt="" loading="lazy"/><span class="grain"></span></div></div></div><div class="reelbar"><i></i></div>
 <header id="hero"><div>
 <h1 class="disp"><span>Isaiah</span><span>Smith</span></h1>
 <div class="hrule"></div>
@@ -279,7 +293,7 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
 </div></header>
 <section class="facts"><p>Sixteen years in film and television. More than 15 editing credits and 30 credits overall, on productions for Netflix, FX, Disney, Freeform and CBS. Member of the Motion Picture Editors Guild, Local 700.</p></section>
 <section class="nets"><div class="nets-l">Credits include work for</div><div class="nets-r"><a href="https://www.netflix.com" target="_blank" rel="noopener">Netflix</a><a href="https://www.fxnetworks.com" target="_blank" rel="noopener">FX</a><a href="https://www.disneyplus.com" target="_blank" rel="noopener">Disney</a><a href="https://www.hulu.com" target="_blank" rel="noopener">Hulu</a><a href="https://www.freeform.com" target="_blank" rel="noopener">Freeform</a><a href="https://www.paramountplus.com" target="_blank" rel="noopener">CBS</a></div></section>
-<div class="reel"><div class="strip" role="group" aria-label="Frames from Isaiah Smith's work" tabindex="0"><img src="media/frames/s01.jpg" alt="" loading="lazy"/><img src="media/frames/s02.jpg" alt="" loading="lazy"/><img src="media/frames/s03.jpg" alt="" loading="lazy"/><img src="media/frames/s04.jpg" alt="" loading="lazy"/><img src="media/frames/s05.jpg" alt="" loading="lazy"/><img src="media/frames/s06.jpg" alt="" loading="lazy"/><img src="media/frames/s07.jpg" alt="" loading="lazy"/><img src="media/frames/s08.jpg" alt="" loading="lazy"/><img src="media/frames/s09.jpg" alt="" loading="lazy"/><img src="media/frames/s10.jpg" alt="" loading="lazy"/><img src="media/frames/s11.jpg" alt="" loading="lazy"/><img src="media/frames/s12.jpg" alt="" loading="lazy"/><img src="media/frames/s13.jpg" alt="" loading="lazy"/><img src="media/frames/s14.jpg" alt="" loading="lazy"/></div><span class="grain"></span></div>
+<div class="reel reel-s"><div class="strip" role="group" aria-label="Frames from Isaiah Smith's work" tabindex="0"><div class="strip-in"><img src="media/frames/s01.jpg" alt="" loading="lazy"/><img src="media/frames/s02.jpg" alt="" loading="lazy"/><img src="media/frames/s03.jpg" alt="" loading="lazy"/><img src="media/frames/s04.jpg" alt="" loading="lazy"/><img src="media/frames/s05.jpg" alt="" loading="lazy"/><img src="media/frames/s06.jpg" alt="" loading="lazy"/><img src="media/frames/s07.jpg" alt="" loading="lazy"/><img src="media/frames/s08.jpg" alt="" loading="lazy"/><img src="media/frames/s09.jpg" alt="" loading="lazy"/><img src="media/frames/s10.jpg" alt="" loading="lazy"/><img src="media/frames/s11.jpg" alt="" loading="lazy"/><img src="media/frames/s12.jpg" alt="" loading="lazy"/><img src="media/frames/s13.jpg" alt="" loading="lazy"/><img src="media/frames/s14.jpg" alt="" loading="lazy"/><span class="grain"></span></div></div></div><div class="reelbar"><i></i></div>
 <section id="editing" class="sec"><div class="wrap"><div class="grid-head">
 <h2>Editing Credits</h2><p class="sub">Projects where Isaiah served as Editor, building narrative, pacing and performance in the cutting room.</p></div>
 <div class="ed"><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BOGI5YmM4ZTctNDMzZC00YTUwLTkyNzYtMGQ5YjkzOGVmYjBlXkEyXkFqcGc@._V1_SX300.jpg" alt="Holy Hip Hop House" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Holy Hip Hop House: Street Ministry 4 Life</h3><div class="cc-m">Feature Documentary</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/ioexkyfsy4t4vw4919ovn/CDF06197-2A28-430E-B0CC-72C19B939EB7.jpeg?rlkey=kqenkw99e2mt4klf71g0zzvdz&st=izle0aam&raw=1" alt="Lenny Stallano" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Lenny Stallano: Private Investigator</h3><div class="cc-m">TV Pilot, Post-Production</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX300.jpg" alt="American Horror Stories" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">American Horror Stories</h3><div class="cc-m">TV Series</div><div class="cc-m">FX, Ryan Murphy</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" alt="Siren" style=""/></div><div class="cc-b"><span class="tag">Additional Editor</span><h3 class="cc-t">Siren</h3><div class="cc-m">TV Series</div><div class="cc-m">Freeform</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BODQyZTlhY2YtOTgwYS00NWE5LWJiYTItNzkzMmFkYzVlZDJhXkEyXkFqcGc@._V1_SX300.jpg" alt="Bow" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Bow</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BYjNlYzM4YzYtZjRhMy00OTJkLWJiMmQtNDNjMGQwYjA3ZjIwXkEyXkFqcGc@._V1_SX300.jpg" alt="Left" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Left</h3><div class="cc-m">Feature Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/c64hm33obzfrmllvsxfpy/Screenshot-2026-04-14-062043.png?rlkey=l7e7kkd8x8zi4lytnwhdq9o0z&st=lpk11i50&raw=1" alt="Be Mine" style="object-position:center top;"/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Be Mine</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/qedoc2nufbtnsh9ypast0/Screenshot-2026-04-14-063329.png?rlkey=rshktgnkj87wq8rxoud4hslvh&st=54g8e1zb&raw=1" alt="Stop It" style="object-position:center top;"/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Stop It</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BN2UxMDQyZmItNWU1MS00ZThjLWFmMGYtMDRjMjQ4YjcxMGI3XkEyXkFqcGc@._V1_SX300.jpg" alt="Meet the Wahls" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Meet the Wahls</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMDU5YjI2NjctNzFkYS00NGZmLThmMjctNTBjNTgzYTVjODAwXkEyXkFqcGc@._V1_SX300.jpg" alt="Soul Seekers" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Soul Seekers</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://i.vimeocdn.com/video/444317211-5b5cb4d12a35fe157ddcd7a71cc4fad755e8e7257fb7051656d71ff3a591d828-d_1920x1080" alt="A MeaningFull Life" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">A MeaningFull Life</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/udeoy7ip1lcf0dy6umksk/441E3417-3EC3-40E7-8A64-776DF5B634E2.jpeg?rlkey=29twti09gbf0vkhsrclfrfg68&st=p9uyvlnu&raw=1" alt="Undying" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Undying</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMWQzYjFhM2ItYjgyMC00NzI4LWJjN2YtMzkwZTFmOTE5MmI5XkEyXkFqcGc@._V1_SX300.jpg" alt="Somniphobia" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Somniphobia</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/389ionf2ue1tiemwusg6a/Screenshot-2026-04-14-084301.png?rlkey=el5nvgmjo6wxo2ntinao55cpe&st=fz1wwr63&raw=1" alt="Amore" style="object-position:left top;"/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Amore</h3><div class="cc-m">Film</div></div></article></div></div></section>
@@ -325,6 +339,34 @@ document.querySelectorAll(".nav-links a").forEach(function(a){a.onclick=function
 var wb=document.getElementById("wallBtn"),wl=document.getElementById("wall");
 if(wb){wb.onclick=function(){var o=wl.classList.toggle("open");
   wb.setAttribute("aria-expanded",o);wb.textContent=o?"Show fewer":"Show all 56 frames";};}
+document.querySelectorAll(".reel .strip").forEach(function(strip){
+  var bar=strip.parentNode.nextElementSibling;
+  if(!bar||!bar.classList.contains("reelbar"))return;
+  var thumb=bar.firstElementChild,drag=false;
+  function sync(){
+    var max=strip.scrollWidth-strip.clientWidth;
+    if(max<2){bar.classList.remove("on");return;}
+    bar.classList.add("on");
+    var w=Math.max(strip.clientWidth/strip.scrollWidth,.08);
+    thumb.style.width=(w*100)+"%";
+    thumb.style.left=((strip.scrollLeft/max)*(100-w*100))+"%";
+  }
+  function seek(e){
+    var r=bar.getBoundingClientRect(),tw=thumb.offsetWidth,
+        span=Math.max(r.width-tw,1),
+        p=Math.max(0,Math.min(1,(e.clientX-r.left-tw/2)/span));
+    strip.scrollLeft=p*(strip.scrollWidth-strip.clientWidth);
+  }
+  strip.addEventListener("scroll",sync,{passive:true});
+  addEventListener("resize",sync);
+  addEventListener("load",sync);
+  bar.addEventListener("pointerdown",function(e){drag=true;bar.classList.add("drag");
+    bar.setPointerCapture(e.pointerId);seek(e);e.preventDefault()});
+  bar.addEventListener("pointermove",function(e){if(drag)seek(e)});
+  bar.addEventListener("pointerup",function(){drag=false;bar.classList.remove("drag")});
+  bar.addEventListener("pointercancel",function(){drag=false;bar.classList.remove("drag")});
+  sync();
+});
 function swap(b){
   var i=document.getElementById("hero-img");
   i.src=b.dataset.src; i.alt=b.dataset.title;
