@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Isaiah Smith | Film &amp; Television Editor</title>
+<meta name="description" content="Isaiah Smith, film and television editor in Atlanta, Georgia. Motion Picture Editors Guild Local 700. Credits for Netflix, FX, Disney and Freeform."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#000000;   /* chosen: a poster hung in a dark room. True black, not a tinted stand-in */
+  --slate:#0C1523;   /* violinist frame, the cool shadow behind her */
+  --ember:#3D2724;   /* the man in the hat. Rules and borders */
+  --sodium:#7B6254;  /* the tunnel practical. The accent. Large text and UI only, 3.72:1 */
+  --bone:#ADB7BC;    /* the man in the hat, the highlight. Body text, 10.28:1 */
+  --dim:#70777A;     /* bone darkened to 4.61:1. Replaces the old #666 which failed at 3.53:1 */
+  --f:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --gut:clamp(1.15rem,5vw,4.5rem);
+  --max:1380px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--bone);font-family:var(--f);font-weight:400;
+     font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+::selection{background:var(--sodium);color:#000}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#000}
+::-webkit-scrollbar-thumb{background:var(--ember)}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+.disp{font-weight:900;font-stretch:125%;letter-spacing:-.02em;line-height:.86;text-transform:uppercase}
+
+/* NAV */
+#nav{position:fixed;inset:0 0 auto 0;z-index:900;display:flex;align-items:center;
+     justify-content:space-between;gap:1rem;padding:1.15rem var(--gut);
+     border-bottom:1px solid transparent;transition:background .3s,border-color .3s,padding .3s}
+#nav.scrolled{background:rgba(0,0,0,.94);backdrop-filter:blur(10px);border-bottom-color:var(--ember);padding-block:.8rem}
+.brand{font-weight:900;font-stretch:112%;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;
+       color:var(--bone);text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:1.9rem;list-style:none}
+.nav-links a{font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+             color:var(--dim);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--bone)}
+.guild{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
+       text-align:right;line-height:1.55;text-decoration:none;transition:color .2s}
+.guild b{display:block;color:var(--bone);font-weight:700;font-stretch:110%}
+.guild:hover{color:var(--bone)}
+.ntog-cb{display:none}
+.ntog{display:none;width:30px;height:19px;flex-direction:column;justify-content:space-between;cursor:pointer}
+.ntog span{height:2px;background:var(--bone);transition:transform .28s,opacity .2s}
+
+/* HERO */
+#hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,5rem);
+      align-items:center;max-width:var(--max);margin:0 auto;padding:8.5rem var(--gut) 4.5rem}
+h1{font-size:clamp(3.6rem,10vw,9rem);color:var(--bone)}
+h1 span{display:block}
+.hrule{width:3.5rem;height:2px;background:var(--sodium);margin:2rem 0 1.6rem}
+.role{font-size:clamp(1rem,1.6vw,1.2rem);font-weight:500;letter-spacing:.01em;color:var(--bone)}
+.bio{margin-top:1.1rem;max-width:46ch;color:var(--dim);font-size:.98rem;line-height:1.75}
+.bio b{color:var(--bone);font-weight:600}
+.cta{display:flex;gap:.7rem;flex-wrap:wrap;margin:2.2rem 0 2.4rem}
+.btn{display:inline-block;text-decoration:none;font-size:.78rem;font-weight:700;font-stretch:108%;
+     letter-spacing:.13em;text-transform:uppercase;padding:1rem 1.9rem;border:1px solid;transition:.2s}
+.btn-a{background:var(--bone);color:#000;border-color:var(--bone)}
+.btn-a:hover{background:#fff;border-color:#fff}
+.btn-b{background:transparent;color:var(--bone);border-color:var(--ember)}
+.btn-b:hover{border-color:var(--bone)}
+.socs{display:flex;gap:1.5rem;flex-wrap:wrap}
+.soc{display:flex;align-items:center;gap:.45rem;font-size:.68rem;font-weight:500;letter-spacing:.1em;
+     text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.soc:hover{color:var(--bone)}
+.soc svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+.hero-r{display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+.poster{width:100%;max-width:352px}
+.poster-img{aspect-ratio:2/3;border:1px solid var(--ember);overflow:hidden;background:var(--slate)}
+.poster-img img{width:100%;height:100%;object-fit:cover}
+.poster-cap{border:1px solid var(--ember);border-top:0;background:var(--slate);padding:.85rem 1rem}
+.pc-role{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
+         border-left:2px solid var(--sodium);padding-left:.5rem}
+.pc-title{font-size:1rem;font-weight:700;color:var(--bone);margin-top:.35rem;line-height:1.25}
+.pc-net{font-size:.74rem;color:var(--dim);margin-top:.1rem}
+.minis{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:center;max-width:352px}
+.mini{width:62px;aspect-ratio:2/3;border:1px solid var(--ember);overflow:hidden;background:var(--slate);
+      cursor:pointer;padding:0;transition:border-color .2s}
+.mini img{width:100%;height:100%;object-fit:cover}
+.mini:hover,.mini[aria-current="true"]{border-color:var(--sodium)}
+
+/* FACTS + NETWORKS */
+.facts{border-block:1px solid var(--ember);padding:2.1rem var(--gut);text-align:center}
+.facts p{max-width:64ch;margin:0 auto;font-size:clamp(.95rem,1.5vw,1.1rem);color:var(--bone);line-height:1.85}
+.nets{padding:1.6rem var(--gut) 2.2rem;text-align:center;border-bottom:1px solid var(--ember)}
+.nets-l{font-size:.66rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
+        margin-bottom:.9rem}
+.nets-r{display:flex;gap:.6rem 2.2rem;flex-wrap:wrap;justify-content:center}
+.nets-r a{font-size:1.02rem;font-weight:700;font-stretch:110%;letter-spacing:.01em;color:var(--bone);
+          text-decoration:none;opacity:.88;transition:opacity .2s}
+.nets-r a:hover{opacity:1}
+
+/* BANDS */
+.band{width:100%;height:clamp(210px,30vw,420px);overflow:hidden;background:var(--slate)}
+.band img{width:100%;height:100%;object-fit:cover}
+
+/* SECTIONS */
+.sec{padding:clamp(3.6rem,7vw,7rem) 0}
+h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-stretch:118%;
+   letter-spacing:-.015em;line-height:1.02;text-transform:uppercase}
+.sub{margin-top:.9rem;max-width:58ch;color:var(--dim);font-size:.99rem;line-height:1.75}
+.grid-head{margin-bottom:2.6rem}
+
+/* THE EDITOR WALL: bordered cards */
+.ed{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:1.15rem}
+.cc{background:var(--slate);border:1px solid var(--ember);transition:border-color .25s}
+.cc:hover{border-color:var(--sodium)}
+.cc-img{aspect-ratio:2/3;overflow:hidden;background:#06080c}
+.cc-img img{width:100%;height:100%;object-fit:cover}
+.cc-b{padding:.9rem 1rem 1.1rem}
+.tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+     color:var(--dim);border-left:2px solid var(--sodium);padding-left:.5rem;margin-bottom:.55rem}
+.cc-t{font-size:.95rem;font-weight:700;color:var(--bone);line-height:1.3}
+.cc-m{font-size:.78rem;color:var(--dim);margin-top:.2rem}
+
+/* THE CUTTING ROOM WALL: no chrome, denser, captions as plain type */
+.note{border-left:2px solid var(--sodium);padding:.15rem 0 .15rem 1.15rem;max-width:64ch;
+      margin:1.8rem 0 2.8rem;color:var(--dim);font-size:.95rem;line-height:1.8}
+.note b{color:var(--bone);font-weight:600}
+.aew{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:1.7rem .9rem}
+.ac-img{aspect-ratio:2/3;overflow:hidden;background:#06080c}
+.ac-img img{width:100%;height:100%;object-fit:cover}
+.ac-t{font-size:.83rem;font-weight:600;color:var(--bone);margin-top:.6rem;line-height:1.3}
+.ac-m{font-size:.72rem;color:var(--dim);margin-top:.12rem}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,6vw,5.5rem);align-items:start}
+.ab-img{border:1px solid var(--ember);overflow:hidden;aspect-ratio:3/4;background:var(--slate)}
+.ab-img img{width:100%;height:100%;object-fit:cover;object-position:55% bottom}
+.ab-copy{color:var(--dim);font-size:1rem;line-height:1.9;max-width:62ch}
+.ab-copy b{color:var(--bone);font-weight:600}
+.ab-copy p+p{margin-top:1.05rem}
+.facts2{margin:2.2rem 0;border-top:1px solid var(--ember)}
+.fr{display:grid;grid-template-columns:12rem 1fr;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--ember)}
+.fr dt{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding-top:.22rem}
+.fr dd{font-size:.98rem;font-weight:600;color:var(--bone)}
+
+/* WATCH */
+.watch{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.15rem;max-width:840px}
+.pc{display:block;background:var(--slate);border:1px solid var(--ember);padding:2.4rem 2rem;
+    text-decoration:none;transition:border-color .25s}
+.pc:hover{border-color:var(--sodium)}
+.pc svg{width:34px;height:34px;fill:var(--bone);margin-bottom:1.1rem}
+.pc-n{font-size:1.15rem;font-weight:700;color:var(--bone)}
+.pc-d{font-size:.82rem;color:var(--dim);margin-top:.3rem}
+.pc-go{display:inline-block;margin-top:1.3rem;font-size:.72rem;font-weight:700;letter-spacing:.13em;
+       text-transform:uppercase;color:var(--bone);border-bottom:2px solid var(--sodium);padding-bottom:.25rem}
+
+/* CONTACT */
+.contact{max-width:640px;margin:0 auto;text-align:center}
+.tagline{font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.65;color:var(--bone);font-weight:500;margin-bottom:2.8rem}
+.cm{display:flex;flex-direction:column;gap:1.05rem;align-items:center;margin-bottom:2.4rem}
+.cr{display:flex;align-items:center;gap:1rem;text-align:left}
+.ci{width:42px;height:42px;flex:0 0 42px;border:1px solid var(--ember);display:grid;place-items:center}
+.ci svg{width:17px;height:17px;stroke:var(--sodium);fill:none;stroke-width:1.6}
+.cl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.cv{font-size:1rem;color:var(--bone);text-decoration:none;transition:color .2s}
+a.cv:hover{color:#fff}
+.sbx{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+.sb{display:flex;align-items:center;gap:.5rem;border:1px solid var(--ember);padding:.8rem 1.15rem;
+    font-size:.68rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);
+    text-decoration:none;min-height:44px;transition:.2s}
+.sb svg{width:15px;height:15px;fill:currentColor}
+.sb:hover{border-color:var(--sodium);color:var(--bone)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;justify-content:space-between;
+       align-items:center;gap:1.2rem;flex-wrap:wrap}
+.fb{font-size:.8rem;font-weight:900;font-stretch:112%;letter-spacing:.15em;text-transform:uppercase;color:var(--bone)}
+.fc{font-size:.72rem;color:var(--dim)}
+.fl{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.fl a{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+      text-decoration:none;transition:color .2s}
+.fl a:hover{color:var(--bone)}
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:800;width:46px;height:46px;border-radius:50%;
+       background:var(--bone);color:#000;display:grid;place-items:center;text-decoration:none;
+       font-size:1.15rem;font-weight:700;opacity:0;visibility:hidden;transform:translateY(8px);
+       transition:opacity .3s,transform .3s,visibility .3s}
+#toTop.on{opacity:1;visibility:visible;transform:none}
+
+@media(max-width:980px){
+  #hero{grid-template-columns:1fr;padding-top:7rem;gap:2.8rem;min-height:0}
+  .about{grid-template-columns:1fr;gap:2.4rem}
+  .ab-img{max-width:340px}
+  .fr{grid-template-columns:9rem 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.guild{display:none}
+  .ntog{display:flex}
+  #nav .ntog-cb:checked~.nav-links{display:flex;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:flex-start;gap:.2rem;background:rgba(0,0,0,.97);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--ember);padding:1rem var(--gut) 1.4rem}
+  #nav .ntog-cb:checked~.nav-links a{font-size:.92rem;padding:.55rem 0;display:block}
+  #nav .ntog-cb:checked~.ntog span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+  #nav .ntog-cb:checked~.ntog span:nth-child(2){opacity:0}
+  #nav .ntog-cb:checked~.ntog span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+  h1{font-size:clamp(3.2rem,17vw,5.4rem)}
+  .cta{flex-direction:column}
+  .cta .btn{text-align:center;width:100%;max-width:340px}
+  .ed{grid-template-columns:repeat(2,1fr);gap:.85rem}
+  .aew{grid-template-columns:repeat(3,1fr);gap:1.2rem .6rem}
+  .ac-t{font-size:.75rem}.ac-m{font-size:.66rem}
+  .fr{grid-template-columns:1fr;gap:.2rem}
+  footer{flex-direction:column;align-items:flex-start}
+  .band{height:clamp(170px,44vw,260px)}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav id="nav"><a href="#hero" class="brand">Isaiah Smith</a>
+<input type="checkbox" id="ntog" class="ntog-cb"/>
+<label for="ntog" class="ntog" aria-label="Menu"><span></span><span></span><span></span></label>
+<ul class="nav-links"><li><a href="#editing">Editing</a></li><li><a href="#ae">Experience</a></li><li><a href="#about">About</a></li><li><a href="#watch">Watch</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.imdb.com/name/nm5873370/">IMDb</a></li></ul>
+<a href="https://www.editorsguild.com" target="_blank" rel="noopener" class="guild"><b>Local 700</b>Motion Picture Editors Guild</a></nav>
+<header id="hero"><div>
+<h1 class="disp"><span>Isaiah</span><span>Smith</span></h1>
+<div class="hrule"></div>
+<p class="role">Film and television editor. Atlanta, Georgia.</p>
+<p class="bio">Credits spanning companies such as <b>Netflix, FX, Disney,</b> and <b>Freeform</b>. Member of the Motion Picture Editors Guild, Local 700.</p>
+<div class="cta"><a href="#editing" class="btn btn-a">View my credits</a><a href="#contact" class="btn btn-b">Get in touch</a></div>
+<div class="socs"><a href="https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</a><a href="http://instagram.com/isaiahjeremiahsmith" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.7 1.7 4.8 4.8.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.1-1.6 4.7-4.8 4.8-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1C4 21.4 2.4 19.8 2.3 16.6c-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 3.9 3.9 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.1 8.3 0 8.7 0 12s0 3.7.1 4.9C.3 21.3 2.7 23.7 7.1 23.9c1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4A6.2 6.2 0 0012 5.8zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>Instagram</a><a href="http://tiktok.com/@isaiahjeremiahsmith" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 3.3A4.5 4.5 0 0115.2 0h-3.4v16.4a2.1 2.1 0 01-2.1 1.8 2.1 2.1 0 01-2.1-2.1 2.1 2.1 0 012.1-2.1c.2 0 .4 0 .6.1V10.5c-.2 0-.4-.1-.6-.1a5.5 5.5 0 00-5.5 5.5 5.5 5.5 0 005.5 5.5 5.5 5.5 0 005.5-5.5V8.2a7.9 7.9 0 004.6 1.5V6.2a4.5 4.5 0 01-2.7-.9z"/></svg>TikTok</a><a href="http://facebook.com/isaiahsmith" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-1.9.9-1.9 1.9v2.2h3.3l-.5 3.5h-2.7V24C19.6 23 24 18.1 24 12.1z"/></svg>Facebook</a><a href="https://www.linkedin.com/in/isaiahsmithfilms" target="_blank" rel="noopener" class="soc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</a></div>
+</div><div class="hero-r"><div class="poster"><div class="poster-img">
+<img id="hero-img" src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX600.jpg" alt="American Horror Stories"/></div>
+<div class="poster-cap"><div class="pc-role" id="hero-role">Editor</div><div class="pc-title" id="hero-title">American Horror Stories</div><div class="pc-net" id="hero-net">FX, Ryan Murphy Production</div></div></div>
+<div class="minis"><button type="button" class="mini"  data-src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" data-title="Siren" data-role="Additional Editor" data-net="Freeform" onclick="swap(this)" aria-label="Show Siren"><img src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" alt="Siren"/></button><button type="button" class="mini"  data-src="https://www.dropbox.com/scl/fi/ioexkyfsy4t4vw4919ovn/CDF06197-2A28-430E-B0CC-72C19B939EB7.jpeg?rlkey=kqenkw99e2mt4klf71g0zzvdz&st=izle0aam&raw=1" data-title="Lenny Stallano: Private Investigator" data-role="Editor" data-net="TV Pilot" onclick="swap(this)" aria-label="Show Lenny Stallano: Private Investigator"><img src="https://www.dropbox.com/scl/fi/ioexkyfsy4t4vw4919ovn/CDF06197-2A28-430E-B0CC-72C19B939EB7.jpeg?rlkey=kqenkw99e2mt4klf71g0zzvdz&st=izle0aam&raw=1" alt="Lenny Stallano: Private Investigator"/></button><button type="button" class="mini"  data-src="https://m.media-amazon.com/images/M/MV5BMTU1MzAwODM4OF5BMl5BanBnXkFtZTgwMjA4OTY5NDM@._V1_SX300.jpg" data-title="Lost in Space" data-role="Assistant Editor" data-net="Netflix" onclick="swap(this)" aria-label="Show Lost in Space"><img src="https://m.media-amazon.com/images/M/MV5BMTU1MzAwODM4OF5BMl5BanBnXkFtZTgwMjA4OTY5NDM@._V1_SX300.jpg" alt="Lost in Space"/></button><button type="button" class="mini"  data-src="https://m.media-amazon.com/images/M/MV5BMzVlNzM1MGUtMmM4ZS00OWE4LTllOTMtN2I1ZjU2NWQyOGE4XkEyXkFqcGc@._V1_SX300.jpg" data-title="Prom Pact" data-role="Assistant Editor" data-net="Disney" onclick="swap(this)" aria-label="Show Prom Pact"><img src="https://m.media-amazon.com/images/M/MV5BMzVlNzM1MGUtMmM4ZS00OWE4LTllOTMtN2I1ZjU2NWQyOGE4XkEyXkFqcGc@._V1_SX300.jpg" alt="Prom Pact"/></button><button type="button" class="mini" aria-current="true" data-src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX300.jpg" data-title="American Horror Stories" data-role="Editor" data-net="FX, Ryan Murphy Production" onclick="swap(this)" aria-label="Show American Horror Stories"><img src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX300.jpg" alt="American Horror Stories"/></button></div>
+</div></header>
+<section class="facts"><p>Sixteen years in film and television. More than 15 editing credits and 30 credits overall, on productions for Netflix, FX, Disney, Freeform and CBS. Member of the Motion Picture Editors Guild, Local 700.</p></section>
+<section class="nets"><div class="nets-l">Credits include work for</div><div class="nets-r"><a href="https://www.netflix.com" target="_blank" rel="noopener">Netflix</a><a href="https://www.fxnetworks.com" target="_blank" rel="noopener">FX</a><a href="https://www.disneyplus.com" target="_blank" rel="noopener">Disney</a><a href="https://www.hulu.com" target="_blank" rel="noopener">Hulu</a><a href="https://www.freeform.com" target="_blank" rel="noopener">Freeform</a><a href="https://www.paramountplus.com" target="_blank" rel="noopener">CBS</a></div></section>
+<div class="band"><img src="media/band-tunnel.jpg" alt="Frame from a film edited by Isaiah Smith" loading="lazy"/></div>
+<section id="editing" class="sec"><div class="wrap"><div class="grid-head">
+<h2>Editing Credits</h2><p class="sub">Projects where Isaiah served as Editor, building narrative, pacing and performance in the cutting room.</p></div>
+<div class="ed"><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BOGI5YmM4ZTctNDMzZC00YTUwLTkyNzYtMGQ5YjkzOGVmYjBlXkEyXkFqcGc@._V1_SX300.jpg" alt="Holy Hip Hop House" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Holy Hip Hop House: Street Ministry 4 Life</h3><div class="cc-m">Feature Documentary</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/ioexkyfsy4t4vw4919ovn/CDF06197-2A28-430E-B0CC-72C19B939EB7.jpeg?rlkey=kqenkw99e2mt4klf71g0zzvdz&st=izle0aam&raw=1" alt="Lenny Stallano" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Lenny Stallano: Private Investigator</h3><div class="cc-m">TV Pilot, Post-Production</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BZTY4NTQ0ZDMtMGM4ZS00YmYwLWFkYmUtYWFlZmUwMTA5MWMyXkEyXkFqcGc@._V1_SX300.jpg" alt="American Horror Stories" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">American Horror Stories</h3><div class="cc-m">TV Series</div><div class="cc-m">FX, Ryan Murphy</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" alt="Siren" style=""/></div><div class="cc-b"><span class="tag">Additional Editor</span><h3 class="cc-t">Siren</h3><div class="cc-m">TV Series</div><div class="cc-m">Freeform</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BODQyZTlhY2YtOTgwYS00NWE5LWJiYTItNzkzMmFkYzVlZDJhXkEyXkFqcGc@._V1_SX300.jpg" alt="Bow" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Bow</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BYjNlYzM4YzYtZjRhMy00OTJkLWJiMmQtNDNjMGQwYjA3ZjIwXkEyXkFqcGc@._V1_SX300.jpg" alt="Left" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Left</h3><div class="cc-m">Feature Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/c64hm33obzfrmllvsxfpy/Screenshot-2026-04-14-062043.png?rlkey=l7e7kkd8x8zi4lytnwhdq9o0z&st=lpk11i50&raw=1" alt="Be Mine" style="object-position:center top;"/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Be Mine</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/qedoc2nufbtnsh9ypast0/Screenshot-2026-04-14-063329.png?rlkey=rshktgnkj87wq8rxoud4hslvh&st=54g8e1zb&raw=1" alt="Stop It" style="object-position:center top;"/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Stop It</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BN2UxMDQyZmItNWU1MS00ZThjLWFmMGYtMDRjMjQ4YjcxMGI3XkEyXkFqcGc@._V1_SX300.jpg" alt="Meet the Wahls" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Meet the Wahls</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMDU5YjI2NjctNzFkYS00NGZmLThmMjctNTBjNTgzYTVjODAwXkEyXkFqcGc@._V1_SX300.jpg" alt="Soul Seekers" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Soul Seekers</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://i.vimeocdn.com/video/444317211-5b5cb4d12a35fe157ddcd7a71cc4fad755e8e7257fb7051656d71ff3a591d828-d_1920x1080" alt="A MeaningFull Life" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">A MeaningFull Life</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/udeoy7ip1lcf0dy6umksk/441E3417-3EC3-40E7-8A64-776DF5B634E2.jpeg?rlkey=29twti09gbf0vkhsrclfrfg68&st=p9uyvlnu&raw=1" alt="Undying" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Undying</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMWQzYjFhM2ItYjgyMC00NzI4LWJjN2YtMzkwZTFmOTE5MmI5XkEyXkFqcGc@._V1_SX300.jpg" alt="Somniphobia" style=""/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Somniphobia</h3><div class="cc-m">Film</div></div></article><article class="cc"><div class="cc-img"><img loading="lazy" src="https://www.dropbox.com/scl/fi/389ionf2ue1tiemwusg6a/Screenshot-2026-04-14-084301.png?rlkey=el5nvgmjo6wxo2ntinao55cpe&st=fz1wwr63&raw=1" alt="Amore" style="object-position:left top;"/></div><div class="cc-b"><span class="tag">Editor</span><h3 class="cc-t">Amore</h3><div class="cc-m">Film</div></div></article></div></div></section>
+<div class="band"><img src="media/band-fog.jpg" alt="Frame from a film edited by Isaiah Smith" loading="lazy"/></div>
+<section id="ae" class="sec"><div class="wrap"><div class="grid-head">
+<h2>Built in the Cutting Room</h2><p class="sub">Shows Isaiah worked on in editorial, for some of the largest studios and networks in the industry.</p>
+<div class="note">Isaiah's editorial career was built working on shows for studios like <b>Netflix, FX, Disney, and Freeform</b>, alongside talented editors, learning the craft from the ground up on some of the industry's most well known productions. That foundation shapes every creative decision he makes today.</div></div>
+<div class="aew"><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BZmMxNjU4YjgtYTNjOS00MzcxLWEyNjMtZmRjNDkxYjNlNGVkXkEyXkFqcGc@._V1_SX300.jpg" alt="The Old Man" style=""/></div><h3 class="ac-t">The Old Man</h3><div class="ac-m">TV Series, FX</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMzVlNzM1MGUtMmM4ZS00OWE4LTllOTMtN2I1ZjU2NWQyOGE4XkEyXkFqcGc@._V1_SX300.jpg" alt="Prom Pact" style=""/></div><h3 class="ac-t">Prom Pact</h3><div class="ac-m">Film, Disney</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BNzZiYjMwM2EtYmE0NS00NTg5LThhNGUtMjU2ZjcwMjM3ZGJhXkEyXkFqcGc@._V1_SX300.jpg" alt="The Beauty" style=""/></div><h3 class="ac-t">The Beauty</h3><div class="ac-m">TV Mini Series, FX</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BYzVkNWY5M2EtZjk0NC00MjY2LTgzNzYtMjZhMTI1NzAxMDBhXkEyXkFqcGc@._V1_SX300.jpg" alt="From Scratch" style=""/></div><h3 class="ac-t">From Scratch</h3><div class="ac-m">TV Mini Series, Netflix</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BYjBlZTlkMDUtZGVjYy00MDU3LThjYzYtYWNlNDFkNjdjNGIxXkEyXkFqcGc@._V1_SX300.jpg" alt="Good Trouble" style=""/></div><h3 class="ac-t">Good Trouble</h3><div class="ac-m">TV Series, Freeform</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BM2MwZmNmZTYtOGM0OS00MGZjLWI0ZTYtNjlkOGVhZDUzNGZhXkEyXkFqcGc@._V1_SX300.jpg" alt="Siren" style=""/></div><h3 class="ac-t">Siren</h3><div class="ac-m">TV Series, Freeform</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMTU1MzAwODM4OF5BMl5BanBnXkFtZTgwMjA4OTY5NDM@._V1_SX300.jpg" alt="Lost in Space" style=""/></div><h3 class="ac-t">Lost in Space</h3><div class="ac-m">TV Series, Netflix</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BZDBlMmNhODAtMTUwNi00YjYyLWI0MjAtZDFiNmRlNzZmNzgzXkEyXkFqcGc@._V1_SX300.jpg" alt="Medal of Honor" style=""/></div><h3 class="ac-t">Medal of Honor</h3><div class="ac-m">TV Series, Netflix</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BZDA3NmM4M2ItMGZkNi00MDMxLWI3M2EtMDE1YWEwYjc2M2Y0XkEyXkFqcGc@._V1_SX300.jpg" alt="Kindred" style=""/></div><h3 class="ac-t">Kindred</h3><div class="ac-m">TV Series</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BOTQ1Mjk2OTE4OF5BMl5BanBnXkFtZTgwOTk5Mjg2NTE@._V1_SX300.jpg" alt="Dark Was the Night" style=""/></div><h3 class="ac-t">Dark Was the Night</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BYjVmYTFjZTctYTU1MS00MmQxLWJjY2UtMjk0NjkwZGM3NWVhXkEyXkFqcGc@._V1_SX300.jpg" alt="Wolf Mountain" style=""/></div><h3 class="ac-t">Wolf Mountain</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BODAyNDE2MzgtZThmZC00OTE3LTgxOTUtNTVkYjE1ZDA3ZDM2XkEyXkFqcGc@._V1_SX300.jpg" alt="Just Swipe" style=""/></div><h3 class="ac-t">Just Swipe</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BY2NiZDMwMjctNjg1Mi00NDc4LTg2NTMtYTEzNWEyYmI3N2M5XkEyXkFqcGc@._V1_SX300.jpg" alt="Lion Guard: It's Unbungalievable" style=""/></div><h3 class="ac-t">Lion Guard: It's Unbungalievable</h3><div class="ac-m">TV Mini Series, Disney</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BOTk5ZDhiMGQtYWE3NC00MTc5LWI4NGItZjQyZGJkMjRkYTY5XkEyXkFqcGc@._V1_SX300.jpg" alt="The Nintendo Bragg Report" style=""/></div><h3 class="ac-t">The Nintendo Bragg Report</h3><div class="ac-m">TV Mini Series, Nintendo</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMzkxNjU2MzMzOF5BMl5BanBnXkFtZTgwOTA3Mjg4NjE@._V1_QL75_UY281_CR1,0,190,281_.jpg" alt="Truth" style=""/></div><h3 class="ac-t">Truth</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMTk1NzEyMjUwOV5BMl5BanBnXkFtZTgwNTkwMjU2MzI@._V1_QL75_UX190_CR0,0,190,281_.jpg" alt="The Truth About Lies" style=""/></div><h3 class="ac-t">The Truth About Lies</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMTY2ODAzOTk5NV5BMl5BanBnXkFtZTgwMjY0MDM1NTE@._V1_QL75_UX190_CR0,0,190,281_.jpg" alt="Citrus Springs" style=""/></div><h3 class="ac-t">Citrus Springs</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMjM4NTA5OTIwMF5BMl5BanBnXkFtZTgwMTc2MTQ1MzE@._V1_SX300.jpg" alt="Clarity" style=""/></div><h3 class="ac-t">Clarity</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMjQzMjQxMTgxNF5BMl5BanBnXkFtZTgwODA1MjMwNDE@._V1_QL75_UY281_CR0,0,190,281_.jpg" alt="Beyond the Mask" style=""/></div><h3 class="ac-t">Beyond the Mask</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BYzNiYmJjYzEtNGM4Zi00MGRjLTgwOTUtZTI4NzQ2ZDNiYzVhXkEyXkFqcGc@._V1_QL75_UY281_CR4,0,190,281_.jpg" alt="Lady of Csejte" style=""/></div><h3 class="ac-t">Lady of Csejte</h3><div class="ac-m">Film</div></article><article><div class="ac-img"><img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BMjcxNzk4ODM3Nl5BMl5BanBnXkFtZTgwODA4OTI5MzE@._V1_QL75_UX190_CR0,0,190,281_.jpg" alt="Old Fashioned" style=""/></div><h3 class="ac-t">Old Fashioned</h3><div class="ac-m">Film</div></article></div></div></section>
+<section id="about" class="sec"><div class="wrap"><div class="about">
+<div class="ab-img"><img src="https://www.dropbox.com/scl/fi/798w3zk4tjvj8e0iveo2e/1E3A9033.jpg?rlkey=m7ue9ysfrsiuwvg7aseeddddn&st=7nnrv2oh&raw=1" alt="Isaiah Smith" loading="lazy"/></div><div>
+<h2>About Isaiah</h2>
+<div class="ab-copy" style="margin-top:1.4rem"><p>Isaiah Smith is a <b>film and television editor</b> based in Atlanta, Georgia. A proud member of the Motion Picture Editors Guild, Local 700, he has spent sixteen years building his career cutting stories for some of the biggest names in the industry.</p>
+<p>His editorial career was built working on shows for studios like <b>Netflix, FX, Disney, and Freeform</b>, working alongside talented editors and learning the craft from the ground up on some of the industry's most well known productions.</p>
+<p>Today, Isaiah brings that experience to every project he edits, mixing technical skill with a feel for story, rhythm and emotion.</p></div>
+<dl class="facts2"><div class="fr"><dt>Based in</dt><dd>Atlanta, Georgia</dd></div><div class="fr"><dt>Guild</dt><dd>MPEG Local 700</dd></div><div class="fr"><dt>Specialty</dt><dd>Drama and documentary</dd></div><div class="fr"><dt>Networks</dt><dd>Netflix, FX, Disney</dd></div></dl>
+<a href="#contact" class="btn btn-a">Work with Isaiah</a></div></div></div></section>
+<div class="band"><img src="media/band-theatre.jpg" alt="Frame from a film edited by Isaiah Smith" loading="lazy"/></div>
+<section id="watch" class="sec"><div class="wrap"><div class="grid-head"><h2>Watch My Work</h2>
+<p class="sub">Isaiah's work across YouTube and Vimeo.</p></div><div class="watch">
+<a class="pc" href="https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg><div class="pc-n">Isaiah Jeremiah</div><div class="pc-d">YouTube</div><span class="pc-go">Visit channel</span></a>
+<a class="pc" href="https://vimeo.com/isaiahsmith" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197c1.185-1.044 2.351-2.088 3.501-3.132C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.48 4.807z"/></svg><div class="pc-n">Isaiah Smith Films</div><div class="pc-d">Vimeo</div><span class="pc-go">Visit channel</span></a>
+</div></div></section>
+<section id="contact" class="sec"><div class="wrap"><div class="contact"><h2>Get in Touch</h2>
+<p class="tagline" style="margin-top:1.6rem">Every great story deserves a great edit. If you are building something worth watching, let us talk.</p>
+<div class="cm">
+<div class="cr"><div class="ci"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cl">Email</div><a href="mailto:info@isaiahsmithfilms.com" class="cv">info@isaiahsmithfilms.com</a></div></div>
+<div class="cr"><div class="ci"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 10.8 19.79 19.79 0 01.46 2.18 2 2 0 012.44 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.58 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="cl">Phone</div><a href="tel:9405952795" class="cv">940.595.2795</a></div></div>
+<div class="cr"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div><div class="cl">Location</div><span class="cv">Atlanta, Georgia</span></div></div>
+</div><div class="sbx">
+<a class="sb" href="https://www.imdb.com/name/nm5873370/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 14H8V7h4v10zm0-11.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM18 17h-4v-5.5l-1.5 1V11l2-1.5h.5V17h3v-9h-4V6h5v11z"/></svg>IMDb</a>
+<a class="sb" href="https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</a>
+<a class="sb" href="http://instagram.com/isaiahjeremiahsmith" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.7 1.7 4.8 4.8.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.1-1.6 4.7-4.8 4.8-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1C4 21.4 2.4 19.8 2.3 16.6c-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 3.9 3.9 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.1 8.3 0 8.7 0 12s0 3.7.1 4.9C.3 21.3 2.7 23.7 7.1 23.9c1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4A6.2 6.2 0 0012 5.8zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>Instagram</a>
+<a class="sb" href="http://tiktok.com/@isaiahjeremiahsmith" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 3.3A4.5 4.5 0 0115.2 0h-3.4v16.4a2.1 2.1 0 01-2.1 1.8 2.1 2.1 0 01-2.1-2.1 2.1 2.1 0 012.1-2.1c.2 0 .4 0 .6.1V10.5c-.2 0-.4-.1-.6-.1a5.5 5.5 0 00-5.5 5.5 5.5 5.5 0 005.5 5.5 5.5 5.5 0 005.5-5.5V8.2a7.9 7.9 0 004.6 1.5V6.2a4.5 4.5 0 01-2.7-.9z"/></svg>TikTok</a>
+<a class="sb" href="http://facebook.com/isaiahsmith" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-1.9.9-1.9 1.9v2.2h3.3l-.5 3.5h-2.7V24C19.6 23 24 18.1 24 12.1z"/></svg>Facebook</a>
+<a class="sb" href="https://www.linkedin.com/in/isaiahsmithfilms" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</a>
+</div></div></div></section>
+<footer><div class="fb">Isaiah Smith Films</div>
+<div class="fc">&copy; 2026 Isaiah Smith Films LLC. Atlanta, Georgia.</div>
+<ul class="fl"><li><a href="#editing">Credits</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.imdb.com/name/nm5873370/" target="_blank" rel="noopener">IMDb</a></li><li><a href="/local">Local Business Video</a></li></ul></footer>
+<a href="#hero" id="toTop" aria-label="Back to top">&#8593;</a>
+<script>
+var nav=document.getElementById("nav"),top_=document.getElementById("toTop");
+addEventListener("scroll",function(){nav.classList.toggle("scrolled",scrollY>60);
+  top_.classList.toggle("on",scrollY>800)},{passive:true});
+var cb=document.getElementById("ntog");
+document.querySelectorAll(".nav-links a").forEach(function(a){a.onclick=function(){cb.checked=false}});
+function swap(b){
+  var i=document.getElementById("hero-img");
+  i.src=b.dataset.src; i.alt=b.dataset.title;
+  document.getElementById("hero-title").textContent=b.dataset.title;
+  document.getElementById("hero-role").textContent=b.dataset.role;
+  document.getElementById("hero-net").textContent=b.dataset.net.replace(" \u00b7 ",", ");
+  document.querySelectorAll(".mini").forEach(function(m){m.removeAttribute("aria-current")});
+  b.setAttribute("aria-current","true");
+}
+</script></body>
+</html>
