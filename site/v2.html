@@ -379,7 +379,7 @@ if(wb){wb.onclick=function(){var o=wl.classList.toggle("open");
   wb.setAttribute("aria-expanded",o);wb.textContent=o?"Show fewer":"Show all "+wl.querySelectorAll("img").length+" frames";};}
 document.querySelectorAll(".reel-s .strip").forEach(function(strip){
   var inner=strip.querySelector(".strip-in"), grain=inner.querySelector(".grain");
-  var set=[].slice.call(inner.querySelectorAll("img")), GAP=5, SPEED=11;   // px per second
+  var set=[].slice.call(inner.querySelectorAll("img")), GAP=5, SPEED=8;    // px per second
   function build(){
     [].slice.call(inner.querySelectorAll("img")).slice(set.length).forEach(function(n){inner.removeChild(n)});
     var period=inner.scrollWidth+GAP, need=Math.max(2,Math.ceil(strip.clientWidth/period)+1);
