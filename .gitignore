@@ -11,3 +11,15 @@ past short films and videos for my website/
 Pics for website - 2026/
 1E3A9033.jpg
 og-1.unused.jpg
+
+# The hand-sorted source stills, 2.2 GB of TIFs and screenshots. The exporter
+# reads them from here and writes the web copies into site/media/frames.
+# Never commit these: one "select all" in GitHub Desktop would push 2.2 GB
+# into history, and GitHub rejects files over 100 MB part way through.
+_top film strip/
+_bottom flm strip/
+_frame wall first 18/
+_frame wall bottom section/
+_image bands/
+_pics__SAVE for later maybe/
+assets/
