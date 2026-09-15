@@ -216,7 +216,7 @@ h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-str
    window, and the animation travels exactly one set before repeating. Hover holds it.
    Speed is set in px/sec so it reads the same on a laptop and on a 27 inch monitor. */
 .strip{overflow:hidden}
-.strip-in{display:flex;gap:5px;width:max-content;position:relative;background:var(--rail);
+.strip-in{display:flex;gap:5px;width:max-content;position:relative;background:var(--rail);filter:brightness(.88);
   animation:reelrun var(--dur,200s) linear infinite;will-change:transform}
 @keyframes reelrun{
   from{transform:translate3d(calc(var(--sw,0px) * -1),0,0)}
@@ -224,7 +224,7 @@ h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-str
 .reel-s:hover .strip-in{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.strip-in{animation:none}}
 .strip img{flex:0 0 auto;height:auto;width:clamp(132px,14vw,214px);aspect-ratio:2.39/1;object-fit:cover;
-  background:var(--slate);filter:brightness(.88)}
+  background:var(--slate)}
 
 /* ABOUT */
 .about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,6vw,5.5rem);align-items:start}
@@ -254,6 +254,9 @@ h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-str
 .cl{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
 .cv{font-size:1rem;color:var(--bone);text-decoration:none;transition:color .2s}
 a.cv:hover{color:#fff}
+.cn{font-size:.72rem;color:var(--dim);margin-top:.3rem;line-height:1.5}
+.cn a{color:var(--dim);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
+.cn a:hover{color:var(--bone)}
 .sbx{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
 .sb{display:flex;align-items:center;gap:.5rem;border:1px solid var(--ember);padding:.8rem 1.15rem;
     font-size:.68rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);
@@ -399,7 +402,7 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
 <p class="tagline" style="margin-top:1.6rem">Looking for an editor? Send over the project and the dates, and Isaiah will reach out to hear more about it.</p>
 <div class="cm">
 <div class="cr"><div class="ci"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cl">Email</div><a href="mailto:info@isaiahsmithfilms.com" class="cv">info@isaiahsmithfilms.com</a></div></div>
-<div class="cr"><div class="ci"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 10.8 19.79 19.79 0 01.46 2.18 2 2 0 012.44 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.58 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="cl">Phone</div><a href="tel:6788418081" class="cv">678.841.8081</a></div></div>
+<div class="cr"><div class="ci"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 10.8 19.79 19.79 0 01.46 2.18 2 2 0 012.44 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.58 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="cl">Phone</div><a href="tel:6788418081" class="cv">678.841.8081</a><div class="cn">Call or text. If I miss your call, I&rsquo;ll text you back. <a href="/sms-terms">Texting terms</a></div></div></div>
 <div class="cr"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div><div class="cl">Location</div><span class="cv">Atlanta, Georgia</span></div></div>
 </div><div class="sbx">
 <a class="sb" href="https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>YouTube</a>

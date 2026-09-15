@@ -1,14 +1,19 @@
 # Isaiah Smith Films — Local Business page + hero film
 
 ## What this folder is
-The entire website isaiahsmithfilms.com (no other copy exists anywhere). Deployed by dragging the site/ SUBFOLDER (only that folder)
-onto Netlify Drop (app.netlify.com, site "coruscating-bublanina-da8374", custom domain isaiahsmithfilms.com). No GitHub, no build step.
+The entire website isaiahsmithfilms.com. Deployed from GitHub: repo ijs0007/isaiahsmithfilms-com, branch main, Netlify auto-publishes
+on push (netlify.toml sets publish = "site"; no build step). Netlify site "coruscating-bublanina-da8374", custom domain isaiahsmithfilms.com.
+Netlify is credit-metered (about 15 credits per production deploy), so batch changes and push only when Isaiah says so. Branch deploys are free.
+Live DNS is at Porkbun, NOT Netlify (a Netlify DNS zone exists but the nameservers never moved). Add DNS records at Porkbun.
+Netlify Forms (the /local inquiry form) is the only Netlify-specific dependency.
 Moved into site/ on 9/3/2026 so CLAUDE.md, hero-film/ and the backup are never published.
 
 - site/index.html            the live editing portfolio (dark/gold). Do not restyle. Only change: one footer link to /local (already added).
 - site/local.html            DRAFT of isaiahsmithfilms.com/local — video services for small businesses in Conyers, GA. Still in the dark
                              portfolio look; will be REBUILT bright/white with a full-bleed silent hero video (see hero-film/). Copy and offers are the current draft.
 - site/local-thanks.html     form thank-you page (Netlify Forms, form name "local-inquiry").
+- site/sms-terms.html        texting terms + privacy for the business number (Twilio A2P 10DLC opt-in evidence). Linked under the phone number on / and /local.
+- site/sitemap.xml, robots.txt, google Search Console verified via Porkbun DNS TXT (Domain property).
 - site/_redirects            makes /local and /local-thanks work without .html.
 - index.ORIGINAL-backup.html exact copy of the site as it was live on 9/2/2026. Never edit. Undo button. Lives OUTSIDE site/ on purpose.
 - hero-film/SHOTLIST.md      the locked shot list for the hero film "Ask Your Editor".
@@ -21,10 +26,10 @@ Moved into site/ on 9/3/2026 so CLAUDE.md, hero-film/ and the backup are never p
   Reached by QR code / business card / Google Business Profile, plus a quiet footer link. Nothing in the main site's nav.
 - Two offers: "The Intro" (one-time brand video) and "Monthly Reels" (one 2-hr shoot a month, 4 reels + photos + captions).
   Website add-on (SmithWebHQ becomes a line item, not a peer brand). Founding-client rate for the first three.
-  Prices in local.html ($750 / $950 / $500 founding) are Claude's suggestion, NOT confirmed by Isaiah.
+  Prices on /local and the Google Business Profile: The Intro $1,200, Monthly Reels $1,200 a month, founding rate $750, $300 deposit. Confirmed by Isaiah 9/15/2026.
 - Prescription-pad motif for the pricing section ("Rx: Monthly Reels. Refills available.") ties the page to the hero film.
 - Don't name Loose Leaf Salads (Cedric, next door) anywhere until he has said yes. Keep an unnamed "first client" slot.
-- Main site keeps "Los Angeles, CA" for now — Isaiah's choice.
+- Main site says Atlanta, Georgia (changed 9/2026). Phone everywhere is 678-841-8081 (Twilio business line).
 
 ## Hero film — pipeline
 Realistic look (chosen). Dr. IJ Smith = Isaiah, never generated from a text description: every shot with him is OpenArt nano-banana-pro,
