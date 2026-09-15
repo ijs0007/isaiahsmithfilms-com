@@ -1,0 +1,8 @@
+# isaiahsmithfilms.com
+# Nothing is disallowed on purpose. The thank-you and QR pages carry their own
+# noindex meta tag, and a crawler has to be able to FETCH a page to see that tag,
+# so blocking them here would keep them out of the index less reliably, not more.
+User-agent: *
+Allow: /
+
+Sitemap: https://isaiahsmithfilms.com/sitemap.xml
