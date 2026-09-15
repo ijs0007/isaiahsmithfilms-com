@@ -124,7 +124,7 @@ h1 span{display:block}
 h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-stretch:118%;
    letter-spacing:-.015em;line-height:1.02;text-transform:uppercase}
 .sub{margin-top:.9rem;max-width:58ch;color:var(--dim);font-size:.99rem;line-height:1.75}
-#ae .sub{max-width:none}
+#ae .sub,#frames .sub{max-width:none}
 .grid-head{margin-bottom:2.6rem}
 
 /* THE EDITOR WALL: bordered cards */
@@ -217,6 +217,11 @@ h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-str
 .fr{display:grid;grid-template-columns:12rem 1fr;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--ember)}
 .fr dt{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding-top:.22rem}
 .fr dd{font-size:.98rem;font-weight:600;color:var(--bone)}
+#resume{scroll-margin-top:100px}
+.fr dd a{color:var(--bone);text-decoration:none;border-bottom:1px solid var(--ember);
+         padding-bottom:1px;transition:border-color .25s,color .25s}
+.fr dd a:hover{color:var(--sodium);border-bottom-color:var(--sodium)}
+.fr dd .sep{color:var(--dim);font-weight:400;margin:0 .6rem}
 
 /* CONTACT */
 .contact{max-width:640px;margin:0 auto;text-align:center}
@@ -315,7 +320,7 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
 <div class="ab-copy" style="margin-top:1.4rem"><p>Isaiah Smith is a <b>film and television editor</b> based in Atlanta, Georgia, and a member of the Motion Picture Editors Guild, Local 700. Sixteen years in post: assistant editor on studio series, editor on independent features, shorts and a pilot.</p>
 <p>He assisted on series and features for <b>Netflix, FX, Disney and Freeform</b>, learning the job on real schedules and real deadlines before taking on his own cuts.</p>
 <p>He is at his best on material that rewards patience: performance, structure, and knowing when a scene is already working.</p></div>
-<dl class="facts2"><div class="fr"><dt>Based in</dt><dd>Atlanta, Georgia</dd></div><div class="fr"><dt>Guild</dt><dd>MPEG Local 700</dd></div><div class="fr"><dt>Specialty</dt><dd>Drama and Documentary</dd></div><div class="fr"><dt>Networks</dt><dd>Netflix, FX, Disney</dd></div></dl>
+<dl class="facts2"><div class="fr"><dt>Based in</dt><dd>Atlanta, Georgia</dd></div><div class="fr"><dt>Guild</dt><dd>MPEG Local 700</dd></div><div class="fr"><dt>Specialty</dt><dd>Drama and Documentary</dd></div><div class="fr"><dt>Networks</dt><dd>Netflix, FX, Disney</dd></div><div class="fr" id="resume"><dt>Resume</dt><dd><a href="resume/Isaiah-Smith-Editor-Resume.pdf" target="_blank" rel="noopener">Editor</a><span class="sep">/</span><a href="resume/Isaiah-Smith-Assistant-Editor-Resume.pdf" target="_blank" rel="noopener">Assistant Editor</a></dd></div></dl>
 <a href="#contact" class="btn btn-a">Work with Isaiah</a></div></div></div></section>
 <div class="reel"><div class="band band-b"><img src="media/band-b.jpg" alt="Frame from a film edited by Isaiah Smith" loading="lazy"/></div></div>
 <section id="contact" class="sec"><div class="wrap"><div class="contact"><h2>Get in Touch</h2>
@@ -334,7 +339,7 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
 </div></div></div></section>
 <footer><div class="fb">Isaiah Smith Films</div>
 <div class="fc">&copy; 2026 Isaiah Smith Films LLC. Atlanta, Georgia.</div>
-<ul class="fl"><li><a href="#editing">Credits</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.imdb.com/name/nm5873370/" target="_blank" rel="noopener">IMDb</a></li><li><a href="/local">Local Business Video</a></li></ul></footer>
+<ul class="fl"><li><a href="#editing">Credits</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="#resume">Resume</a></li><li><a href="https://www.imdb.com/name/nm5873370/" target="_blank" rel="noopener">IMDb</a></li><li><a href="/local">Local Business Video</a></li></ul></footer>
 <a href="#hero" id="toTop" aria-label="Back to top">&#8593;</a>
 <script>
 var nav=document.getElementById("nav"),top_=document.getElementById("toTop");
