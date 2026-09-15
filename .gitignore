@@ -23,3 +23,7 @@ _frame wall bottom section/
 _image bands/
 _pics__SAVE for later maybe/
 assets/
+
+# private working material, never publish
+_to_delete/
+docs/
