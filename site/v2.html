@@ -12,14 +12,18 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --black:#000000;   /* chosen: a poster hung in a dark room. True black, not a tinted stand-in */
-  --slate:#0C1523;   /* violinist frame, the cool shadow behind her */
-  --ember:#3D2724;   /* the man in the hat. Rules and borders */
-  --sodium:#7B6254;  /* the tunnel practical. The accent. Large text and UI only, 3.72:1 */
-  --bone:#ADB7BC;    /* the man in the hat, the highlight. Body text, 10.28:1 */
-  --dim:#70777A;     /* bone darkened to 4.61:1. Replaces the old #666 which failed at 3.53:1 */
+  --slate:#141414;   /* the ground behind every picture. p12 of his own frames */
+  --ember:#2B2B2B;   /* every rule and border. p25 of his own frames */
+  --sodium:#8A8A8A;  /* the lit state: hovers, the rule under his name. 6.08:1 */
+  --bone:#ADB7BC;    /* the off-white he picked out. The one value on the page with any
+                      hue left in it, and barely: everything else is neutral so the only
+                      colour on the page comes from his own frames. Body text, 10.28:1 */
+  --dim:#828282;     /* secondary text. 5.41:1 on black AND 4.79:1 on --slate, which is the
+                      pairing inside the credit cards. The old brown pair was 4.02:1 there,
+                      failing AA for small text since before the repaint */
   --f:'Archivo','Helvetica Neue',Arial,sans-serif;
   --gut:clamp(1.15rem,5vw,4.5rem);
-  --rail:#0E1013;   /* the film base itself: a hair off black */
+  --rail:#0E0E0E;   /* the film base itself: a hair off black */
   --max:1380px;--navh:70px;
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -151,7 +155,7 @@ h2{font-size:clamp(1.9rem,4vw,3.1rem);color:var(--bone);font-weight:900;font-str
 .reel-top{margin-top:var(--navh)}
 .reel{--rail-w:38px}
 .reel::before,.reel::after{content:"";position:absolute;left:0;right:0;height:17px;z-index:3;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='17'%3E%3Crect width='38' height='17' fill='%230E1013'/%3E%3Crect x='11' y='3.5' width='16' height='10' rx='2.5' fill='%23000'/%3E%3C/svg%3E") repeat-x 0 0/38px 17px;pointer-events:none}
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='17'%3E%3Crect width='38' height='17' fill='%230E0E0E'/%3E%3Crect x='11' y='3.5' width='16' height='10' rx='2.5' fill='%23000'/%3E%3C/svg%3E") repeat-x 0 0/38px 17px;pointer-events:none}
 .reel::before{top:0}.reel::after{bottom:0}
 /* Both strips run the sprockets WITH the frames. The counter-running version was
    tried on the bottom strip and dropped: it read as two things sliding past each
