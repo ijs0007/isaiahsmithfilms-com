@@ -310,51 +310,103 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "Person",
- "name": "Isaiah Smith",
- "alternateName": "Isaiah J. Smith",
- "jobTitle": "Film and Television Editor",
- "description": "Film and television editor based in Atlanta, Georgia. Editor on independent features, shorts and a pilot; assistant editor on series for Netflix, FX, Disney and Freeform.",
- "url": "https://isaiahsmithfilms.com/",
- "image": "https://isaiahsmithfilms.com/media/posters/isaiah.jpg",
- "email": "info@isaiahsmithfilms.com",
- "telephone": "+1-678-841-8081",
- "address": {
-  "@type": "PostalAddress",
-  "addressLocality": "Atlanta",
-  "addressRegion": "GA",
-  "addressCountry": "US"
- },
- "memberOf": {
-  "@type": "Organization",
-  "name": "Motion Picture Editors Guild, Local 700",
-  "url": "https://www.editorsguild.com/"
- },
- "alumniOf": {
-  "@type": "CollegeOrUniversity",
-  "name": "University of North Texas"
- },
- "knowsAbout": [
-  "Film editing",
-  "Television editing",
-  "Post-production",
-  "Avid Media Composer",
-  "DaVinci Resolve",
-  "Adobe Premiere Pro"
- ],
- "worksFor": {
-  "@type": "Organization",
-  "name": "Isaiah Smith Films LLC",
-  "url": "https://isaiahsmithfilms.com/"
- },
- "sameAs": [
-  "https://www.imdb.com/name/nm5873370/",
-  "https://www.linkedin.com/in/isaiahsmithfilms",
-  "https://vimeo.com/isaiahsmith",
-  "https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A",
-  "https://www.instagram.com/isaiahjeremiahsmith",
-  "https://www.tiktok.com/@isaiahjeremiahsmith",
-  "https://www.facebook.com/isaiahsmith"
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://isaiahsmithfilms.com/#person",
+   "name": "Isaiah Smith",
+   "alternateName": "Isaiah J. Smith",
+   "jobTitle": "Film and Television Editor",
+   "description": "Film and television editor based in Atlanta, Georgia. Editor on independent features, shorts and a pilot; assistant editor on series for Netflix, FX, Disney and Freeform.",
+   "url": "https://isaiahsmithfilms.com/",
+   "image": "https://isaiahsmithfilms.com/media/posters/isaiah.jpg",
+   "email": "info@isaiahsmithfilms.com",
+   "telephone": "+1-678-841-8081",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Atlanta",
+    "addressRegion": "GA",
+    "addressCountry": "US"
+   },
+   "memberOf": {
+    "@type": "Organization",
+    "name": "Motion Picture Editors Guild, Local 700",
+    "url": "https://www.editorsguild.com/"
+   },
+   "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of North Texas"
+   },
+   "knowsAbout": [
+    "Film editing",
+    "Television editing",
+    "Post-production",
+    "Avid Media Composer",
+    "DaVinci Resolve",
+    "Adobe Premiere Pro"
+   ],
+   "worksFor": {
+    "@id": "https://isaiahsmithfilms.com/#organization"
+   },
+   "sameAs": [
+    "https://www.imdb.com/name/nm5873370/",
+    "https://www.linkedin.com/in/isaiahsmithfilms",
+    "https://vimeo.com/isaiahsmith",
+    "https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A",
+    "https://www.instagram.com/isaiahjeremiahsmith",
+    "https://www.tiktok.com/@isaiahjeremiahsmith",
+    "https://www.facebook.com/isaiahsmith"
+   ]
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://isaiahsmithfilms.com/#organization",
+   "name": "Isaiah Smith Films LLC",
+   "alternateName": "Isaiah Smith Films",
+   "url": "https://isaiahsmithfilms.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "@id": "https://isaiahsmithfilms.com/#logo",
+    "url": "https://isaiahsmithfilms.com/media/logo.png",
+    "contentUrl": "https://isaiahsmithfilms.com/media/logo.png",
+    "width": 720,
+    "height": 720,
+    "caption": "Isaiah Smith Films"
+   },
+   "image": {
+    "@id": "https://isaiahsmithfilms.com/#logo"
+   },
+   "founder": {
+    "@id": "https://isaiahsmithfilms.com/#person"
+   },
+   "email": "info@isaiahsmithfilms.com",
+   "telephone": "+1-678-841-8081",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Atlanta",
+    "addressRegion": "GA",
+    "addressCountry": "US"
+   },
+   "sameAs": [
+    "https://www.youtube.com/channel/UCa0wyHu46RdbzDRJV88mq8A"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://isaiahsmithfilms.com/#website",
+   "url": "https://isaiahsmithfilms.com/",
+   "name": "Isaiah Smith Films",
+   "alternateName": [
+    "IsaiahSmithFilms",
+    "isaiahsmithfilms.com"
+   ],
+   "publisher": {
+    "@id": "https://isaiahsmithfilms.com/#organization"
+   },
+   "about": {
+    "@id": "https://isaiahsmithfilms.com/#person"
+   }
+  }
  ]
 }
 </script>
