@@ -269,7 +269,7 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
        align-items:center;gap:1.2rem;flex-wrap:wrap}
 .fb{font-size:.8rem;font-weight:900;font-stretch:112%;letter-spacing:.15em;text-transform:uppercase;color:var(--bone)}
 .fc{font-size:.72rem;color:var(--dim)}
-.fl{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.fl{display:flex;flex-direction:column;align-items:flex-end;gap:.55rem;list-style:none}
 .fl a{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
       text-decoration:none;transition:color .2s}
 .fl a:hover{color:var(--bone)}
@@ -303,6 +303,7 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
   .ac-t{font-size:.75rem}.ac-m{font-size:.66rem}
   .fr{grid-template-columns:1fr;gap:.2rem}
   footer{flex-direction:column;align-items:flex-start}
+  .fl{align-items:flex-start}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}}
@@ -465,7 +466,7 @@ footer{border-top:1px solid var(--ember);padding:2.4rem var(--gut);display:flex;
 </div></div></div></section>
 <footer><div class="fb">Isaiah Smith Films</div>
 <div class="fc">&copy; 2026 Isaiah Smith Films LLC. Atlanta, Georgia.</div>
-<ul class="fl"><li><a href="#resume">Resume</a></li><li><a href="/local">Local Business Video</a></li></ul></footer>
+<ul class="fl"><li><a href="#resume">Resume</a></li><li><a href="/filmmaker">Beyond the Cut</a></li><li><a href="/local">Local Business Video</a></li></ul></footer>
 <a href="#hero" id="toTop" aria-label="Back to top">&#8593;</a>
 <script>
 var nav=document.getElementById("nav"),top_=document.getElementById("toTop");
