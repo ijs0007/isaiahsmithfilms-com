@@ -4,4 +4,5 @@
 /local-qr     /local-qr.html     200
 /sms-terms    /sms-terms.html    200
 /v2  /  301
-/beyond-the-cut /beyond-the-cut.html 200
+/filmmaker /filmmaker.html 200
+/beyond-the-cut /filmmaker 301
