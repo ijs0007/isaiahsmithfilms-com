@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Beyond the Cut | Isaiah Smith</title>
+<meta name="description" content="Isaiah Smith as a filmmaker. Director, producer and editor of the short film Bow, winner of Best Director at the Albuquerque Film and Music Experience in 2022."/>
+<link rel="canonical" href="https://isaiahsmithfilms.com/beyond-the-cut"/>
+<link rel="icon" href="favicon.ico" sizes="32x32"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="theme-color" content="#000000"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Isaiah Smith Films"/>
+<meta property="og:url" content="https://isaiahsmithfilms.com/beyond-the-cut"/>
+<meta property="og:title" content="Beyond the Cut | Isaiah Smith"/>
+<meta property="og:description" content="Director, producer and editor of the short film Bow. Best Director, Albuquerque Film and Music Experience, 2022."/>
+<meta property="og:image" content="https://isaiahsmithfilms.com/media/btc2/red-window.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#000000; --slate:#141414; --ember:#2B2B2B; --bone:#ADB7BC; --dim:#828282;
+  /* The practical red on the Bow set (red-window.jpg / red-script.jpg). Rules only: 3.16:1 on black. */
+  --bow:#A2392D;
+  --f:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --gut:clamp(1.15rem,5vw,4.5rem); --max:1380px; --navh:64px; --gap:6px;
+}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--bone);font-family:var(--f);font-size:16px;line-height:1.6;
+     overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+::selection{background:var(--bow);color:#fff}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+
+#nav{position:fixed;inset:0 0 auto 0;z-index:900;display:flex;align-items:center;justify-content:space-between;
+     gap:1rem;height:var(--navh);padding:0 var(--gut);background:var(--black);border-bottom:0}
+.brand{font-weight:900;font-stretch:112%;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bone);text-decoration:none}
+.nav-links{display:flex;gap:1.9rem;list-style:none}
+.nav-links a{font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--bone)}
+
+/* HERO: the red room, full width. The title sits on the dark lower third of the frame itself;
+   the scrim only deepens what is already there so the type holds on small screens. */
+.hero{position:relative;margin-top:var(--navh);height:min(88vh,62vw);min-height:460px;overflow:hidden;background:#1a0604}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;background:linear-gradient(to top,rgba(0,0,0,.82),rgba(0,0,0,0))}
+.hero-t{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(1.6rem,4vw,3.4rem);z-index:2;max-width:var(--max)}
+h1{font-weight:900;font-stretch:125%;letter-spacing:-.02em;line-height:.86;text-transform:uppercase;
+   font-size:clamp(3rem,9vw,8.4rem);color:#D3D9DC}
+.hero-t p{margin-top:1.2rem;max-width:44ch;font-size:clamp(1rem,1.5vw,1.18rem);color:#C4CBCE;line-height:1.7}
+
+.sec{padding:clamp(3.4rem,6.5vw,6.5rem) 0}
+.sec+.sec{border-top:1px solid var(--ember)}
+h2{font-size:clamp(1.9rem,4vw,3.1rem);font-weight:900;font-stretch:118%;letter-spacing:-.015em;line-height:1.02;text-transform:uppercase;color:var(--bone)}
+h3{font-size:1.02rem;font-weight:700;color:var(--bone)}
+.rule{width:3.5rem;height:3px;background:var(--bow);margin:1.4rem 0 1.4rem}
+.dim{color:var(--dim)}
+
+/* BOW */
+.bow{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr);gap:clamp(2rem,6vw,5.5rem);align-items:center}
+.bow p{max-width:46ch;line-height:1.85}
+.bow p+p{margin-top:1rem}
+.bow .role{font-size:.98rem;color:var(--dim)}
+.bow figure{background:var(--slate);aspect-ratio:3/2;overflow:hidden}
+.bow figure img{width:100%;height:100%;object-fit:cover}
+
+/* PRESS */
+.press{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr);gap:clamp(1.6rem,4vw,3.5rem);align-items:end;margin-top:clamp(3rem,6vw,5rem)}
+.press video{width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--ember)}
+.press p{max-width:38ch;color:var(--dim);line-height:1.8;margin-top:.6rem}
+
+/* FESTIVAL RUN */
+.run{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.recog{list-style:none;border-top:1px solid var(--ember);margin-top:2rem}
+.recog li{display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;padding:1.05rem 0;border-bottom:1px solid var(--ember)}
+.recog .res{font-size:.8rem;font-weight:700;color:var(--dim);padding-top:.15rem}
+.recog .win .res{color:var(--bone);border-left:3px solid var(--bow);padding-left:.6rem}
+.recog .what{font-size:1.02rem;font-weight:600;color:var(--bone);line-height:1.35}
+.recog .where{display:block;font-size:.9rem;font-weight:400;color:var(--dim);margin-top:.2rem}
+.pair-v{display:grid;grid-template-columns:1fr;gap:var(--gap)}
+.pair-v figure{background:var(--slate)}
+.pair-v img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.pair-v figcaption{padding:.6rem .8rem;font-size:.8rem;color:var(--dim)}
+
+/* PHOTO ESSAY: rows like spreads in a photo book. Full-bleed frames break the column. */
+.row{display:grid;gap:var(--gap);margin-top:var(--gap)}
+.row figure{background:var(--slate);overflow:hidden}
+.row img{width:100%;height:100%;object-fit:cover}
+.full{margin-top:var(--gap)}
+.full img{width:100%;height:min(80vh,56vw);object-fit:cover}
+.r2{grid-template-columns:1fr 1fr}.r2 figure{aspect-ratio:3/2}
+.r21{grid-template-columns:2fr 1fr}.r21 figure{height:clamp(240px,34vw,560px)}
+.r12{grid-template-columns:1fr 2fr}.r12 figure{height:clamp(240px,34vw,560px)}
+.r3{grid-template-columns:repeat(3,1fr)}.r3 figure{aspect-ratio:4/5}
+.r1{grid-template-columns:1fr}.r1 figure{aspect-ratio:21/9}
+.r3 img{object-position:50% 35%}
+.essay-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.essay-head p{max-width:44ch;color:var(--dim)}
+.chapter{margin-top:clamp(3.4rem,6vw,5.5rem)}
+
+
+/* QUOTES: his words, set large between the picture groups */
+.quote{padding:clamp(4rem,9vw,8rem) 0}
+.quote blockquote{max-width:none;border-left:3px solid var(--bow);padding-left:clamp(1.2rem,3vw,2.2rem)}
+.quote p{font-size:clamp(1.6rem,3.6vw,2.9rem);font-weight:600;font-stretch:105%;line-height:1.22;letter-spacing:-.01em;color:#C4CBCE;max-width:24ch}
+.quote cite{display:block;margin-top:1.2rem;font-size:.9rem;font-style:normal;color:var(--dim)}
+
+/* GROUPS: one wide frame that falls away into the black, then an even row under it */
+.group{padding-bottom:clamp(1rem,3vw,2rem)}
+.wide img{width:100%;height:min(82vh,58vw);object-fit:cover}
+.fade{-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 55%,transparent 100%)}
+.wide.fade{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 52%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 52%,transparent 100%)}
+.group .wrap{margin-top:calc(-1 * clamp(4rem,12vw,11rem));position:relative}
+.trio,.quad{display:grid;gap:var(--gap);margin-top:var(--gap)}
+.trio{grid-template-columns:repeat(3,1fr)}.trio figure{aspect-ratio:4/5}
+.quad{grid-template-columns:repeat(4,1fr)}.quad figure{aspect-ratio:1/1}
+.trio figure,.quad figure{overflow:hidden;background:var(--slate)}
+.trio img,.quad img{width:100%;height:100%;object-fit:cover}
+.mono img{filter:grayscale(1) contrast(1.05)}
+.group.last .wide img{height:min(70vh,50vw)}
+
+/* FESTIVAL RUN, second layout: the list reads large across the page, photos sit under it */
+.recog2{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(2rem,5vw,4rem);border-top:1px solid var(--ember)}
+.recog2 li{display:flex;flex-direction:column;gap:.2rem;padding:1.3rem 0;border-bottom:1px solid var(--ember)}
+.recog2 .res{font-size:.82rem;font-weight:700;color:var(--dim)}
+.recog2 .win .res{color:var(--bone)}
+.recog2 .win{border-left:3px solid var(--bow);padding-left:1rem}
+.recog2 .what{font-size:clamp(1.15rem,1.9vw,1.5rem);font-weight:700;color:var(--bone);line-height:1.25}
+.recog2 .where{font-size:1rem;color:var(--dim)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:clamp(2.2rem,4vw,3.4rem)}
+.duo figure{position:relative;aspect-ratio:4/5;overflow:hidden}
+.duo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.duo figcaption{position:absolute;left:1rem;bottom:1.2rem;font-size:.85rem;color:var(--bone)}
+.duo.fade{-webkit-mask-image:none;mask-image:none}
+.duo figure::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(to top,#000,transparent)}
+.duo figcaption{z-index:2}
+
+@media(max-width:760px){
+  .recog2{grid-template-columns:1fr}
+  .trio{grid-template-columns:1fr 1fr}.trio figure:last-child{grid-column:span 2;aspect-ratio:3/2}
+  .quad{grid-template-columns:1fr 1fr}
+  .duo{grid-template-columns:1fr}
+  .wide img{height:auto;aspect-ratio:4/5}
+}
+
+
+.duo2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:var(--gap)}
+.duo2 figure{aspect-ratio:3/2;overflow:hidden;background:var(--slate)}
+.duo2 img{width:100%;height:100%;object-fit:cover}
+/* Behind the Camera: a run of tall frames edge to edge, then one big frame beside two */
+.reel-sec h2{margin-bottom:2.2rem}
+.strip5{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.strip5 figure{aspect-ratio:2/3;overflow:hidden;background:var(--slate)}
+.strip5 img{width:100%;height:100%;object-fit:cover}
+.split{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:var(--gap);margin-top:var(--gap);height:clamp(360px,44vw,640px)}
+.split figure{overflow:hidden;background:var(--slate)}
+.split img{width:100%;height:100%;object-fit:cover}
+.split-a{grid-row:span 2}
+.group+.sec,.sec+.group{border-top:0}
+/* phone menu, same pattern as the homepage */
+.ntog-cb{display:none}
+.ntog{display:none;width:30px;height:19px;flex-direction:column;justify-content:space-between;cursor:pointer}
+.ntog span{height:2px;background:var(--bone)}
+@media(max-width:760px){
+  .ntog{display:flex}
+  #nav .ntog-cb:checked~.nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:.2rem;
+    background:var(--black);border-bottom:1px solid var(--ember);padding:1rem var(--gut) 1.4rem}
+  #nav .ntog-cb:checked~.nav-links a{font-size:.92rem;padding:.55rem 0;display:block}
+  .strip5{grid-template-columns:repeat(5,42vw);overflow-x:auto;-webkit-mask-image:none;mask-image:none;padding-inline:var(--gut)}
+  .split{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;height:auto}
+  .split-a{grid-column:span 2;grid-row:auto;aspect-ratio:3/2}
+  .split figure:not(.split-a){aspect-ratio:1/1}
+  .duo2 figure{aspect-ratio:4/5}
+}
+
+
+/* v6: no overlaps. Every frame has a clean top edge; the only fade is at the bottom, into the black. */
+.feature{margin-top:clamp(2.5rem,5vw,4.5rem)}
+.feature img{width:100%;height:min(86vh,62vw);object-fit:cover;
+  -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%);mask-image:linear-gradient(to bottom,#000 62%,transparent 100%)}
+.feature-pair{display:grid;grid-template-columns:3fr 4fr;gap:var(--gap);margin-top:clamp(1rem,2vw,1.5rem)}
+.feature-pair img{width:100%;height:min(88vh,60vw);object-fit:cover;
+  -webkit-mask-image:linear-gradient(to bottom,#000 65%,transparent 100%);mask-image:linear-gradient(to bottom,#000 65%,transparent 100%)}
+.row4,.row3{display:grid;gap:var(--gap);margin-top:clamp(1.5rem,3vw,2.5rem)}
+.row4{grid-template-columns:repeat(4,1fr)}.row4.pairA{grid-template-columns:1fr 1fr}.row4.pairA figure{aspect-ratio:4/5}.row3.pairB{grid-template-columns:1fr 1fr}.row3.pairB figure{aspect-ratio:4/3}
+.row3.solo{grid-template-columns:1fr}.row3.solo figure{aspect-ratio:16/9}.row3.solo img{object-position:50% 35%}
+.row4.three{grid-template-columns:repeat(3,1fr)}.row4.three figure{aspect-ratio:4/5}
+.row5{grid-template-columns:repeat(5,1fr)}
+.feature.rock{margin-top:clamp(1rem,2vw,1.5rem)}.row4 figure{aspect-ratio:3/4}
+.row3{grid-template-columns:repeat(3,1fr)}.row3 figure{aspect-ratio:4/3}
+.row4 figure,.row3 figure{overflow:hidden;background:var(--slate)}
+.row4 img,.row3 img{width:100%;height:100%;object-fit:cover}
+#behind{padding-bottom:0;border-top:0}
+.feature.last img{height:min(70vh,50vw)}
+@media(max-width:760px){
+  .feature img{height:auto;aspect-ratio:4/5}
+  .feature-pair{grid-template-columns:1fr}
+  .feature-pair img{height:auto;aspect-ratio:4/5}
+  .row4{grid-template-columns:1fr 1fr}.row5 figure:first-child{grid-column:span 2;aspect-ratio:1/1}
+  .row3{grid-template-columns:1fr 1fr}.row3:not(.pairB) figure:last-child{grid-column:span 2}
+}
+
+
+/* after the festival run: full frames edge to edge, no fades, small rows as wide as the big shots */
+.feature.flat{margin-top:var(--gap)}
+.feature.flat img{-webkit-mask-image:none;mask-image:none}
+.bleed .row4,.bleed .row3{margin-top:var(--gap)}
+#behind{padding:var(--gap) 0 0;text-align:center}
+#behind h2{line-height:.9;margin:0;padding:.35rem 0 .2rem}
+#behind+.feature{margin-top:0}
+
+#toTop{position:fixed;right:1.1rem;bottom:1.1rem;z-index:800;width:46px;height:46px;border-radius:50%;
+  background:var(--bone);color:#000;display:grid;place-items:center;text-decoration:none;font-size:1.15rem;font-weight:700;
+  opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s,transform .3s,visibility .3s}
+#toTop.on{opacity:.35;visibility:visible;transform:none}
+#toTop.on:hover{opacity:.8}
+.nav-links.home{display:flex!important}
+.contact-end{display:flex;justify-content:center;align-items:center;gap:1rem clamp(2rem,6vw,4.5rem);flex-wrap:wrap}
+.sec:has(.contact-end){padding:clamp(2.2rem,4vw,3.2rem) 0}
+.contact-end a{font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.contact-end a:hover{color:var(--bone)}
+
+.close{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.close figure{aspect-ratio:3/2;overflow:hidden;background:var(--slate)}
+.close img{width:100%;height:100%;object-fit:cover;object-position:60% 30%}
+.close p{max-width:40ch;font-size:clamp(1.05rem,1.8vw,1.3rem);line-height:1.65}
+.next{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2rem}
+.btn{display:inline-block;text-decoration:none;font-size:.78rem;font-weight:700;font-stretch:108%;letter-spacing:.13em;text-transform:uppercase;padding:1rem 1.9rem;border:1px solid;transition:.2s}
+.btn-a{background:var(--bone);color:#000;border-color:var(--bone)}.btn-a:hover{background:#fff;border-color:#fff}
+.btn-b{color:var(--bone);border-color:var(--ember)}.btn-b:hover{border-color:var(--bone)}
+
+footer{border-top:1px solid var(--ember);padding:1.1rem var(--gut);display:flex;justify-content:space-between;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.fb{font-size:.8rem;font-weight:900;font-stretch:112%;letter-spacing:.15em;text-transform:uppercase;color:var(--bone)}
+.fc{font-size:.72rem;color:var(--dim)}
+
+@media(max-width:980px){
+  .bow,.run,.press{grid-template-columns:1fr}
+  .run .pair-v{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links{display:none}
+  :root{--gap:4px}
+  .hero{height:78vh;min-height:0}
+  .hero img{object-position:62% 40%}
+  .recog li{grid-template-columns:1fr;gap:.35rem}
+  .run .pair-v{grid-template-columns:1fr}
+  .r21,.r12{grid-template-columns:1fr}.r21 figure,.r12 figure{height:auto;aspect-ratio:3/2}
+  .r3{grid-template-columns:1fr 1fr}.r3 figure:last-child{grid-column:span 2;aspect-ratio:3/2}
+  .full img{height:auto;aspect-ratio:4/3}
+  footer{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav id="nav"><a href="/" class="brand">Isaiah Smith</a>
+<ul class="nav-links home"><li><a href="/">Home</a></li></ul></nav>
+
+<header class="hero">
+  <img src="media/btc2/red-window.jpg" alt="Isaiah Smith reading the scene in the red-lit bedroom set of Bow, with cast and crew"/>
+  <div class="hero-t">
+    <h1>Beyond<br/>the Cut</h1>
+    <p>Most of Isaiah Smith's career has been spent in the cutting room. This is the other side of it: directing, producing and time on set.</p>
+  </div>
+</header>
+
+<main>
+<section class="sec" id="bow"><div class="wrap">
+  <div class="bow">
+    <div>
+      <h2>Bow</h2>
+      <div class="rule"></div>
+      <p class="role">Short film, 2022. Director, producer and editor.</p>
+      <p>Quinn is a young violinist losing her hearing. Before it is gone, she has one more audition to play.</p>
+      <p class="dim">Isaiah directed, produced and edited Bow, then took it through a festival run in 2022, where it won Best Director at the Albuquerque Film and Music Experience.</p>
+    </div>
+    <figure style="aspect-ratio:auto"><img style="height:auto" src="media/btc3/bow-2650.jpg" alt="The lead actor plays violin in empty bleachers while Isaiah watches from above, on the set of Bow" loading="lazy"/></figure>
+  </div>
+
+  <div class="press">
+    <video controls preload="none" playsinline poster="media/btc2/ptl-poster.jpg">
+      <source src="media/btc2/ptl-interview.mp4" type="video/mp4"/>
+    </video>
+    <div>
+      <h3>On Pittsburgh Today Live</h3>
+      <p>Isaiah talks about Bow on KDKA's Pittsburgh Today Live, ahead of its screening at ReelAbilities Film Festival Pittsburgh in 2022.</p>
+    </div>
+  </div>
+</div></section>
+
+<figure class="feature"><img src="media/btc3/g16-big.jpg" alt="Isaiah reading through a scene with actors and crew on the set of Bow" loading="lazy"/></figure>
+
+<section class="sec" id="festivals"><div class="wrap">
+  <h2>The Festival Run</h2>
+  <div class="rule"></div>
+  <ul class="recog2">
+    <li class="win"><span class="res">Winner</span><span class="what">Best Director, Narrative Short</span><span class="where">Albuquerque Film and Music Experience</span></li>
+    <li class="win"><span class="res">Winner</span><span class="what">Award of Merit</span><span class="where">One-Reeler Short Film Competition</span></li>
+    <li><span class="res">Nominee</span><span class="what">Best Cinematography, Narrative Short</span><span class="where">Queens World Film Festival</span></li>
+    <li><span class="res">Official Selection</span><span class="what">Cleveland International Film Festival</span></li>
+    <li><span class="res">Official Selection</span><span class="what">ReelAbilities Film Festival, Pittsburgh</span></li>
+    <li><span class="res">Official Selection</span><span class="what">Tallgrass Film Festival</span></li>
+  </ul>
+  <div class="duo fade">
+    <figure><img src="media/btc3/afmx-v6.jpg" alt="Isaiah on the red carpet at the Albuquerque Film and Music Experience" loading="lazy" style="object-position:50% 0%"/><figcaption>Albuquerque Film and Music Experience, 2022</figcaption></figure>
+    <figure><img src="media/btc2/reelabilities.jpg" alt="Isaiah with festival organizers at ReelAbilities Film Festival Pittsburgh" loading="lazy" style="height:114%;transform:translateY(-12%)"/><figcaption>ReelAbilities Film Festival, Pittsburgh, 2022</figcaption></figure>
+  </div>
+</div></section>
+
+<figure class="feature flat"><img src="media/btc3/g25-big.jpg" alt="Isaiah beside the camera with the operator in a theater lit by stage lights" loading="lazy"/></figure>
+
+<div class="bleed"><div class="row4 three">
+  <figure><img src="media/btc3/g15.jpg" alt="Crew setting up in the bleachers between takes" loading="lazy"/></figure>
+  <figure><img src="media/btc3/g28.jpg" alt="Isaiah directing a group of performers on a hillside" loading="lazy"/></figure>
+  <figure><img src="media/btc3/g05.jpg" alt="Isaiah walking a scene with an actor on a hillside road" loading="lazy"/></figure>
+</div></div>
+
+<section class="sec" id="behind"><div class="wrap"><h2>Behind the Camera</h2></div></section>
+
+<figure class="feature flat rock"><img src="media/btc3/g03-big.jpg" alt="Isaiah operating a RED camera from a low angle on location" loading="lazy"/></figure>
+
+<div class="bleed"><div class="row4 pairA">
+  <figure><img src="media/btc3/g04.jpg" alt="Isaiah with a cinema camera rig beside a friend in a tunnel, black and white" loading="lazy"/></figure>
+  <figure><img src="media/btc3/g31.jpg" alt="Isaiah with a cinema camera in a tunnel" loading="lazy"/></figure>
+</div></div>
+
+<figure class="feature flat"><img src="media/btc3/g33.jpg" alt="Isaiah with a camera rig in late sun" loading="lazy"/></figure>
+
+<div class="bleed"><div class="row3 solo">
+  <figure><img src="media/btc3/g29.jpg" alt="Isaiah sitting on a rock with a cinema camera, script pages on his bag" loading="lazy" style="object-position:50% 55%"/></figure>
+</div></div>
+
+
+
+<section class="sec"><div class="wrap contact-end">
+  <a href="tel:6788418081">678.841.8081</a>
+  <a href="mailto:info@isaiahsmithfilms.com">info@isaiahsmithfilms.com</a>
+</div></section>
+</main>
+
+<footer><div class="fb">Isaiah Smith Films</div><div class="fc">&copy; 2026 Isaiah Smith Films LLC. Atlanta, Georgia.</div></footer>
+<a href="#" id="toTop" aria-label="Back to top">&#8593;</a>
+<script>var tt=document.getElementById("toTop");addEventListener("scroll",function(){tt.classList.toggle("on",scrollY>800)},{passive:true});
+</script>
+</body></html>

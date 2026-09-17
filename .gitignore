@@ -27,3 +27,10 @@ assets/
 # private working material, never publish
 _to_delete/
 docs/
+
+# Beyond the Cut: source photos, contact sheets and page drafts stay local
+beyond-the-cut/
+beyond-the-cut 2/
+beyond-the-cut-drafts/
+_btc*.jpg
+_ptl-sheet.jpg
