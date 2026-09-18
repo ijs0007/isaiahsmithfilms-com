@@ -34,3 +34,6 @@ beyond-the-cut 2/
 beyond-the-cut-drafts/
 _btc*.jpg
 _ptl-sheet.jpg
+
+# poster working folder: source stills, versions and HTML sources. Web copies go in site/media/posters.
+posters/
