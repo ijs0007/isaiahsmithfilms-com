@@ -37,3 +37,7 @@ _ptl-sheet.jpg
 
 # poster working folder: source stills, versions and HTML sources. Web copies go in site/media/posters.
 /posters/
+
+# IMDb working notes and pre-edit backups: local only, never published
+imdb/
+_backups/
