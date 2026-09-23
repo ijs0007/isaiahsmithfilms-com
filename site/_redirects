@@ -1,4 +1,5 @@
 /local        /local.html        200
+/services     /services.html     200
 /local-thanks /local-thanks.html 200
 /qr           /qr.html           200
 /local-qr     /local-qr.html     200
