@@ -1,0 +1,165 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@page { size: Letter; margin: 0.7in 0.75in; }
+:root{
+  --ink:#16120F; --muted:#5A534F; --wood:#694337; --red:#6E2A2A;
+  --rule:rgba(105,67,55,.26); --soft:rgba(105,67,55,.12); --chart:#FFFAF4; --cool:#EDF3F7;
+  --disp:"TeX Gyre Pagella", Georgia, serif;
+  --sans:"TeX Gyre Heros", Helvetica, Arial, sans-serif;
+  --mono:"DejaVu Sans Mono", monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);font-size:9.6pt;line-height:1.55;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+h1{font-family:var(--disp);font-size:24pt;line-height:1.1;letter-spacing:-.01em;margin-bottom:.06in}
+.sub{font-family:var(--disp);font-size:11.5pt;color:var(--muted);margin-bottom:.1in;line-height:1.4}
+.meta{font-size:8.4pt;color:var(--muted);padding-bottom:.1in;border-bottom:1.5px solid var(--wood);margin-bottom:.22in}
+h2{font-family:var(--disp);font-size:14pt;margin:.24in 0 .08in;padding-bottom:.04in;border-bottom:1px solid var(--rule);break-after:avoid}
+h3{font-family:var(--disp);font-size:11pt;margin:.17in 0 .05in;break-after:avoid}
+p{margin-bottom:.09in;max-width:6.6in}
+ul{margin:.04in 0 .11in .2in}
+li{margin-bottom:.05in;max-width:6.4in}
+code,.sid{font-family:var(--mono);font-size:8.4pt;background:var(--cool);padding:.5pt 3pt;border-radius:2px;word-break:break-all}
+table{border-collapse:collapse;width:100%;margin:.08in 0 .14in;font-size:9pt}
+th{text-align:left;font-weight:700;padding:.05in .1in .05in 0;border-bottom:1.5px solid var(--rule);vertical-align:bottom}
+td{padding:.07in .1in .07in 0;border-bottom:1px solid var(--soft);vertical-align:top}
+td:first-child,th:first-child{width:1.55in;padding-right:.14in}
+.box{background:var(--chart);border-left:3px solid var(--red);padding:.12in .16in;margin:.12in 0;max-width:6.6in;break-inside:avoid}
+.box p:last-child{margin-bottom:0}
+.box b{color:var(--red)}
+.flow{background:var(--cool);padding:.14in .16in;margin:.1in 0;font-size:9pt;max-width:6.6in}
+.flow b{font-family:var(--mono);font-size:8.6pt}
+.warn{font-size:9pt;color:var(--red)}
+.open li{margin-bottom:.08in}
+</style></head><body>
+
+<h1>Missed-call text-back</h1>
+<div class="sub">How the system is actually built, how it got approved, and what it takes to
+stand one up for a paying client.</div>
+<div class="meta">Internal. Isaiah and Claude. Written 23 September 2026, the day the loop was
+proven end to end on Isaiah's own line.</div>
+
+<h2>What it does</h2>
+<p>A call comes in. If nobody answers, the caller hears Isaiah's recorded greeting and then
+receives a text a few seconds later. If they text back, that reply is forwarded to Isaiah's cell
+with the sender's number attached, so he can answer as himself. One Twilio Studio flow drives
+all of it, on both the voice leg and the messaging leg.</p>
+
+<h2>The build, as it exists today</h2>
+<table>
+<tr><th>Piece</th><th>Value</th></tr>
+<tr><td>Twilio account</td><td>"My First Twilio Account" under isaiahsmith0007@gmail.com</td></tr>
+<tr><td>Business number</td><td>+1 678-841-8081, friendly name ISF Business Line, Atlanta GA, local, SMS and MMS</td></tr>
+<tr><td>Studio flow</td><td>Named <b>Texter</b>, <span class="sid">FW65cdec62bde17db6ec0bd147ec22f9a1</span>, Published</td></tr>
+<tr><td>Messaging Service</td><td><span class="sid">MG36710eff1a00ebe2f5aebcc230dbd456</span>, created 17 Aug 2026</td></tr>
+<tr><td>10DLC campaign</td><td><span class="sid">CM8d01af68c7d735fcd0ce6a19e4a8b5a7</span>, status Verified, sole proprietor use case</td></tr>
+<tr><td>Brand</td><td><span class="sid">BN0541c12b1c53dee364435f9744b74dde</span>, registered as SmithWebHQ, sole proprietor</td></tr>
+</table>
+<p>The same flow SID is set on the number's voice configuration and its messaging
+configuration, and on the call status change webhook. That is why one flow can answer both a
+call and a text.</p>
+
+<h3>Widgets inside the Texter flow</h3>
+<div class="flow">
+<p><b>Trigger</b> fires on Message, Voice, Conversation, REST API or Subflow.</p>
+<p><b>screen_ring</b> is a TwiML redirect to a handler.twilio.com bin with a long timeout, and
+<b>ring_isaiah</b> is a Connect Call To pointed at +1 940-595-2795. That pair is what tries
+Isaiah before anything automatic happens.</p>
+<p><b>did_isaiah_answer</b> splits on the dial status coming out of screen_ring, with branches
+for a short call and for no duration. That split is the definition of "missed."</p>
+<p><b>greet_caller</b> plays an audio file hosted at isaiahsmithfilms.com/media/, not Twilio
+text to speech. On Audio Complete it hands off to <b>text_the_caller</b>, a Send Message
+carrying the "Got your call" wording.</p>
+<p><b>forward_reply</b> is the messaging leg. It sends "Reply from {{trigger.message.From}}:
+{{trigger.message.Body}}" to Isaiah's cell, which is why a text sent from that same cell comes
+back looking like an echo.</p>
+</div>
+
+<div class="box">
+<p><b>Read this before touching anything.</b> The greeting is a file on Isaiah's own website. If
+that file is renamed, moved or lost in a redeploy, the greeting silently stops playing and
+callers get dead air before the text. Any client build should host their greeting somewhere
+that is not going to be redesigned out from under it.</p>
+</div>
+
+<h2>The registration is the whole job</h2>
+<p>Building the flow took an afternoon. Getting the carriers to accept the texts took twelve
+days and two rejections. That ratio is the thing to price and schedule around, and it is the
+part a client cannot do themselves.</p>
+
+<h3>The evidence</h3>
+<p>The messaging log is the cleanest proof of what registration does. Same two numbers, same
+flow, before and after approval:</p>
+<table>
+<tr><th>When</th><th>Direction and result</th></tr>
+<tr><td>11 Sep, 13 Sep</td><td>Outbound, <span class="warn">Undelivered</span>, four attempts. Inbound was fine throughout.</td></tr>
+<tr><td>16 Sep</td><td>Campaign approved, email from a2p10dlc@twilio.com</td></tr>
+<tr><td>23 Sep</td><td>Inbound Received, outbound <b>Delivered</b> one second later</td></tr>
+</table>
+<p>If a client build ever shows outbound Undelivered while inbound is Received, the problem is
+registration, not the flow. Do not debug the flow.</p>
+
+<h3>What the reviewers rejected, and what they accepted</h3>
+<p>Rejected on 14 September for two reasons: the opt-in link showed no consent language, and two
+opt-in methods were ticked while only one was described.</p>
+<p>Approved on 16 September after all of this was true at once:</p>
+<ul>
+<li>A real terms page live on the business's own domain, reachable and readable, with message
+type, frequency, "message and data rates may apply" and STOP instructions on it.</li>
+<li>A visible note next to the published phone number saying the number can be texted.</li>
+<li>The rates and STOP line carried inside the first text itself, not only on the website.</li>
+<li>An opt-in description covering every method ticked. Two boxes means two described paths:
+the customer calls first, and the customer texts first.</li>
+<li>Terms and privacy links pointing at the same domain the campaign describes.</li>
+</ul>
+<div class="box">
+<p><b>The mistake that cost the first rejection</b> was pointing the campaign at one entity while
+the terms pages lived on another. Whatever the brand is registered as, the campaign's
+description, its links and the site the customer actually lands on all have to tell one story.</p>
+</div>
+
+<h2>Standing one up for a client</h2>
+<p>In order. Registration is slow, so start it the day the client says yes and build while it
+sits in review.</p>
+<table>
+<tr><th>Step</th><th>Detail</th></tr>
+<tr><td>Accounts first</td><td>Twilio account created under the client's own entity and billing, Isaiah added as admin. This follows the handoff rule: nothing important lives in Isaiah's personal accounts.</td></tr>
+<tr><td>Settle the number</td><td>One of the three routes on the client sheet. This decides everything downstream, so settle it before provisioning.</td></tr>
+<tr><td>Terms page</td><td>A real page on the client's domain, not a copy on Isaiah's. Model it on isaiahsmithfilms.com/sms-terms.</td></tr>
+<tr><td>Text-me note</td><td>Next to the number wherever it is published: site, Google Business Profile, footer.</td></tr>
+<tr><td>Brand and campaign</td><td>Submit with the description and sample texts matching the client's real wording and the client's real site. Expect a rejection and budget a resubmission.</td></tr>
+<tr><td>Build the flow</td><td>Clone the Texter structure. Change the forward target, the greeting audio and the message bodies. Keep the rates and STOP line in the first text.</td></tr>
+<tr><td>Attach and publish</td><td>Number into the Messaging Service, flow SID onto both the voice and messaging config, publish the flow.</td></tr>
+<tr><td>Prove it</td><td>Have someone who is not the client and not Isaiah call the line and let it ring out. Check the log reads Delivered, not just that a text arrived.</td></tr>
+</table>
+
+<h3>The three number routes, technically</h3>
+<table>
+<tr><th>Route</th><th>What it means for the build</th></tr>
+<tr><td>New number</td><td>Simplest. Provision, register, done. Everything lives in one place and the whole loop runs on one number. The friction is commercial, not technical: the client has to republish the number everywhere.</td></tr>
+<tr><td>Keep their number</td><td>Their carrier's busy or no-answer forwarding points at the Twilio number. The flow never sees the answered calls, which is fine. The honest limitation is that the text-back originates from the Twilio number, so the customer sees a number they did not dial. Say this out loud in the sales conversation.</td></tr>
+<tr><td>Port the number</td><td>Best experience, most exposure. Their main business line moves into an account Isaiah set up, so the account-under-the-client's-entity rule stops being a nicety and becomes the thing that keeps this from being a hostage situation. Plan the cutover, and do not port for a client who might rebrand.</td></tr>
+</table>
+
+<h2>What this costs to run</h2>
+<p>Deliberately not listing figures here, because Twilio's rates and the 10DLC fees change and a
+stale number in a runbook is worse than no number. The recurring items to look up before
+quoting are: the monthly rental on each phone number, the per-segment price on messages in and
+out, the one-time brand registration fee, and the monthly campaign fee. Note that a message over
+160 characters bills as more than one segment, so the wording of the first text has a running
+cost attached to it.</p>
+
+<h2>Still open</h2>
+<ul class="open">
+<li><b>Pricing.</b> Undecided. Nothing anywhere in this project is a price Isaiah has agreed to.
+The client sheet carries no figures on purpose.</li>
+<li><b>What happens on the client's side after hours.</b> Right now the forward target is one
+cell. A shop with staff may need the reply to reach more than one phone, which is a flow change,
+not a setting.</li>
+<li><b>Handling STOP.</b> Twilio honours STOP automatically at the carrier level, but nobody has
+tested what the client sees when a customer opts out mid-conversation.</li>
+<li><b>Isaiah's own forward target</b> is still his Texas cell, +1 940-595-2795, while everything
+public now points at the Atlanta number. It works, but it is worth knowing that is where the
+calls land.</li>
+</ul>
+
+</body></html>

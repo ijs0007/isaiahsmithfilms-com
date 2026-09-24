@@ -1,0 +1,159 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@page { size: Letter; margin: 0; }
+:root{
+  --g-complaint:#DFE2EB; --g-diagnosis:#DCF1FB; --g-who:#F8E3DF;
+  --g-rx:#FFEEE4; --g-follow:#FEF9F6; --g-close:#F5EEE9;
+  --chart:#FFFAF4; --red:#6E2A2A; --warm:#DBB094; --wood:#694337;
+  --ink:#0C0A0E; --rule:rgba(105,67,55,.22); --rule-soft:rgba(105,67,55,.13);
+  --muted:#55504F;
+  --disp:"TeX Gyre Pagella", Georgia, serif;
+  --sans:"TeX Gyre Heros", Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:8.5in;height:11in;padding:0.6in 0.8in 0.52in;position:relative;overflow:hidden;
+  display:flex;flex-direction:column}
+.p1{background:var(--g-complaint)}
+.p2{background:var(--g-rx)}
+.mark{font-family:var(--sans);font-size:8.5pt;letter-spacing:.02em;color:var(--wood);margin-bottom:.34in}
+h1{font-family:var(--disp);font-weight:700;font-size:30pt;line-height:1.06;letter-spacing:-.012em;
+   max-width:6.1in;margin-bottom:.2in}
+.lede{font-family:var(--disp);font-size:13pt;line-height:1.52;max-width:5.5in;color:#221C1C}
+p{font-size:10.2pt;line-height:1.58;max-width:5.5in;color:#221C1C}
+h2{font-family:var(--disp);font-size:15.5pt;font-weight:700;line-height:1.2;margin-bottom:.09in}
+.sec{margin-top:.24in}
+.rule{height:1px;background:var(--rule);margin:.22in 0 .2in;width:100%}
+
+/* the message, shown as it actually arrives */
+.phone{background:var(--chart);border:1px solid var(--rule);padding:.2in .22in;margin:.18in 0 0;max-width:5.1in}
+.phone .from{font-size:8pt;color:var(--muted);margin-bottom:.13in;letter-spacing:.01em}
+.bub{background:var(--g-diagnosis);border-radius:15px 15px 15px 4px;padding:.15in .19in;
+  font-size:10.2pt;line-height:1.46;color:#16232B;max-width:3.55in}
+.bub.mine{background:var(--wood);color:#FFF6F0;border-radius:15px 15px 4px 15px;margin-left:auto;margin-top:.14in;max-width:2.5in}
+.stamp{font-size:7.5pt;color:var(--muted);margin-top:.12in}
+
+.opts{margin-top:.2in;display:flex;flex-direction:column;gap:.19in}
+.opt{border-left:3px solid var(--wood);padding-left:.2in}
+.opt.b{border-left-color:var(--red)}
+.opt.c{border-left-color:var(--warm)}
+.opt h3{font-family:var(--disp);font-size:12.5pt;font-weight:700;margin-bottom:.05in}
+.opt p{font-size:9.6pt;line-height:1.5;max-width:5.9in}
+.note{font-size:9.1pt;color:var(--muted);line-height:1.48;margin-top:.04in}
+
+.need{margin-top:.16in;max-width:5.6in}
+.need div{font-size:9.9pt;line-height:1.5;padding:.1in 0;border-bottom:1px solid var(--rule-soft)}
+.need div:last-child{border-bottom:none}
+.need b{font-weight:600}
+
+.foot{margin-top:auto;padding-top:.22in;border-top:1px solid var(--rule);display:flex;
+  justify-content:space-between;align-items:flex-end;gap:.3in}
+.foot .who{font-family:var(--disp);font-size:11.5pt;font-weight:700}
+.foot .who span{display:block;font-family:var(--sans);font-size:9pt;font-weight:400;color:var(--muted);margin-top:.04in}
+.foot .contact{text-align:right;font-size:9.6pt;line-height:1.62}
+.foot .contact b{font-weight:600;font-size:11pt}
+</style></head><body>
+
+<div class="page p1">
+  <div class="mark">Isaiah Smith Films</div>
+  <h1>The call you miss is the job you lose</h1>
+  <p class="lede">Most people who call a small business and get voicemail do not leave one.
+  They hang up and call the next name on the list. You never find out it happened.</p>
+
+  <div class="rule"></div>
+
+  <h2>What this does</h2>
+  <p>When a call comes in and nobody picks up, the caller gets a text from your business within
+  seconds. They can answer it right there. The conversation carries on in the one place people
+  actually reply, and you answer when you get a minute.</p>
+
+  <div class="phone">
+    <div class="from">A few seconds after the call ends</div>
+    <div class="bub">Got your call. This is Isaiah with Isaiah Smith Films. Text me what you
+    need right here and I'll get back to you. Photos of your space help.</div>
+    <div class="bub mine">Hey, need video for my shop. Free Thursday?</div>
+    <div class="stamp">The reply lands on your phone. Their number is already in the thread.</div>
+  </div>
+
+  <div class="sec">
+    <h2>What it is not</h2>
+    <p>It is not a chatbot and nobody is pretending to be you. It is one automatic first text
+    that holds the door open, and after that it is just you texting a customer.</p>
+  </div>
+
+  <div class="sec">
+    <h2>Why me</h2>
+    <p>I run this exact setup on my own business line. I built it, registered it and tested it
+    on myself before offering it to anyone, so when I tell you how it behaves I am telling
+    you what I have watched it do.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">Isaiah Smith<span>Isaiah Smith Films, Conyers GA</span></div>
+    <div class="contact">
+      <b>678-841-8081</b><br>
+      Call or text, either works<br>
+      info@isaiahsmithfilms.com
+    </div>
+  </div>
+</div>
+
+<div class="page p2">
+  <div class="mark">Isaiah Smith Films</div>
+  <h1 style="font-size:26pt">Three ways to set up the number</h1>
+  <p>Which one fits depends on where your business is today. We work this out together on the
+  first call, and none of them is more work for you than the others.</p>
+
+  <div class="opts">
+    <div class="opt">
+      <h3>A new business number</h3>
+      <p>For anyone still running the business off a personal cell. You get a real local number
+      that belongs to the business. It goes on your website, your Google listing and your truck,
+      and calls still reach your phone. Your personal number stays personal.</p>
+      <p class="note">Best when you want the business to look like a business. The one cost is
+      updating the number where you have already published it.</p>
+    </div>
+
+    <div class="opt b">
+      <h3>Keep the number you already have</h3>
+      <p>For a business with a line customers know and a sign that already has it printed on.
+      Your existing line forwards to the system only when nobody answers. Callers dial the same
+      number they always have, and nothing about your current phone changes.</p>
+      <p class="note">One thing to know up front: the text-back reaches them from the service
+      number, not the number they dialed. Most customers do not blink at this, but you should
+      hear it from me now rather than find out later.</p>
+    </div>
+
+    <div class="opt c">
+      <h3>Move your number over</h3>
+      <p>Your number itself transfers across, so calls and texts both live on it and the
+      customer sees one number the whole way through. This is the cleanest experience on their
+      end.</p>
+      <p class="note">It takes longer to arrange and there is a switchover day to plan around,
+      so it suits a business that is settled and not about to rebrand.</p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <h2>What I need to switch it on</h2>
+  <div class="need">
+    <div><b>Your greeting.</b> In your own voice if you want it, and I will write one and record
+    it with you if you would rather not write it yourself.</div>
+    <div><b>The first text, in your words.</b> What it says, and what you want the customer to
+    send back. Asking for a photo works better than asking for details.</div>
+    <div><b>Where replies land.</b> Your cell, or a phone in the shop, or both.</div>
+    <div><b>Carrier registration.</b> Every US business sending automated texts has to be
+    registered with the phone carriers first. I fill out that paperwork and deal with the
+    reviewers. Texting switches on once it clears, so plan on a short wait rather than a
+    same-day start.</div>
+  </div>
+
+  <div class="foot">
+    <div class="who">Ready when you are<span>Tell me which of the three sounds like you</span></div>
+    <div class="contact">
+      <b>678-841-8081</b><br>
+      isaiahsmithfilms.com/local
+    </div>
+  </div>
+</div>
+</body></html>
